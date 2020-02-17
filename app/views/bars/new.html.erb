@@ -1,2 +1,14 @@
-<h1>Bars#new</h1>
-<p>Find me in app/views/bars/new.html.erb</p>
+<div class="container">
+  <div class="col-4 offset-4 form-bar">
+  <%= simple_form_for @bar, defaults: { input_html: { class: 'form-control' } }  do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :capacity %>
+    <%= f.input :opening_start %>
+    <%= f.input :opening_end %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.button :submit, class: "btn-primary my-3" %>
+  </div>
+  <% end %>
+</div>
