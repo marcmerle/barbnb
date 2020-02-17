@@ -20,8 +20,7 @@ class BarsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @bar.update(bar_params)
