@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Bar < ApplicationRecord
   has_many :bookings
   belongs_to :user
