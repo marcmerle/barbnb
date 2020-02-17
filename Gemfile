@@ -34,6 +34,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -44,7 +45,6 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop-rails'
   gem 'rubocop-performance'
-  gem 'faker'
 end
 
 group :development do
