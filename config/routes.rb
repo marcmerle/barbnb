@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   delete '/', to: 'dashbboards#delete'
   devise_for :users
   root to: 'pages#home'
+  resources :bars, except: :destroy
+  get 'bookings/show'
+  get 'bookings/edit'
 end
