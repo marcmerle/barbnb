@@ -9,6 +9,9 @@ AllCops:
     - 'tmp/**/*'
     - 'test/**/*'
 
+require:
+  - rubocop-rails
+  - rubocop-performance
 ConditionalAssignment:
   Enabled: false
 StringLiterals:
@@ -32,8 +35,6 @@ CyclomaticComplexity:
 MissingRespondToMissing:
   Enabled: false
 MethodMissingSuper:
-  Enabled: false
-Style/FrozenStringLiteralComment:
   Enabled: false
 LineLength:
   Max: 120

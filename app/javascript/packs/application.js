@@ -23,3 +23,5 @@ require("channels")
 // ----------------------------------------------------
 
 import "bootstrap";
+
+import "controllers"
