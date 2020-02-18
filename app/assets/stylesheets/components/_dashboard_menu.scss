@@ -11,11 +11,13 @@ $dashboardMenuWidth: 20%;
 }
 
 .dashboard-content {
-  padding-left: $dashboardMenuWidth;
+  padding-left: calc(#{$dashboardMenuWidth} + 60px);
+  width: 100%;
 }
 
 .dashboard-menu {
   margin: 20px;
+  margin-left: 60px;
   max-height: calc(100vh - #{$navbarHeight} - 40px);
   border-radius: 8px;
   box-shadow: 2px 2px 20px 7px $shadow12;

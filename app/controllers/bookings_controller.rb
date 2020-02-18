@@ -32,10 +32,8 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @user_bookings = current_user.bookings
-    @user_bars = current_user.bars
+    @user_bookings = current_user.bookings.order(starts_at: :desc)
     authorize @user_bookings
-    authorize @user_bars
   end
 
   private
