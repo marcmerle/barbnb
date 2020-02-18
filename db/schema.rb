@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_18_111121) do
+ActiveRecord::Schema.define(version: 2020_02_18_160446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2020_02_18_111121) do
     t.bigint "bar_id", null: false
     t.bigint "user_id", null: false
     t.integer "amount"
-    t.date "starts_at"
-    t.date "ends_at"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
     t.integer "guest_number"
     t.string "state"
     t.datetime "created_at", precision: 6, null: false
