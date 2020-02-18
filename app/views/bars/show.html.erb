@@ -1,8 +1,8 @@
 <div class="bar-show">
-  <div class="photos-carousel">
-    <img class="photo" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80" height="100%">
-    <img class="photo" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1498&q=80" height="100%">
-    <img class="photo" src="https://images.unsplash.com/photo-1525268323446-0505b6fe7778?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1504&q=80" height="100%">
+  <div class="variable-width">
+    <% @bar.photos.each do |photo| %>
+      <%= cl_image_tag photo.key %>
+    <% end %>
   </div>
 
   <div class="container d-flex bar-container">
@@ -30,3 +30,9 @@
     </div>
   </div>
 </div>
+
+<script>
+
+</script>
+
+
