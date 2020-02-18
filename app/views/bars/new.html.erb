@@ -1,14 +1,28 @@
-<div class="container">
-  <div class="col-4 offset-4 form-bar">
-  <%= simple_form_for @bar, defaults: { input_html: { class: 'form-control' } }  do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :capacity %>
-    <%= f.input :opening_start %>
-    <%= f.input :opening_end %>
-    <%= f.input :description %>
-    <%= f.input :price %>
-    <%= f.button :submit, class: "btn-primary my-3" %>
+<div class="form-component">
+  <div class="main-container-form-bar">
+    <div class="row">
+      <div class="col-3">
+        <img src="https://cdn.dribbble.com/users/19319/screenshots/6961556/neonsign_concepts_2x.png" alt="">
+      </div>
+      <div class="col-4 offset-2 form-new my-4 p-4 shadow ">
+        <div class="title-form text-center my-3">
+          <h3><strong>Ajoutez votre établissement</strong></h3>
+        </div>
+        <%= simple_form_for @bar do |f| %>
+          <%= f.input :name, label: "Nom du bar", placeholder: 'Union Pool', required: false %>
+          <%= f.input :description, placeholder: 'Brooklyn nightlife', required: false %>
+          <%= f.input :address, label: "Adresse", placeholder: '484 Union Ave, Brooklyn, NY 11211, États-Unis', required: false %>
+          <div class="d-flex justify-content-between">
+            <div style='width: 185px;'><%= f.input :opening_start, as: :time, label: "Ouverture", html5: true, required: false%></div>
+            <div style='width: 185px;'><%= f.input :opening_end, as: :time, label: "Fermeture", html5: true, required: false%></div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div style='width: 180px;'><%= f.input :capacity, placeholder: '250', label: "Capacité", required: false %></div>
+            <div style='width: 180px;'><%= f.input :price, placeholder: '600 $', label: "Prix", required: false %></div>
+          </div>
+          <%= f.button :submit, class: "btn-primary my-3" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <% end %>
 </div>
