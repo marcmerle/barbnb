@@ -1,0 +1,38 @@
+<%#
+  Usage:
+
+  <%= render 'components/navbar', home: true % >
+%>
+
+<% home = local_assigns.fetch(:home, false) %>
+
+<nav class="custom-nav" data-controller="navbar" data-target="navbar.bar" data-action="scroll@window->navbar#createBar">
+  <div class="nav-container">
+    <div class="logo">
+      <%= link_to("/") { image_tag("logo.png") } %>
+    </div>
+    <div id="mainListDiv" class="main_list" data-target="navbar.menu">
+      <ul class="navlinks">
+        <li><a href="#">À Propos</a></li>
+        <li><a href="#">Inscription</a></li>
+        <li><a href="#">Connexion</a></li>
+      </ul>
+    </div>
+    <span class="navTrigger" data-action="click->navbar#menuTrigger" >
+      <i></i>
+      <i></i>
+      <i></i>
+    </span>
+  </div>
+</nav>
+
+<% if home %>
+  <section class="home">
+    <div class="container" id="home-container">
+      <h1>Bar'bie and be est la plateforme de réservation de bar qu'il faut pour vos soirées.</h1>
+      <p>Connectez-vous et trouvez les lieux qui vous ressemblent.</p>
+      <%= render 'components/button_link', text: "Link button" %>
+      <%= render 'components/button', text: "Button button" %>
+    </div>
+  </section>
+<% end %>

@@ -1,13 +1,48 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# frozen_string_literal: true
 
-Bar.create(name: "Namek", address: "108 rue Oberkampf", price: 400, description: "A beautiful bar", capacity: 50, opening_start: 19, opening_end: 23)
-Bar.create(name: "La Mercerie", address: "98 rue Oberkampf", price: 200, description: "A nice bar", capacity: 30, opening_start: 18, opening_end: 23)
-Bar.create(name: "La MaiZon", address: "123 rue Oberkampf", price: 300, description: "A warmful bar", capacity: 80, opening_start:20, opening_end: 22)
-Bar.create(name: "Le Marilyn", address: "122 rue Oberkampf", price: 423, description: "A cool bar", capacity: 100, opening_start: 10, opening_end: 02)
-Bar.create(name: "Le Café Populaire", address: "102 rue Saint-Maur", price: 50, description: "A spacious bar", capacity: 160, opening_start: 20, opening_end:21)
+##
+# User DB Seed
+20.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: "coucou"
+  )
+end
+
+##
+# Bar DB Seed
+User.all.sample(10).each do |user|
+  Bar.create!(
+    owner: user,
+    name: Faker::Restaurant.name,
+    address: Faker::Address.full_address,
+    price: rand(25..100),
+    description: Faker::Restaurant.description,
+    capacity: rand(10..150),
+    opening_start: rand(9..20),
+    opening_end: rand(21..23)
+  )
+end
+
+def random_date
+  Time.zone.at(0.0 + rand * (Time.now.to_f - 0.0))
+end
+
+##
+# Bookings DB Seed
+User.all.sample(15).each do |user|
+  bar = Bar.all.sample
+  number = rand(2..bar.capacity)
+  amount = number * bar.price
+  date = [random_date, random_date]
+
+  Booking.create!(
+    bar: bar,
+    user: user,
+    guest_number: number,
+    amount: amount,
+    starts_at: date.min,
+    ends_at: date.max,
+    state: "Ongoing"
+  )
+end
