@@ -1,0 +1,17 @@
+<%#
+  Usage:
+
+  <%= render 'components/button', text: "ButtonText", class: "Classes" % >
+%>
+
+<% text = local_assigns.fetch(:text, "Ok") %>
+<% classes = local_assigns.fetch(:class, "") %>
+
+<button
+  type="button"
+  data-action=""
+  data-target=""
+  class="btn btn-default waves-effect waves-light <%= classes %>"
+>
+  <%= text %>
+</button>
