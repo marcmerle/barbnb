@@ -1,13 +1,292 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: yellow;
-  height: 64px;
+/* Navbar section */
+
+.custom-nav {
+  width: 100%;
+  height: 65px;
+  position: fixed;
+  line-height: 65px;
+  text-align: center;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.logo img {
+  height: 55px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.custom-nav div.logo {
+  float: left;
+  width: auto;
+  padding-left: 3rem;
+  height: 65px;
+  display: flex;
+  align-items: center;
+}
+
+.custom-nav div.logo a {
+  text-decoration: none;
+}
+
+.custom-nav div.logo a:hover {
+  color: $myGreen;
+}
+
+.custom-nav div.main_list {
+  height: 65px;
+  float: right;
+}
+
+.custom-nav div.main_list ul {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-nav div.main_list ul li {
+  width: auto;
+  height: 65px;
+  padding: 0;
+  padding-right: 3rem;
+}
+
+.custom-nav div.main_list ul li a {
+  text-decoration: none;
+  text-shadow: 1px 1px 3px $shadow20;
+  color: #fff;
+  line-height: 65px;
+  font-size: 2.4rem;
+}
+
+.custom-nav div.main_list ul li a:hover {
+  color: $myGreen;
+}
+
+/* Home section */
+
+.home {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient($shadow40, $shadow40),
+    url(image_path("home.jpg"));
+  background-position: center top;
+  background-size: cover;
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+
+  h1 {
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 3px $shadow20;
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 20px;
+    color: white;
+    opacity: 0.7;
+    text-shadow: 1px 1px 3px $shadow20;
+  }
+}
+
+.navTrigger {
+  display: none;
+}
+
+.custom-nav {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+/* Media qurey section */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .nav-container {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navTrigger {
+    display: block;
+  }
+  .custom-nav div.logo {
+    margin-left: 15px;
+  }
+  .custom-nav div.main_list {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+  }
+  .custom-nav div.show_list {
+    height: auto;
+    display: none;
+  }
+  .custom-nav div.main_list ul {
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $myBlack;
+    background-position: center top;
+  }
+  .custom-nav div.main_list ul li {
+    width: 100%;
+    text-align: right;
+  }
+  .custom-nav div.main_list ul li a {
+    text-align: center;
+    width: 100%;
+    font-size: 3rem;
+    padding: 20px;
+  }
+  .custom-nav div.media_button {
+    display: block;
+  }
+}
+
+/* Animation */
+/* Inspiration taken from Dicson https://codemyui.com/simple-hamburger-menu-x-mark-animation/ */
+
+.navTrigger {
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  margin: auto;
+  position: absolute;
+  right: 30px;
+  top: 0;
+  bottom: 0;
+}
+
+.navTrigger i {
+  background-color: white;
+  border-radius: 2px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+}
+
+.navTrigger i:nth-child(1) {
+  animation: outT 0.8s backwards;
+  animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(2) {
+  margin: 5px 0;
+  animation: outM 0.8s backwards;
+  animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(3) {
+  animation: outBtm 0.8s backwards;
+  animation-direction: reverse;
+}
+
+.navTrigger.active i:nth-child(1) {
+  -webkit-animation: inT 0.8s forwards;
+  animation: inT 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(2) {
+  -webkit-animation: inM 0.8s forwards;
+  animation: inM 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(3) {
+  animation: inBtm 0.8s forwards;
+}
+
+@keyframes inM {
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes outM {
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes inT {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(9px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(9px) rotate(135deg);
+  }
+}
+
+@keyframes outT {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(9px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(9px) rotate(135deg);
+  }
+}
+
+@keyframes inBtm {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-9px) rotate(135deg);
+  }
+}
+
+@keyframes outBtm {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-9px) rotate(135deg);
+  }
+}
+
+.affix {
+  padding: 0;
+  background-color: $myBlack;
+}
+
+.myH2 {
+  text-align: center;
+  font-size: 4rem;
+}
+.myP {
+  text-align: justify;
+  padding-left: 15%;
+  padding-right: 15%;
+  font-size: 20px;
+}
+@media all and (max-width: 700px) {
+  .myP {
+    padding: 2%;
+  }
 }
