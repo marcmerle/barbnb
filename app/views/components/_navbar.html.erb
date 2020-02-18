@@ -26,6 +26,7 @@
         <li> <%= link_to "À Propos", "#" %> </li>
         <li> <%= link_to "Inscription", new_user_registration_path %> </li>
         <li> <%= link_to "Connexion", new_user_session_path %> </li>
+        <li> <%= link_to "Déconnexion", destroy_user_session_path, method: "delete" %> </li>
       </ul>
     </div>
     <span class="navTrigger <%= color %>" data-action="click->navbar#menuTrigger" >
