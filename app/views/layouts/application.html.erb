@@ -11,8 +11,10 @@
 
   <body>
     <%= render "components/navbar", home: request.original_fullpath == "/" %>
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="page-content">
+      <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
   </body>
 </html>

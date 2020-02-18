@@ -1,65 +1,106 @@
 /* Navbar section */
+$navbarHeight: 65px;
+
+.page-content {
+  padding-top: $navbarHeight;
+}
 
 .custom-nav {
   width: 100%;
-  height: 65px;
+  height: $navbarHeight;
   position: fixed;
-  line-height: 65px;
+  line-height: $navbarHeight;
   text-align: center;
+
+  .logo {
+    float: left;
+    width: auto;
+    padding-left: 30px;
+    height: $navbarHeight;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: $navbarHeight - 10;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .main_list {
+    height: 65px;
+    float: right;
+
+    ul {
+      width: 100%;
+      height: 65px;
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        width: auto;
+        height: 65px;
+        padding: 0;
+        padding-right: 30px;
+
+        a {
+          text-decoration: none;
+          text-shadow: 1px 1px 3px $shadow20;
+          line-height: 65px;
+          font-size: 24px;
+        }
+      }
+    }
+  }
 }
 
-.logo img {
-  height: 55px;
-}
+/* Specific colors */
+.custom-nav {
+  &.dark {
+    .logo {
+      a:hover {
+        color: $myGreen;
+      }
+    }
 
-.custom-nav div.logo {
-  float: left;
-  width: auto;
-  padding-left: 3rem;
-  height: 65px;
-  display: flex;
-  align-items: center;
-}
+    .main_list {
+      ul {
+        li {
+          a {
+            color: $myWhite;
+            &:hover {
+              color: $myGreen;
+            }
+          }
+        }
+      }
+    }
+  }
 
-.custom-nav div.logo a {
-  text-decoration: none;
-}
+  &.light {
+    .logo {
+      a:hover {
+        color: $myRed;
+      }
+    }
 
-.custom-nav div.logo a:hover {
-  color: $myGreen;
-}
-
-.custom-nav div.main_list {
-  height: 65px;
-  float: right;
-}
-
-.custom-nav div.main_list ul {
-  width: 100%;
-  height: 65px;
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.custom-nav div.main_list ul li {
-  width: auto;
-  height: 65px;
-  padding: 0;
-  padding-right: 3rem;
-}
-
-.custom-nav div.main_list ul li a {
-  text-decoration: none;
-  text-shadow: 1px 1px 3px $shadow20;
-  color: #fff;
-  line-height: 65px;
-  font-size: 2.4rem;
-}
-
-.custom-nav div.main_list ul li a:hover {
-  color: $myGreen;
+    .main_list {
+      ul {
+        li {
+          a {
+            color: $myBlack;
+            &:hover {
+              color: $myRed;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 /* Home section */
@@ -114,40 +155,49 @@
   .navTrigger {
     display: block;
   }
-  .custom-nav div.logo {
-    margin-left: 15px;
-  }
-  .custom-nav div.main_list {
-    width: 100%;
-    height: 0;
-    overflow: hidden;
-  }
-  .custom-nav div.show_list {
-    height: auto;
-    display: none;
-  }
-  .custom-nav div.main_list ul {
-    flex-direction: column;
-    width: 100%;
-    height: 100vh;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-color: $myBlack;
-    background-position: center top;
-  }
-  .custom-nav div.main_list ul li {
-    width: 100%;
-    text-align: right;
-  }
-  .custom-nav div.main_list ul li a {
-    text-align: center;
-    width: 100%;
-    font-size: 3rem;
-    padding: 20px;
-  }
-  .custom-nav div.media_button {
-    display: block;
+
+  .custom-nav {
+    .logo {
+      margin-left: 15px;
+    }
+
+    .main_list {
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+
+      ul {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: $myBlack;
+        background-position: center top;
+
+        li {
+          width: 100%;
+          text-align: right;
+
+          a {
+            text-align: center;
+            width: 100%;
+            font-size: 30px;
+            padding: 20px;
+          }
+        }
+      }
+    }
+
+    .show_list {
+      height: auto;
+      display: none;
+    }
+
+    .media_button {
+      display: block;
+    }
   }
 }
 
@@ -163,45 +213,54 @@
   right: 30px;
   top: 0;
   bottom: 0;
-}
 
-.navTrigger i {
-  background-color: white;
-  border-radius: 2px;
-  content: "";
-  display: block;
-  width: 100%;
-  height: 4px;
-}
+  i {
+    border-radius: 2px;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
 
-.navTrigger i:nth-child(1) {
-  animation: outT 0.8s backwards;
-  animation-direction: reverse;
-}
+    &.dark {
+      background-color: $myWhite;
+    }
 
-.navTrigger i:nth-child(2) {
-  margin: 5px 0;
-  animation: outM 0.8s backwards;
-  animation-direction: reverse;
-}
+    &.light {
+      background-color: $myBlack;
+    }
 
-.navTrigger i:nth-child(3) {
-  animation: outBtm 0.8s backwards;
-  animation-direction: reverse;
-}
+    &:nth-child(1) {
+      animation: outT 0.8s backwards;
+      animation-direction: reverse;
+    }
 
-.navTrigger.active i:nth-child(1) {
-  -webkit-animation: inT 0.8s forwards;
-  animation: inT 0.8s forwards;
-}
+    &:nth-child(2) {
+      margin: 5px 0;
+      animation: outM 0.8s backwards;
+      animation-direction: reverse;
+    }
 
-.navTrigger.active i:nth-child(2) {
-  -webkit-animation: inM 0.8s forwards;
-  animation: inM 0.8s forwards;
-}
+    &:nth-child(3) {
+      animation: outBtm 0.8s backwards;
+      animation-direction: reverse;
+    }
+  }
 
-.navTrigger.active i:nth-child(3) {
-  animation: inBtm 0.8s forwards;
+  &.active {
+    i {
+      &:nth-child(1) {
+        animation: inT 0.8s forwards;
+      }
+
+      &:nth-child(2) {
+        animation: inM 0.8s forwards;
+      }
+
+      &:nth-child(3) {
+        animation: inBtm 0.8s forwards;
+      }
+    }
+  }
 }
 
 @keyframes inM {
@@ -272,19 +331,28 @@
 
 .affix {
   padding: 0;
-  background-color: $myBlack;
+  &.dark {
+    color: $myWhite;
+    background-color: $myBlack;
+  }
+  &.light {
+    color: $myBlack;
+    background-color: $myWhite;
+  }
 }
 
 .myH2 {
   text-align: center;
-  font-size: 4rem;
+  font-size: 40px;
 }
+
 .myP {
   text-align: justify;
   padding-left: 15%;
   padding-right: 15%;
   font-size: 20px;
 }
+
 @media all and (max-width: 700px) {
   .myP {
     padding: 2%;
