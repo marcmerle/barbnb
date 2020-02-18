@@ -50,7 +50,8 @@ class BarsController < ApplicationController
       :opening_start,
       :opening_end,
       :description,
-      :price
+      :price,
+      photos: []
     )
   end
 end

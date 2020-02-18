@@ -24,3 +24,5 @@ import "bootstrap";
 
 import "controllers";
 import "custom/button";
+import "slick-carousel";
+import "custom/carousel";
