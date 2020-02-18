@@ -1,0 +1,11 @@
+.form-component-signin {
+  .main-container-signin {
+    height: 100vh;
+    background-color: #141721;
+  }
+  .form-component *, .form-component *::before, .form-component *::after {
+    box-sizing: border-box;
+    line-height: initial;
+  }
+}
+
