@@ -1,4 +1,45 @@
 <div style="height: 1000px">
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
+  <div class="home-container">
+    <h2 class="text-center">Organiser une soirée entre amis n’a jamais été aussi simple</h2>
+    <br>
+    <div class="row">
+      <div class="home-cards d-flex">
+        <div class="col home-card bg-light border rounded shadow m-3 text-center">
+          <%= image_tag "cocktail.png", alt: "cocktail", class:'icon cocktail-img' %>
+          <h3>Une offre exhaustive</h3>
+          <p>Dénichez le bar idéal pour votre événement parmi nos 778 bars partenaires</p>
+        </div>
+        <div class="col home-card bg-light border rounded shadow m-3 text-center">
+          <%= image_tag "hourglass.png", alt: "cocktail", class:'icon hourglass-img' %>
+          <h3>Une réservation simple et rapide</h3>
+          <p>Réservez en quelques clics le bar de vos rêves pour votre évènement</p>
+        </div>
+        <div class="col home-card bg-light border rounded shadow m-3 text-center">
+          <%= image_tag "money.png", alt: "cocktail", class:'icon money-img' %>
+          <h3>Un service entièrement gratuit</h3>
+          <p>Bénéficiez des meilleurs tarifs, sans coût supplémentaire !</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <h2 class="text-center">Notre top 3 des bars sur Paris</h2>
+    <br>
+    <div class="row">
+      <% @top_bars.each do |bar| %>
+        <div class="card-bar-top col bg-light shadow rounded border m-3 p-2">
+          <%= link_to bar_path(bar), class:"text-dark" do %>
+            <%= image_tag "https://media.gettyimages.com/photos/the-place-to-go-to-have-fun-picture-id896799190?s=612x612", alt:"bar-photo", class:'w-100' %>
+            <p><%= bar.address %></p>
+            <h3><%= bar.name %></h3>
+            <div class="bar-description-top">
+              <%= bar.description %>
+            </div>
+            <p><i class="fas fa-user-friends"></i>  <%= bar.capacity %></p>
+            <p>Dès <%= bar.price %> €</p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
