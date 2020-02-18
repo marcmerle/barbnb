@@ -1,4 +1,4 @@
-.form-component {
+.form-component-bar {
   .main-container-form-bar {
     height: 100vh;
     background-color: #141721;
@@ -8,8 +8,9 @@
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
     background-color: white;
-    line-height: 4px;
+    // line-height: 4px;
     padding: 20px;
+    top: 100px;
   }
 
   .label {
@@ -18,7 +19,7 @@
     font-size: 12px;
   }
 
-  .form-control {
+  .form-control-bar {
     display: block;
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
@@ -59,5 +60,4 @@
   .title-form h3 {
     color: #5C415D;
   }
-
 }
