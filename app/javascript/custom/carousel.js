@@ -3,9 +3,10 @@ const init = () => {
     dots: true,
     infinite: true,
     speed: 300,
-    slidesToShow: 2,
+    slidesToShow: 1,
     centerMode: true,
     variableWidth: true
+
   });
 };
 
