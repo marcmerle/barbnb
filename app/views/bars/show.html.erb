@@ -1,19 +1,34 @@
 <div class="navbar-lewagon"></div>
 
 <div class="bar">
-  <div class="photos-carousel"></div>
+  <div class="photos-carousel">
+    <img class="photo" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80" height="100%">
+    <img class="photo" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1498&q=80" height="100%">
+    <img class="photo" src="https://images.unsplash.com/photo-1525268323446-0505b6fe7778?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1504&q=80" height="100%">
+  </div>
 
-  <div class="container d-flex">
+  <div class="container d-flex bar-container">
     <div class="bar-details">
-      <h1><%= @bar.name %></h1>
-      <h4><%= @bar.address %></h4>
-      <h5>Can receive up to <strong><%= @bar.capacity %></strong> guests</h5>
-      <h6><%= @bar.description %></h6>
+      <h1><strong><%= @bar.name %></strong></h1>
+      <h5><i class="fas fa-map-marker-alt"></i>&nbsp&nbsp<%= @bar.address %></h5>
+      <h5><i class="fas fa-users"></i>&nbsp&nbspUp to <strong><%= @bar.capacity %></strong> guests</h5>
+      <p><%= @bar.description %></p>
     </div>
-    <div class="bar-booking">
-      <h4><%= @bar.price %>€ / guest</h4>
-      <div class="bar-calendar"></div>
-      <div class="btn btn-primary">Book</div>
+    <div class="bar-booking-container">
+      <div class="bar-booking">
+        <div class="bar-price">
+          <h4>Total price: <strong>550€</strong></h4>
+          <div class="bar-price-details">
+            <ul>
+              <li>Price per guest: <%= @bar.price %>€</li>
+              <li>Number of guests: 10</li>
+            </ul>
+          </div>
+        </div>
+        <div class="bar-calendar" style="background-image: url(https://p2.f0.n0.cdn.getcloudapp.com/items/bLumoymq/Image+2020-02-18+at+12.16.27+PM.png?v=9c2be9e04a00423f80cb71bef80f32da); background-size: cover"></div>
+        <div class="btn btn-default waves-effect">Book</div>
+      </div>
+      <div class="bar-empty"></div>
     </div>
   </div>
 </div>
