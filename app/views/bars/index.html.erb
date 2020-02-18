@@ -4,6 +4,9 @@
     <% @bars.each do |bar| %>
       <div class="card-bar-info col-4 bg-light w-100 shadow rounded border m-3 p-2">
         <%= link_to bar_path(bar), class:"text-dark text-decoration-none" do %>
+          <%# bar.photos.each do |photo| %>
+            <%#= cl_image_tag photo.key.first %>
+          <%# end %>
           <%= image_tag "https://media.gettyimages.com/photos/the-place-to-go-to-have-fun-picture-id896799190?s=612x612", alt:"bar-photo", class:'w-100' %>
           <p><%= bar.address %></p>
           <h3><%= bar.name %></h3>
