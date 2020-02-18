@@ -2,11 +2,21 @@
   Usage:
 
   <%= render 'components/navbar', home: true % >
+  
+@param :home 
+    => Boolean. Default = false
+    => Render the bar with scroll logic over a banner.
+
+@param :color
+    => {:light, :dark}. Default = :dark
+    => Color of the nav bar.
 %>
 
 <% home = local_assigns.fetch(:home, false) %>
+<% color = (local_assigns.fetch(:color, false) || home ? :dark : :light).to_s %>
 
-<nav class="custom-nav" data-controller="navbar" data-target="navbar.bar" data-action="scroll@window->navbar#createBar">
+
+<nav class="custom-nav <%= color %> <%= "affix" unless home %>" data-controller="navbar" data-target="navbar.bar" <% if home %>data-action="scroll@window->navbar#createBar"<% end %>>
   <div class="nav-container">
     <div class="logo">
       <%= link_to("/") { image_tag("logo.png") } %>
@@ -18,10 +28,10 @@
         <li><a href="#">Connexion</a></li>
       </ul>
     </div>
-    <span class="navTrigger" data-action="click->navbar#menuTrigger" >
-      <i></i>
-      <i></i>
-      <i></i>
+    <span class="navTrigger <%= color %>" data-action="click->navbar#menuTrigger" >
+      <i class="<%= color %>"></i>
+      <i class="<%= color %>"></i>
+      <i class="<%= color %>"></i>
     </span>
   </div>
 </nav>
