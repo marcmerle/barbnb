@@ -1,2 +1,19 @@
-<h1>Bars#show</h1>
-<p>Find me in app/views/bars/show.html.erb</p>
+<div class="navbar-lewagon"></div>
+
+<div class="bar">
+  <div class="photos-carousel"></div>
+
+  <div class="container d-flex">
+    <div class="bar-details">
+      <h1><%= @bar.name %></h1>
+      <h4><%= @bar.address %></h4>
+      <h5>Can receive up to <strong><%= @bar.capacity %></strong> guests</h5>
+      <h6><%= @bar.description %></h6>
+    </div>
+    <div class="bar-booking">
+      <h4><%= @bar.price %>€ / guest</h4>
+      <div class="bar-calendar"></div>
+      <div class="btn btn-primary">Book</div>
+    </div>
+  </div>
+</div>
