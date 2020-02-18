@@ -48,15 +48,17 @@
   }
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-.title-form h3 {
-  color: #5C415D;
+  .title-form h3 {
+    color: #5C415D;
+  }
+
 }
