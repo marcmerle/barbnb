@@ -4,7 +4,7 @@
     <% @bars.each do |bar| %>
       <div class="card-bar-info col-4 bg-light w-100 shadow rounded border m-3 p-2">
         <%= link_to bar_path(bar), class:"text-dark" do %>
-          <%= image_tag "https://media.gettyimages.com/photos/the-place-to-go-to-have-fun-picture-id896799190?s=612x612", alt:"bar-photo", class:'w-100' %>
+          <%= image_tag "https://media.gettyimages.com/photos/the-place-to-go-to-have-fun-picture-id896799190?s=612x612", alt:"bar-photo" %>
           <p><%= bar.address %></p>
           <h3><%= bar.name %></h3>
           <p><%= bar.description %></p>
