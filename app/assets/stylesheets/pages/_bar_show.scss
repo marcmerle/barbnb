@@ -1,0 +1,45 @@
+.bar-container {
+  position: relative;
+}
+
+.bar-details {
+  width: 70%;
+  margin-top: 10px;
+  padding: 10px;
+  margin-right: 80px;
+
+  h1{
+    margin-bottom: 20px;
+  }
+
+  h5 {
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin-top: 20px;
+  }
+}
+
+.bar-booking-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.bar-booking {
+  border-radius: 8px;
+  width: 100%;
+  margin-top: -50px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: $myWhite;
+  box-shadow: 2px 2px 20px 7px $shadow12;
+  flex-shrink: 1;
+}
+
+.bar-calendar {
+  height: 224px;
+  margin-bottom: 20px
+}

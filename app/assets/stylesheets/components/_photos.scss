@@ -1,0 +1,10 @@
+.photos-carousel {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.photo {
+  background-size: cover;
+}
