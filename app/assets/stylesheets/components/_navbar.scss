@@ -11,6 +11,7 @@ $navbarHeight: 65px;
   position: fixed;
   line-height: $navbarHeight;
   text-align: center;
+  z-index: 9999;
 
   .logo {
     float: left;
