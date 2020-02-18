@@ -1,0 +1,24 @@
+.form-component-signin {
+  .main-container-signin {
+    height: 100vh;
+    background-color: rgba(92, 65, 93, 1);
+  }
+  .form-component *, .form-component *::before, .form-component *::after {
+    box-sizing: border-box;
+    line-height: initial;
+  }
+
+  .form-new {
+    background-color: white;
+    top: 150px;
+    border-radius: 4px;
+  }
+
+  .btn {
+    color: #fff;
+    background-color: #5C415D;
+    border-color: #5C415D;
+    border-radius: 4px;
+  }
+}
+
