@@ -1,31 +1,26 @@
-<%#= render 'components/navbar', home: true %>
-
-
-<div class="searchbar">
-  SEARCHBAR
-</div>
-
-<div class="container m-0 d-flex">
-  <div class="row">
-    <div class="card-bars col-8 w-100 p-0 d-flex justify-content-center flex-wrap">
-      <% @bars.each do |bar| %>
-        <div class="card-bar-info col-4 bg-light w-100 shadow rounded border m-3 p-2">
-          <%= link_to bar_path(bar), class:"text-dark" do %>
-            <%= image_tag "https://media.gettyimages.com/photos/the-place-to-go-to-have-fun-picture-id896799190?s=612x612", alt: "bar-photo", class:'w-100' %>
-            <p><%= bar.address %></p>
-            <h3><%= bar.name %></h3>
-            <p><%= bar.description %></p>
-            <p><i class="fas fa-user-friends"></i>  <%= bar.capacity %></p>
-            <p>Dès <%= bar.price %> €</p>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-    <div class="map col-4 w-100">
-       <%= image_tag "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiY2xhaXJlYmF1ZHVpbiIsImEiOiJjazYyMzQwcjUwMHg5M3FxcHVremEwZGZhIn0.DS9nudcXbcP9kilI7qgbHw", alt: "map" %>
-    </div>
+<h1>Résultats de recherche</h1>
+<div class="row d-flex">
+  <div class="card-bars col-8 w-100 p-0 d-flex justify-content-center flex-wrap">
+    <% @bars.each do |bar| %>
+      <div class="card-bar-info col-4 bg-light w-100 shadow rounded border m-3 p-2">
+        <%= link_to bar_path(bar), class:"text-dark" do %>
+          <%= image_tag "https://media.gettyimages.com/photos/the-place-to-go-to-have-fun-picture-id896799190?s=612x612", alt:"bar-photo", class:'w-100' %>
+          <p><%= bar.address %></p>
+          <h3><%= bar.name %></h3>
+          <p><%= bar.description %></p>
+          <p><i class="fas fa-user-friends"></i>  <%= bar.capacity %></p>
+          <p>Dès <%= bar.price %> €</p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="map col-4 w-100">
+    <h1>MAP</h1>
+     <%= image_tag "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiY2xhaXJlYmF1ZHVpbiIsImEiOiJjazYyMzQwcjUwMHg5M3FxcHVremEwZGZhIn0.DS9nudcXbcP9kilI7qgbHw", alt: "map" %>
   </div>
 </div>
+
+
 
 
 
