@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BarsController < ApplicationController
   before_action :set_bar, only: %w[show edit update]
 
