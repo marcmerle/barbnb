@@ -1,0 +1,15 @@
+<%#
+  Usage:
+
+  <%= render 'components/avatar', name: "Name", name_class: "classes to apply to name" % >
+
+  @param :name is mandatory
+%>
+
+<% name = local_assigns.fetch(:name).presence %>
+<% name_class = local_assigns.fetch(:name_class, "") %>
+<% url = current_user.photo.attachment ? cl_image_path(current_user.photo.key) : gravatar_url(current_user) %>
+
+<img class="avatar" src="<%= url %>">
+<span class="<%= name_class %>"><%= name %></span>
+

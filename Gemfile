@@ -39,6 +39,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'pundit'
 gem 'cloudinary', '~> 1.12.0'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -49,7 +50,6 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop-rails'
   gem 'rubocop-performance'
-  gem 'faker'
 end
 
 group :development do

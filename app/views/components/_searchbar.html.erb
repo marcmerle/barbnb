@@ -1,0 +1,15 @@
+<%#
+  Usage:
+  <%= render 'components/searchbar' % >
+%>
+
+<%= simple_form_for :search, url: bars_path, method: :get do |f| %>
+  <div class="form-component-search">
+    <div class="search-form-control d-flex form-group bg-white">
+      <input class="search-input border-0 flex-grow-1 string required p-3" type="text" name="search[query]" id="search_query" placeholder="Essayez Paris 10.."/>
+      <button name="button" type="submit" class="btn btn-default">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+  </div>
+<% end %>

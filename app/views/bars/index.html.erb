@@ -2,12 +2,14 @@
 <div class="row d-flex">
   <div class="card-bars col-8 p-0 d-flex justify-content-center flex-wrap">
     <% @bars.each do |bar| %>
-      <div class="card-bar-info col-4 bg-light w-100 shadow rounded border m-2 p-2">
-        <%= link_to bar_path(bar), class:"text-dark" do %>
+      <div class="card-bar-info col-4 bg-light w-100 shadow rounded border m-3 p-2">
+        <%= link_to bar_path(bar), class:"text-dark text-decoration-none" do %>
           <%= image_tag "https://media.gettyimages.com/photos/the-place-to-go-to-have-fun-picture-id896799190?s=612x612", alt:"bar-photo", class:'w-100' %>
           <p><%= bar.address %></p>
           <h3><%= bar.name %></h3>
-          <p><%= bar.description %></p>
+          <div class="bar-description">
+            <%= bar.description %>
+          </div>
           <p><i class="fas fa-user-friends"></i>  <%= bar.capacity %></p>
           <p>Dès <%= bar.price %> €</p>
         <% end %>
