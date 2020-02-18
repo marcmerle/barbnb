@@ -29,6 +29,7 @@ class BarsController < ApplicationController
 
   def update
     @bar.update(bar_params)
+    authorize @bar
     @bar.save
     redirect_to bar_path(@bar)
   end
