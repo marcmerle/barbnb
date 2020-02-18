@@ -2,6 +2,7 @@
 
 class BarsController < ApplicationController
   before_action :set_bar, only: %w[show edit update]
+  skip_before_action :authenticate_user!, only: %w[index show]
 
   def index
     @bars = policy_scope(Bar)
