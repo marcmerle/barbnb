@@ -1,0 +1,41 @@
+$dashboardMenuWidth: 20%;
+.dashboard {
+  display: flex;
+  height: calc(100vh - #{$navbarHeight});
+}
+
+.dashboard-menu-container {
+  width: $dashboardMenuWidth;
+  height: 100%;
+  position: fixed;
+}
+
+.dashboard-content {
+  padding-left: $dashboardMenuWidth;
+}
+
+.dashboard-menu {
+  margin: 20px;
+  max-height: calc(100vh - #{$navbarHeight} - 40px);
+  border-radius: 8px;
+  box-shadow: 2px 2px 20px 7px $shadow12;
+  padding: 20px 0;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.dashboard-menu-item {
+  padding: 12px 20px;
+  text-decoration: none;
+  color: $myBlack;
+
+  &:hover {
+    background-color: $light-gray;
+  }
+
+  p {
+    margin: 0
+  }
+}
