@@ -20,6 +20,7 @@
             <div style='width: 180px;'><%= f.input :capacity, placeholder: '250', label: "Capacité", required: false %></div>
             <div style='width: 180px;'><%= f.input :price, placeholder: '600 $', label: "Prix", required: false %></div>
           </div>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.button :submit, class: "btn-primary my-3" %>
         <% end %>
       </div>
