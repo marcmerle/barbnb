@@ -1,0 +1,68 @@
+.dashboard-card {
+  margin: 30px 140px 30px 0;
+  box-shadow: 2px 2px 20px 7px $shadow12;
+  display: flex;
+
+  & > img {
+    flex-shrink: 0;
+  }
+}
+
+.dashboard-card-details {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: calc(100% - 190px - 260px);
+
+  .blank-div {
+    flex-grow: 1;
+  }
+
+  .booking-dates {
+    display: flex;
+
+    .booking-day {
+      margin-right: 20px;
+    }
+
+    .booking-hours {
+      margin-left: 20px;
+    }
+
+  }
+
+  .booking-address {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-height: 1.5em;
+    line-height: 1.5em;
+    min-width: 0;
+    color: #616161;
+  }
+}
+
+.dashboard-card-booking-guests {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  flex-shrink: 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+.dashboard-card > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  text-decoration: none;
+  color: $myPurple;
+  flex-shrink: 0;
+}
