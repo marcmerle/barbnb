@@ -5,5 +5,9 @@ class PagesController < ApplicationController
 
   def home
     @top_bars = Bar.all.sample(3)
+    redirect_to(bars_path) if current_user
+  end
+
+  def about
   end
 end
