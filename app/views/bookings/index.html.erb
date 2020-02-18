@@ -1,0 +1,20 @@
+User bookings:
+
+<ul>
+<% @user_bookings.each do |booking| %>
+  <li><%= booking.id %></li>
+<% end %>
+</ul>
+
+User bars:
+
+<ul>
+<% @user_bars.each do |bar| %>
+  <%= bar.name %>
+  <% bar.bookings.each do |booking| %>
+    <ul>
+      <li><%= booking.id %></li>
+    </ul>
+  <% end %>
+<% end %>
+</ul>

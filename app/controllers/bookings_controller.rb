@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 class BookingsController < ApplicationController
   before_action :set_booking, only: %w[show edit update]
+  after_action :verify_authorized, only: :index, unless: :skip_pundit?
+  skip_after_action :verify_policy_scoped, only: :index
 
   def show
     authorize @booking
@@ -25,6 +29,13 @@ class BookingsController < ApplicationController
     else
       render 'bars/show'
     end
+  end
+
+  def index
+    @user_bookings = current_user.bookings
+    @user_bars = current_user.bars
+    authorize @user_bookings
+    authorize @user_bars
   end
 
   private
