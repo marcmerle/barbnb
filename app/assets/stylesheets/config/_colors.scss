@@ -1,10 +1,29 @@
 // Define variables for your color scheme
 
 // For example:
-$red: #FD1015;
-$blue: #167FFB;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+$red: #fd1015;
+$blue: #167ffb;
+$yellow: #ffc65a;
+$orange: #e67e22;
+$green: #1edd88;
+$gray: #0e0000;
+$light-gray: #f4f4f4;
+
+// Color Theme
+$myBlack: rgba(14, 17, 22, 1);
+$myPurple: rgba(92, 65, 93, 1);
+$myWhite: rgba(241, 255, 231, 1);
+$myGreen: rgba(169, 253, 172, 1);
+$myRed: rgba(254, 95, 85, 1);
+
+// Lighter colors: Normal theme + 15 Y (CMYK)
+$myLighterPurple: rgba(129, 92, 130, 1);
+
+$shadow12: rgba(0, 0, 0, 0.12);
+$shadow15: rgba(0, 0, 0, 0.15);
+$shadow16: rgba(0, 0, 0, 0.16);
+$shadow18: rgba(0, 0, 0, 0.18);
+$shadow20: rgba(0, 0, 0, 0.2);
+$shadow40: rgba(0, 0, 0, 0.4);
+
+$light45: rgba(255, 255, 255, 0.45);
