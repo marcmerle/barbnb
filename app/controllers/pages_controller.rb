@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
+    @top_bars = Bar.all.sample(3)
     redirect_to(bars_path) if current_user
   end
 

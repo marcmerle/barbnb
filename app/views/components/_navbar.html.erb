@@ -2,8 +2,8 @@
   Usage:
 
   <%= render 'components/navbar', home: true % >
-  
-@param :home 
+
+@param :home
     => Boolean. Default = false
     => Render the bar with scroll logic over a banner.
 
@@ -57,8 +57,11 @@
     <div class="container" id="home-container">
       <h1>Bar'bie and be est la plateforme de réservation de bar qu'il faut pour vos soirées.</h1>
       <p>Connectez-vous et trouvez les lieux qui vous ressemblent.</p>
-      <%= render 'components/button_link', text: "Link button" %>
-      <%= render 'components/button', text: "Button button" %>
+      <%#= render 'components/button_link', text: "Link button" %>
+      <%#= render 'components/button', text: "Button button" %>
+      <div class="searchbar-home">
+        <%= render 'components/searchbar' %>
+      </div>
     </div>
   </section>
 <% end %>
