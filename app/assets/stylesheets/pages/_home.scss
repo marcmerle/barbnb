@@ -12,3 +12,33 @@
   width: 150px;
   height: 150px;
 }
+
+.top-bars-header {
+  position: relative;
+  overflow: hidden;
+
+  .top-bars-header-img {
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1438557068880-c5f474830377?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2853&q=80");
+    background-position: center;
+    background-size: cover;
+    transform: scale(1.01);
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+  }
+
+  h2 {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    top: 180px;
+    width: 100%;
+  }
+}
+
+.top-bars-cards {
+  margin-top: -80px;
+}
