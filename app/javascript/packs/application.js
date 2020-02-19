@@ -25,13 +25,14 @@ import "bootstrap";
 
 import "controllers";
 import "custom/button";
-import "slick-carousel";
-import "custom/carousel";
 import { initAutocomplete } from "custom/init_autocomplete";
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initMapbox } from '../custom/init_mapbox';
+import { initSlick } from '../custom/carousel';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initAutocomplete();
+  initSlick();
 })
-initAutocomplete();
+

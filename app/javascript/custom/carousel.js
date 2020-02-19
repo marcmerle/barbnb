@@ -1,4 +1,7 @@
-const init = () => {
+import "slick-carousel";
+import "custom/carousel";
+
+const initSlick = () => {
   $(".variable-width").slick({
     dots: true,
     infinite: true,
@@ -9,6 +12,4 @@ const init = () => {
   });
 };
 
-window.addEventListener('turbolinks:load', (e) => {
-  init();
-});
+export { initSlick };
