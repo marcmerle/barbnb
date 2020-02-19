@@ -39,7 +39,7 @@
     .bar-price {
       text-align: center;
       margin-right: 10px;
-      border: 2px solid black;
+      border: 2px solid $myBlack;
       border-radius: 4px;
       padding: 2px 10px;
     }
@@ -58,7 +58,7 @@
   }
 }
 
-.card-bar-info.col-4 {
+.card-bar-info.col-5 {
   padding: 0;
 }
 
