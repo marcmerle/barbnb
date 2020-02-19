@@ -10,11 +10,11 @@ class BarPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
+    true
   end
 
   def update?
-    true
+    record.user == user
   end
 
   class Scope < Scope
