@@ -1,7 +1,8 @@
 .form-component-bar {
-  .main-container-form-bar {
-    height: 100vh;
-    background-color: #141721;
+  .marc {
+    background: url("https://cdn.dribbble.com/users/19319/screenshots/6961556/neonsign_concepts_2x.png");
+    background-repeat: no-repeat;;
+    background-attachment: fixed;
   }
   .form-new {
     border-radius: 4px;
@@ -10,7 +11,8 @@
     background-color: white;
     // line-height: 4px;
     padding: 20px;
-    top: 100px;
+    margin-left: 250px;
+    z-index: 99;
   }
 
   .label {
@@ -42,12 +44,6 @@
     border-radius: 4px;
   }
 
-
-  img {
-    position: fixed;
-    left: -150px;
-  }
-
   *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -61,3 +57,7 @@
     color: #5C415D;
   }
 }
+
+  html, body {
+    background: #141721 !important;
+  }
