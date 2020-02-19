@@ -31,7 +31,7 @@
   border-radius: 8px;
   width: 100%;
   margin-top: -50px;
-  padding: 20px 10px;
+  padding: 20px 24px;
   display: flex;
   flex-direction: column;
   background-color: $myWhite;
@@ -40,7 +40,7 @@
   #guest-count {
     display: flex;
     align-items: center;
-    justify-content: center;
+    // justify-content: center; Removed for presentation
 
     & > * {
       margin: 0 8px;
@@ -62,4 +62,11 @@
 .bar-calendar {
   height: 224px;
   margin-bottom: 20px;
+}
+
+// For presentation
+#Remove-after-pres {
+  input {
+    opacity: 0;
+  }
 }

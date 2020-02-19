@@ -2,8 +2,10 @@
      data-guest-count-max-guest="<%= @bar.capacity %>"
      >
      <%= simple_form_for @booking do |f| %>
-       <%= f.input :starts_at, as: :string, readonly: true %>
-       <%= f.input :ends_at, as: :string, readonly: true %>
+      <%# <%= f.input :starts_at, as: :string, readonly: true %1> %>
+      <%# <%= f.input :ends_at, as: :string, readonly: true %1> %>
+       <%= f.input :starts_at, as: :hidden, readonly: true %>
+       <%= f.input :ends_at, as: :hidden, readonly: true %>
        <%= f.input :guest_number, as: :hidden,
                    readonly: true,
                    input_html: {
@@ -14,6 +16,7 @@
      <% end %>
 
      <div id="guest-count">
+       <div>Nbre de participants :</div>
        <div class="count-button"
             data-action="click->guest-count#remove"
             data-target="guest-count.minus"
@@ -34,20 +37,20 @@
      </div>
 </div>
 
-<div data-controller="pick-date">
+<div id="Remove-after-pres" data-controller="pick-date">
   <input data-controller="flatpickr"
          data-target="pick-date.date"
          data-flatpickr-min-date="<%= Time.zone.now %>"
          data-flatpickr-max-date="<%= Time.zone.now + 30.days %>"
          value="<%= Time.zone.now %>"
          >
-  <input data-controller="flatpickr"
+  <input data-controller="flatpickrPRES"
          data-target="pick-date.from"
          data-flatpickr-enable-time="true"
          data-flatpickr-no-calendar="true"
          value="20:00"
          >
-  <input data-controller="flatpickr"
+  <input data-controller="flatpickrPRES"
          data-target="pick-date.to"
          data-flatpickr-enable-time="true"
          data-flatpickr-no-calendar="true"
