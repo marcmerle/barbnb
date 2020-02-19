@@ -6,6 +6,6 @@ class Bar < ApplicationRecord
   has_many_attached :photos
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  validates :name, :address, presence: true
+  validates :name, :address, presence: true # , uniqueness: true
   validates :price, :description, :capacity, :opening_start, :opening_end, presence: true
 end
