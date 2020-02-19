@@ -13,7 +13,9 @@
       <p><%= @bar.description %></p>
       <div class="button-show d-flex">
         <p><%= render "components/button_link", text: "Back", link: bars_path %></p>
-        <p><%= render "components/button_link", text: "Edit", link: edit_bar_path(@bar) %></p>
+        <% if @bar.owner == current_user %>
+          <p><%= render "components/button_link", text: "Edit", link: edit_bar_path(@bar) %></p>
+        <% end %>
       </div>
     </div>
     <div class="bar-booking-container">
