@@ -1,7 +1,7 @@
 <div data-controller="guest-count"
      data-guest-count-max-guest="<%= @bar.capacity %>"
      >
-     <%= simple_form_for @booking do |f| %>
+     <%= simple_form_for [@bar, @booking] do |f| %>
       <%# <%= f.input :starts_at, as: :string, readonly: true %1> %>
       <%# <%= f.input :ends_at, as: :string, readonly: true %1> %>
        <%= f.input :starts_at, as: :hidden, readonly: true %>
