@@ -17,7 +17,6 @@ class BarsController < ApplicationController
   end
 
   def show
-    @review = Review.new
   end
 
   def new
