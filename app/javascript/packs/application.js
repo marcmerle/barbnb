@@ -28,6 +28,8 @@ import "slick-carousel";
 import "custom/carousel";
 import { initAutocomplete } from "custom/init_autocomplete";
 import { initMapbox } from '../custom/init_mapbox';
+import "flatpickr/dist/themes/airbnb.css";
+
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
