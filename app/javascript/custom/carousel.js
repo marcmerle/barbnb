@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 const init = () => {
   $(".variable-width").slick({
     dots: true,

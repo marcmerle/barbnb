@@ -14,12 +14,12 @@ class BarPolicy < ApplicationPolicy
   end
 
   def update?
-    record.owner == user
+    record.user == user
   end
 
   class Scope < Scope
     def resolve
-      scope.all
+      scope.geocoded
     end
   end
 end

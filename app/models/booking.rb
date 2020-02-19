@@ -7,6 +7,7 @@
 class Booking < ApplicationRecord
   belongs_to :bar
   belongs_to :user
+  has_one :review, dependent: :nullify
 
   validates :amount, :starts_at, :ends_at, :state, :guest_number, presence: true
 end

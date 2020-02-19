@@ -5,6 +5,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet' />
+<!--     <link href='https://cdn.jsdelivr.net/npm/flatpickr@4.5.2/dist/themes/airbnb.css' rel='stylesheet' />
+ -->    <link
+    rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+    type="text/css"
+    />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <!-- Add the slick-theme.css if you want default styling -->
