@@ -18,6 +18,14 @@ BAR_PICTURES = [
   'https://images.unsplash.com/photo-1482112048165-dd23f81c367d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80'
 ]
 
+ADDRESS = [
+  '16 Villa Gaudelet, 75011 Paris',
+  '17 rue de Lancry, 75010 Paris',
+  '8 rue Bichat, 75010 Paris',
+  '6 rue Jacques Louvel Tessier, 75010 Paris',
+  '5 rue Traversière, 75012 Paris'
+]
+
 ##
 # User DB Seed
 20.times do
@@ -33,7 +41,7 @@ User.all.sample(10).each do |user|
   bar = Bar.new(
     owner: user,
     name: Faker::Restaurant.name,
-    address: Faker::Address.full_address,
+    address: ADDRESS.sample,
     price: rand(25..100),
     description: Faker::Restaurant.description,
     capacity: rand(10..150),
