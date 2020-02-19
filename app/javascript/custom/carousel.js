@@ -1,5 +1,6 @@
 import "slick-carousel";
 import "custom/carousel";
+import $ from 'jquery'
 
 const initSlick = () => {
   $(".variable-width").slick({

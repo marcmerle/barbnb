@@ -22,11 +22,9 @@ require("turbolinks").start();
 // ----------------------------------------------------
 
 import "bootstrap";
-
 import "controllers";
 import "custom/button";
 import { initAutocomplete } from "custom/init_autocomplete";
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initMapbox } from '../custom/init_mapbox';
 import { initSlick } from '../custom/carousel';
 
