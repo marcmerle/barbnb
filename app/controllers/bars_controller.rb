@@ -10,7 +10,8 @@ class BarsController < ApplicationController
       {
         lat: bar.latitude,
         lng: bar.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { bar: bar })
+        infoWindow: render_to_string(partial: "info_window", locals: { bar: bar }),
+        image_url: helpers.asset_url('cocktail.png')
       }
     end
   end
