@@ -10,7 +10,7 @@ class BarPolicy < ApplicationPolicy
   end
 
   def create?
-    record.booking.user == user
+    record.user == user
   end
 
   def update?
