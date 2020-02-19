@@ -23,7 +23,7 @@
     <div class="bar-booking-container">
       <div class="bar-booking">
         <div class="bar-price">
-          <h4>Total price: <strong>550€</strong></h4>
+          <h4>Total price: <strong><%= @bar.price * 10 %>€</strong></h4>
           <div class="bar-price-details">
             <ul>
               <li>Price per guest: <%= @bar.price %>€</li>
