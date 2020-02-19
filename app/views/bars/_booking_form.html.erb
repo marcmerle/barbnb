@@ -1,0 +1,60 @@
+<div data-controller="guest-count"
+     data-guest-count-max-guest="<%= @bar.capacity %>"
+     >
+     <%= simple_form_for @booking do |f| %>
+      <%# <%= f.input :starts_at, as: :string, readonly: true %1> %>
+      <%# <%= f.input :ends_at, as: :string, readonly: true %1> %>
+       <%= f.input :starts_at, as: :hidden, readonly: true %>
+       <%= f.input :ends_at, as: :hidden, readonly: true %>
+       <%= f.input :guest_number, as: :hidden,
+                   readonly: true,
+                   input_html: {
+                     value: 2,
+                     data: { target: "guest-count.countField" }
+                   }
+       %>
+     <% end %>
+
+     <div id="guest-count">
+       <div>Nbre de participants :</div>
+       <div class="count-button"
+            data-action="click->guest-count#remove"
+            data-target="guest-count.minus"
+            >
+            <%= icon("fas", "minus") %>
+       </div>
+       <input type="text"
+              data-target="guest-count.number"
+              data-action="keyup->guest-count#validateField"
+              value="2"
+              >
+              <div class="count-button"
+                   data-action="click->guest-count#add"
+                   data-target="guest-count.plus"
+                   >
+                   <%= icon("fas", "plus") %>
+              </div>
+     </div>
+</div>
+
+<div id="Remove-after-pres" data-controller="pick-date">
+  <input data-controller="flatpickr"
+         data-target="pick-date.date"
+         data-flatpickr-min-date="<%= Time.zone.now %>"
+         data-flatpickr-max-date="<%= Time.zone.now + 30.days %>"
+         value="<%= Time.zone.now %>"
+         >
+  <input data-controller="flatpickrPRES"
+         data-target="pick-date.from"
+         data-flatpickr-enable-time="true"
+         data-flatpickr-no-calendar="true"
+         value="20:00"
+         >
+  <input data-controller="flatpickrPRES"
+         data-target="pick-date.to"
+         data-flatpickr-enable-time="true"
+         data-flatpickr-no-calendar="true"
+         value="21:00"
+         >
+</div>
+
