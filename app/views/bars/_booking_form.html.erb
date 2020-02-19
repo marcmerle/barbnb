@@ -34,19 +34,24 @@
      </div>
 </div>
 
-<input data-controller="flatpickr"
-       data-flatpickr-min-date="<%= Time.zone.now %>"
-       data-flatpickr-max-date="<%= Time.zone.now + 30.days %>"
-       value="<%= Time.zone.now %>"
-       >
-<input data-controller="flatpickr"
-       data-flatpickr-enable-time="true"
-       data-flatpickr-no-calendar="true"
-       value="20:00"
-       >
-<input data-controller="flatpickr"
-       data-flatpickr-enable-time="true"
-       data-flatpickr-no-calendar="true"
-       value="21:00"
-       >
+<div data-controller="pick-date">
+  <input data-controller="flatpickr"
+         data-target="pick-date.date"
+         data-flatpickr-min-date="<%= Time.zone.now %>"
+         data-flatpickr-max-date="<%= Time.zone.now + 30.days %>"
+         value="<%= Time.zone.now %>"
+         >
+  <input data-controller="flatpickr"
+         data-target="pick-date.from"
+         data-flatpickr-enable-time="true"
+         data-flatpickr-no-calendar="true"
+         value="20:00"
+         >
+  <input data-controller="flatpickr"
+         data-target="pick-date.to"
+         data-flatpickr-enable-time="true"
+         data-flatpickr-no-calendar="true"
+         value="21:00"
+         >
+</div>
 
