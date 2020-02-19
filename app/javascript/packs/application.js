@@ -22,7 +22,6 @@ require("turbolinks").start();
 // ----------------------------------------------------
 
 import "bootstrap";
-
 import "controllers";
 import "custom/button";
 import "slick-carousel";
