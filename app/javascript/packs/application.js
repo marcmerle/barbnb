@@ -27,7 +27,6 @@ import "custom/button";
 import "slick-carousel";
 import "custom/carousel";
 import { initAutocomplete } from "custom/init_autocomplete";
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initMapbox } from '../custom/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
