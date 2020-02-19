@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   get '/dashboard/bookings', to: 'bookings#index', as: "dashboard_bookings"
 
-  resources :bars, except: :destroy
-  resources :bookings, except: %i[index new]
+  resources :bars, except: :destroy do
+    resources :bookings, only: %i[create]
+    resources :reviews, only: %i[create]
+  end
+  resources :bookings, except: %i[index create]
 end

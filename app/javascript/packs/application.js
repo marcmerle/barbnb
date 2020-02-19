@@ -7,6 +7,7 @@ require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
+require("turbolinks").start();
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -26,3 +27,11 @@ import "controllers";
 import "custom/button";
 import "slick-carousel";
 import "custom/carousel";
+import { initAutocomplete } from "custom/init_autocomplete";
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import { initMapbox } from '../custom/init_mapbox';
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
+initAutocomplete();

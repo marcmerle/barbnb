@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_18_160446) do
+ActiveRecord::Schema.define(version: 2020_02_19_115328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2020_02_18_160446) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_bars_on_user_id"
   end
 
@@ -62,6 +64,15 @@ ActiveRecord::Schema.define(version: 2020_02_18_160446) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bar_id"], name: "index_bookings_on_bar_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,4 +91,5 @@ ActiveRecord::Schema.define(version: 2020_02_18_160446) do
   add_foreign_key "bars", "users"
   add_foreign_key "bookings", "bars"
   add_foreign_key "bookings", "users"
+  add_foreign_key "reviews", "bookings"
 end

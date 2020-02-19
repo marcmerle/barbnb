@@ -1,17 +1,25 @@
 <div class="bar-show">
   <div class="variable-width">
     <% @bar.photos.each do |photo| %>
-      <%= cl_image_tag photo.key %>
+      <%= cl_image_tag photo.key, height: 400, crop: :fit %>
     <% end %>
   </div>
 
   <div class="container d-flex bar-container">
-    <div class="bar-details">
-      <h1><strong><%= @bar.name %></strong></h1>
-      <h5><i class="fas fa-map-marker-alt"></i>&nbsp&nbsp<%= @bar.address %></h5>
-      <h5><i class="fas fa-users"></i>&nbsp&nbspUp to <strong><%= @bar.capacity %></strong> guests</h5>
-      <p><%= @bar.description %></p>
+    <div class="left-side d-flex flex-column">
+      <div class="bar-details">
+        <h1><strong><%= @bar.name %></strong></h1>
+        <h5><i class="fas fa-map-marker-alt"></i>&nbsp&nbsp<%= @bar.address %></h5>
+        <h5><i class="fas fa-users"></i>&nbsp&nbspUp to <strong><%= @bar.capacity %></strong> guests</h5>
+        <p><%= @bar.description %></p>
+        <p><%= render "components/button_link", text: "back", link: bars_path %></p>
+      </div>
+
+      <div class="container reviews-container">
+        <%= render "reviews" %>
+      </div>
     </div>
+
     <div class="bar-booking-container">
       <div class="bar-booking">
         <div class="bar-price">

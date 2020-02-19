@@ -1,7 +1,9 @@
 .form-component-signin {
   .main-container-signin {
     height: 100vh;
-    background-color: rgba(92, 65, 93, 1);
+    background-image: linear-gradient($myPurpleOpacity50,$myPurpleOpacity50), url("https://cdn.dribbble.com/users/730703/screenshots/5618311/dtg0j7fwkaa-tyj.jpg-large.jpeg");
+    background-size: cover;
+    background-position: center;
   }
   .form-component *, .form-component *::before, .form-component *::after {
     box-sizing: border-box;
@@ -21,4 +23,3 @@
     border-radius: 4px;
   }
 }
-

@@ -1,0 +1,24 @@
+<div class="add-review" data-controller="star-rating">
+  <h3>Your review...</h3>
+  <div class="stars" data-action="mouseleave->star-rating#showRating">
+
+<%
+    stimulus_hooks = {
+      "data-target" => "star-rating.star",
+      "data-action" => "click->star-rating#setRating \
+                        mouseover->star-rating#chooseRating"
+    }
+%>
+
+    <% 5.times do |i| %>
+      <% stimulus_hooks["data-id"] = i + 1 %>
+      <div class="star"><%= icon("far", "star", stimulus_hooks) %></div>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@bar, @review] do |f| %>
+    <%= f.input :content, label: false %>
+    <%= f.input :rating, as: :hidden, input_html: { data: { target: "star-rating.form" } } %>
+    <%= f.submit "Add review" %>
+  <% end %>
+</div>
