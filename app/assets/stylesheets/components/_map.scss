@@ -11,3 +11,10 @@
   top: 65px;
 }
 
+.mapboxgl-canvas {
+  height: calc(100vh - 55px) !important;
+}
+
+#map {
+ height: calc(100vh - 55px) !important;
+}
