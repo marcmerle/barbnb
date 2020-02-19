@@ -3,31 +3,7 @@
     <div class="col-7 d-flex justify-content-center flex-wrap">
       <% @bars.each do |bar| %>
         <div class="card-bar-info col-4 m-5">
-          <%= link_to bar_path(bar), class:"text-dark text-decoration-none" do %>
-            <%# bar.photos.each do |photo| %>
-              <%#= cl_image_tag photo.key.first %>
-            <%# end %>
-            <div class="card-photo" style="background-image: url(<%= cl_image_path bar.photos.first.key %>); background-size: cover; background-position: center;">
-            </div>
-            <div class="card-details">
-              <div class="card-details-item">
-                <h4><%= bar.name %></h4>
-                <div class="bar-distance"><i class="fas fa-map-marker-alt"></i> 340m</div>
-              </div>
-              <div class="card-details-item">
-                <div class="card-details-item-left">
-                  <div class="bar-ratings">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                  </div>
-                  <p><i class="fas fa-user-friends"></i>&nbsp&nbsp<%= bar.capacity %> max</p>
-                </div>
-                <div class="bar-price">
-                  <p><%= bar.price %>€</p>
-                  <p class="small">/guest</p>
-                </div>
-              </div>
-            </div>
-          <% end %>
+          <%= render "components/bar_card", bar: bar %>
         </div>
       <% end %>
     </div>
