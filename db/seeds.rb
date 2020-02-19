@@ -1,5 +1,16 @@
 # frozen_string_literal: true
+
 require 'open-uri'
+
+class String
+  def green
+    "\e[32m#{self}\e[0m"
+  end
+
+  def blue
+    "\e[34m#{self}\e[0m"
+  end
+end
 
 BAR_PICTURES = [
   'https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80',
@@ -34,6 +45,7 @@ ADDRESS = [
     password: "coucou"
   )
 end
+puts "20 users have been seeded.".green
 
 ##
 # Bar DB Seed
@@ -48,15 +60,15 @@ User.all.sample(10).each do |user|
     opening_start: rand(9..20),
     opening_end: rand(21..23)
   )
-  i = 0
-  (1..5).to_a.sample.times do
-    i += 1
+
+  rand(3..6).times do |i|
     file = URI.open(BAR_PICTURES.sample)
     bar.photos.attach(io: file, filename: "bar_#{bar.id}_#{i}.png", content_type: 'image/png')
   end
-  p "A bar with #{bar.photos.count} photo(s) was created"
+  puts "A bar with #{bar.photos.count} photo(s) was created".blue
   bar.save!
 end
+puts "10 bars have been created".green
 
 def random_date
   Time.zone.at(0.0 + rand * (Time.now.to_f - 0.0))
@@ -80,3 +92,23 @@ User.all.sample(15).each do |user|
     state: "Ongoing"
   )
 end
+puts "15 bookings have been created".green
+
+Booking.first.user = User.first
+Booking.first.bar = Bar.first
+
+comments = [
+  { content: "C'était super !", rating: 4 },
+  { content: "C'était pas si super !", rating: 3 },
+  { content: "C'était super pas bien !", rating: 1 },
+  { content: "C'était super je crois !", rating: 5 },
+  { content: "C'était super terrible !", rating: 4 },
+  { content: "C'était super pas terrible!", rating: 1 }
+]
+
+Booking.all.each do |booking|
+  review = Review.new(comments.sample)
+  review.booking = booking
+  review.save!
+end
+puts "Reviews added to booking".green
