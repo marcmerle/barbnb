@@ -23,6 +23,8 @@ $navbarHeight: 65px;
 
     img {
       height: $navbarHeight - 10;
+      margin-bottom: 4px;
+      padding: 3px 0px;
     }
 
     a {
@@ -83,6 +85,7 @@ $navbarHeight: 65px;
   }
 
   &.light {
+    border-bottom: 1px solid lightgray;
     .logo {
       a:hover {
         color: $myRed;

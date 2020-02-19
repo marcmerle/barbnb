@@ -19,7 +19,7 @@ class BarPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.all
+      scope.geocoded
     end
   end
 end
