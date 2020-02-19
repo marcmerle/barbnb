@@ -1,7 +1,7 @@
 <div class="bar-show">
   <div class="variable-width">
     <% @bar.photos.each do |photo| %>
-      <%= cl_image_tag photo.key %>
+      <%= cl_image_tag photo.key, height: 400, crop: :fit %>
     <% end %>
   </div>
 
