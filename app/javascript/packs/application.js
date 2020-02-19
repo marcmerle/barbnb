@@ -24,14 +24,13 @@ require("turbolinks").start();
 import "bootstrap";
 import "controllers";
 import "custom/button";
-import "slick-carousel";
-import "custom/carousel";
 import { initAutocomplete } from "custom/init_autocomplete";
 import { initMapbox } from '../custom/init_mapbox';
-import "flatpickr/dist/themes/airbnb.css";
-
+import { initSlick } from '../custom/carousel';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initAutocomplete();
+  initSlick();
 })
-initAutocomplete();
+
