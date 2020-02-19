@@ -26,3 +26,6 @@ import "controllers";
 import "custom/button";
 import "slick-carousel";
 import "custom/carousel";
+
+import { initAutocomplete } from "custom/init_autocomplete";
+initAutocomplete();
