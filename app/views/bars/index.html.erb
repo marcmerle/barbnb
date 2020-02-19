@@ -1,28 +1,41 @@
-<h1>Résultats de recherche</h1>
-<div class="row d-flex">
-  <div class="card-bars col-8 p-0 d-flex justify-content-center flex-wrap">
-    <% @bars.each do |bar| %>
-      <div class="card-bar-info col-4 bg-light w-100 shadow rounded border m-3 p-2">
-        <%= link_to bar_path(bar), class:"text-dark text-decoration-none" do %>
-          <%# bar.photos.each do |photo| %>
-            <%#= cl_image_tag photo.key.first %>
-          <%# end %>
-          <%= image_tag "https://media.gettyimages.com/photos/the-place-to-go-to-have-fun-picture-id896799190?s=612x612", alt:"bar-photo", class:'w-100' %>
-          <p><%= bar.address %></p>
-          <h3><%= bar.name %></h3>
-          <div class="bar-description">
-            <%= bar.description %>
-          </div>
-          <p><i class="fas fa-user-friends"></i>  <%= bar.capacity %></p>
-          <p>Dès <%= bar.price %> €</p>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-  <div id="map" class="col-4"
+<div class="bars-index">
+  <div class="cards-bar row d-flex">
+    <div class="col-7 d-flex justify-content-center flex-wrap">
+      <% @bars.each do |bar| %>
+        <div class="card-bar-info col-4 m-5">
+          <%= link_to bar_path(bar), class:"text-dark text-decoration-none" do %>
+            <%# bar.photos.each do |photo| %>
+              <%#= cl_image_tag photo.key.first %>
+            <%# end %>
+            <div class="card-photo" style="background-image: url(<%= cl_image_path bar.photos.first.key %>); background-size: cover; background-position: center;">
+            </div>
+            <div class="card-details">
+              <div class="card-details-item">
+                <h4><%= bar.name %></h4>
+                <div class="bar-distance"><i class="fas fa-map-marker-alt"></i> 340m</div>
+              </div>
+              <div class="card-details-item">
+                <div class="card-details-item-left">
+                  <div class="bar-ratings">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                  </div>
+                  <p><i class="fas fa-user-friends"></i>&nbsp&nbsp<%= bar.capacity %> max</p>
+                </div>
+                <div class="bar-price">
+                  <p><%= bar.price %>€</p>
+                  <p class="small">/guest</p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div id="map" class="col-5 sticky-top"
      style="width: 100%;
-     height: 600px;"
+     height: 700px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+     </div>
   </div>
 </div>
