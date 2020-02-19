@@ -1,0 +1,27 @@
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :starts_at, as: :string %>
+  <%= f.input :ends_at, as: :string %>
+  <%= f.input :guest_number %>
+<% end %>
+
+<div data-controller="guest-count">
+  <div data-action="click->guest-count#add">-</div>
+  <input type="text" data-target="guest-count.number" data-action="keyup->guest-count#validateField" value="1">
+  <div data-action="click->guest-count#remove">+</div>
+</div>
+
+<input data-controller="flatpickr"
+       data-flatpickr-min-date="<%= Time.zone.now %>"
+       data-flatpickr-max-date="<%= Time.zone.now + 30.days %>"
+>
+
+<input data-controller="flatpickr"
+       data-flatpickr-enable-time="true"
+       data-flatpickr-no-calendar="true"
+>
+
+<input data-controller="flatpickr"
+       data-flatpickr-enable-time="true"
+       data-flatpickr-no-calendar="true"
+>
+

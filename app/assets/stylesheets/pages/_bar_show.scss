@@ -8,7 +8,7 @@
   padding: 10px;
   margin-right: 80px;
 
-  h1{
+  h1 {
     margin-bottom: 20px;
   }
 
@@ -24,7 +24,7 @@
 .bar-booking-container {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: auto;
 }
 
 .bar-booking {
@@ -41,5 +41,5 @@
 
 .bar-calendar {
   height: 224px;
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
