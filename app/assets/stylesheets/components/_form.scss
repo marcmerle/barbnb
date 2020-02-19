@@ -1,5 +1,7 @@
 .form-component-bar {
-  .marc {
+  background: #141721;
+
+  .background-form {
     background: url("https://cdn.dribbble.com/users/19319/screenshots/6961556/neonsign_concepts_2x.png");
     background-repeat: no-repeat;;
     background-attachment: fixed;
@@ -57,7 +59,3 @@
     color: #5C415D;
   }
 }
-
-  html, body {
-    background: #141721 !important;
-  }
