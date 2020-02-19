@@ -70,3 +70,18 @@
     opacity: 0;
   }
 }
+
+.rating-stars {
+  display: flex;
+  padding-left: 4px;
+
+  div {
+    padding-right: 4px;
+  }
+}
+
+.reviews {
+  ul {
+    list-style-type: none;
+  }
+}
