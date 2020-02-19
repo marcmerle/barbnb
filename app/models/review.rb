@@ -4,7 +4,8 @@
 ## Review Model
 ## A Restaurant has many reviews (Comments + Rating)
 class Review < ApplicationRecord
-  belongs_to :bar
+  belongs_to :booking
+  has_one :bar, through: :booking
 
   validates :content, :rating, presence: true
   validates :rating, numericality: {

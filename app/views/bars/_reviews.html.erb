@@ -1,0 +1,22 @@
+<h2>Reviews</h2>
+<% unless @bar.reviews.empty? %>
+  <div class="reviews">
+    <ul>
+      <% @bar.reviews.each do |review|%>
+        <li>
+          <div class="rating-stars">
+            <% review.rating.times do %> 
+              <div><%= icon("fas", "star") %></div>
+            <% end %>
+            <% (5 - review.rating).times do %> 
+              <div><%= icon("far", "star") %></div>
+            <% end %>
+          </div>
+          <div>
+            <%= review.content %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -2,7 +2,7 @@
 
 class Bar < ApplicationRecord
   has_many :bookings, dependent: :nullify
-  has_many :reviews, dependent: :destroy
+  has_many :reviews, through: :bookings
   belongs_to :owner, inverse_of: :bars, class_name: "User", foreign_key: "user_id"
   has_many_attached :photos
 

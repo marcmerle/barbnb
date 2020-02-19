@@ -8,7 +8,9 @@ class BarsController < ApplicationController
     @bars = policy_scope(Bar)
   end
 
-  def show; end
+  def show
+    @review = Review.new
+  end
 
   def new
     @bar = Bar.new
