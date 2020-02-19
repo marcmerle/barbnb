@@ -1,7 +1,7 @@
 .form-component-signin {
   .main-container-signin {
     height: 100vh;
-    background-image: linear-gradient(rgba(92, 65, 93, 0.5),rgba(92, 65, 93, 0.5)), url("https://cdn.dribbble.com/users/730703/screenshots/5618311/dtg0j7fwkaa-tyj.jpg-large.jpeg");
+    background-image: linear-gradient($myPurpleOpacity50,$myPurpleOpacity50), url("https://cdn.dribbble.com/users/730703/screenshots/5618311/dtg0j7fwkaa-tyj.jpg-large.jpeg");
     background-size: cover;
     background-position: center;
   }
