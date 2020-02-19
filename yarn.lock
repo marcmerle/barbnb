@@ -4434,10 +4434,6 @@ load-json-file@^1.0.0:
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
 
-load-script@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
-  integrity sha1-BJGTngvuVkPuSUp+PaPSuscMbKQ=
 load-json-file@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-4.0.0.tgz#2f5f45ab91e33216234fd53adab668eb4ec0993b"
@@ -4447,6 +4443,11 @@ load-json-file@^4.0.0:
     parse-json "^4.0.0"
     pify "^3.0.0"
     strip-bom "^3.0.0"
+
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+  integrity sha1-BJGTngvuVkPuSUp+PaPSuscMbKQ=
 
 loader-runner@^2.4.0:
   version "2.4.0"
@@ -4802,16 +4803,17 @@ mimic-fn@^2.0.0:
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-2.1.0.tgz#7ed2c2ccccaf84d3ffcb7a69b57711fc2083401b"
   integrity sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==
 
+mimic-response@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/mimic-response/-/mimic-response-1.0.1.tgz#4923538878eef42063cb8a3e3b0798781487ab1b"
+  integrity sha512-j5EctnkH7amfV/q5Hgmoal1g2QHFJRraOtmx0JpIqkxhBhI/lJSl1nMpQ45hVarwNETOoWEimndZ4QK0RHxuxQ==
+
 min-document@^2.19.0:
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/min-document/-/min-document-2.19.0.tgz#7bd282e3f5842ed295bb748cdd9f1ffa2c824685"
   integrity sha1-e9KC4/WELtKVu3SM3Z8f+iyCRoU=
   dependencies:
     dom-walk "^0.1.0"
-mimic-response@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/mimic-response/-/mimic-response-1.0.1.tgz#4923538878eef42063cb8a3e3b0798781487ab1b"
-  integrity sha512-j5EctnkH7amfV/q5Hgmoal1g2QHFJRraOtmx0JpIqkxhBhI/lJSl1nMpQ45hVarwNETOoWEimndZ4QK0RHxuxQ==
 
 mini-css-extract-plugin@^0.8.0:
   version "0.8.2"
@@ -6475,8 +6477,6 @@ query-string@^4.1.0:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
-
-querystring-es3@^0.2.0, querystring-es3@^0.2.1:
 query-string@^5.0.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-5.1.1.tgz#a78c012b71c17e05f2e3fa2319dd330682efb3cb"
@@ -6486,6 +6486,7 @@ query-string@^5.0.1:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
+querystring-es3@^0.2.0, querystring-es3@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/querystring-es3/-/querystring-es3-0.2.1.tgz#9ec61f79049875707d69414596fd907a4d711e73"
   integrity sha1-nsYfeQSYdXB9aUFFlv2Qek1xHnM=
@@ -6620,12 +6621,6 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
-reduce@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/reduce/-/reduce-1.0.2.tgz#0cd680ad3ffe0b060e57a5c68bdfce37168d361b"
-  integrity sha512-xX7Fxke/oHO5IfZSk77lvPa/7bjMh9BuCk4OOoX5XTXrM7s0Z+MkPfSDfz0q7r91BhhGSs8gii/VEN/7zhCPpQ==
-  dependencies:
-    object-keys "^1.1.0"
 redent@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/redent/-/redent-2.0.0.tgz#c1b2007b42d57eb1389079b3c8333639d5e1ccaa"
@@ -6640,6 +6635,13 @@ redeyed@~0.4.0:
   integrity sha1-N+mQpvKyGyoRwuakj9QTVpjLqX8=
   dependencies:
     esprima "~1.0.4"
+
+reduce@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/reduce/-/reduce-1.0.2.tgz#0cd680ad3ffe0b060e57a5c68bdfce37168d361b"
+  integrity sha512-xX7Fxke/oHO5IfZSk77lvPa/7bjMh9BuCk4OOoX5XTXrM7s0Z+MkPfSDfz0q7r91BhhGSs8gii/VEN/7zhCPpQ==
+  dependencies:
+    object-keys "^1.1.0"
 
 regenerate-unicode-properties@^8.1.0:
   version "8.1.0"
@@ -7638,8 +7640,7 @@ through2@^2.0.0:
     readable-stream "~2.3.6"
     xtend "~4.0.1"
 
-
-through@~2.3.4:
+through@2, through@~2.3.4:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
