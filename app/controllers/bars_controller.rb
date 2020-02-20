@@ -7,7 +7,10 @@ class BarsController < ApplicationController
   def index
     @query = params[:query]
     if params[:query].present?
-      @bars = policy_scope(Bar).bar_search(params[:query])
+      @bars = policy_scope(Bar.near(params[:query], 1))
+      @distance = @bars.map do |bar|
+        distance(bar)
+      end
     else
       @bars = policy_scope(Bar)
     end
@@ -48,6 +51,16 @@ class BarsController < ApplicationController
     authorize @bar
     @bar.save
     redirect_to bar_path(@bar)
+  end
+
+  def distance(bar)
+    if @query
+      position = Geocoder.search(@query).first
+    else
+      position = Geocoder.search("16 villa Gaudelet").first
+    end
+    dist = Geocoder::Calculations.distance_between(position.coordinates, [bar.latitude, bar.longitude])
+    dist * 1_000
   end
 
   private
