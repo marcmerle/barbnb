@@ -38,6 +38,11 @@ export default class extends Controller {
 
     this.countFieldTarget.value = this.numberTarget.value;
 
+    const event = new CustomEvent("guest_number_change", {
+      detail: parseInt(this.countFieldTarget.value)
+    });
+    window.dispatchEvent(event);
+
     if (this.countFieldTarget.value === "1")
       this.disableButton(this.minusTarget);
 
