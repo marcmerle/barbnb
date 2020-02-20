@@ -19,8 +19,7 @@
 <nav class="custom-nav <%= color %> <%= "affix" unless home %>" data-controller="navbar" data-target="navbar.bar" <% if home %>data-action="scroll@window->navbar#createBar"<% end %>>
   <div class="nav-container d-flex justify-content-between">
     <div class="logo">
-      <% url = current_user ? bars_path : "/" %>
-      <%= link_to(url) { image_tag("logo.png") } %>
+      <%= link_to(root_path) { image_tag("logo.png") } %>
     </div>
     <% unless home %>
       <div class="searchbar-nav">
