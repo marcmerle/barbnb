@@ -152,6 +152,7 @@ $navbarHeight: 65px;
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .nav-container {
     margin: 0;
+    height: 100%;
   }
 }
 
@@ -360,5 +361,12 @@ $navbarHeight: 65px;
 @media all and (max-width: 700px) {
   .myP {
     padding: 2%;
+  }
+}
+
+.small-navbar {
+  height: 80px;
+  .small-button {
+    height: 10px;
   }
 }
