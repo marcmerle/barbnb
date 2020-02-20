@@ -1,0 +1,50 @@
+<footer>
+  <div class="footer-container">
+    <div class="row">
+      <div class="col footer-col text-center">
+        <h3 class="footer-col-title">PARTICULIER</h3>
+        <ul class="list-unstyled">
+          <li><%= link_to "Aide & F.A.Q" %></li>
+          <li><%= link_to "Connexion à votre dashboard", dashboard_bookings_path %></li>
+        </ul>
+      </div>
+      <div class="col footer-col text-center">
+        <h3 class="footer-col-title">PARTENAIRE</h3>
+        <ul class="list-unstyled">
+          <li><%= link_to "Ajouter votre bar", new_bar_path %></li>
+          <li><%= link_to "Connexion à votre dashboard", dashboard_bookings_path %></li>
+        </ul>
+      </div>
+      <div class="col footer-col text-center">
+        <h3 class="footer-col-title">BARBNB</h3>
+        <ul class="list-unstyled">
+          <li><%= link_to "A propos" %></li>
+          <li><%= link_to "Recrutement" %></li>
+        </ul>
+      </div>
+      <div class="col footer-col text-center">
+        <h3 class="footer-col-title footer-contact">CONTACT</h3>
+        <ul class="list-unstyled">
+          <li><i class="fas fa-phone-alt"></i>01 23 45 67 89</li>
+          <li><i class="fas fa-envelope"></i>hello@barbnb.com</li>
+          <%= link_to do  %>
+            <i class="fab fa-facebook"></i>
+          <% end %>
+          <%= link_to do  %>
+            <i class="fab fa-google-plus"></i>
+          <% end %><%= link_to do  %>
+            <i class="fab fa-twitter"></i>
+          <% end %><%= link_to do  %>
+            <i class="fab fa-linkedin"></i>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+      <p class="copyright">© 2020 Barbnb</p>
+      <ul class="list-inline footer-menu">
+        <li class="list-inline-item"><a href="#">Conditions générales d'utilisation</a></li>
+        <li class="list-inline-item"><a href="#">Mentions légales</a></li>
+        <li class="list-inline-item"><a href="#">Politique des cookies</a></li>
+      </ul>
+  </div>
+</footer>
