@@ -22,6 +22,7 @@
       <% url = current_user ? bars_path : "/" %>
       <%= link_to(url) { image_tag("logo.png") } %>
     </div>
+    <div class=""><%= render 'components/searchbar', class: "" %></div>
     <div id="mainListDiv" class="main_list" data-target="navbar.menu">
       <ul class="navlinks">
         <% unless current_user %>
@@ -62,7 +63,7 @@
       <%#= render 'components/button_link', text: "Link button" %>
       <%#= render 'components/button', text: "Button button" %>
       <div class="searchbar-home">
-        <%= render 'components/searchbar' %>
+        <%= render 'components/searchbar', home: true %>
       </div>
     </div>
   </section>

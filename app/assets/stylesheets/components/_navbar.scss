@@ -362,3 +362,10 @@ $navbarHeight: 65px;
     padding: 2%;
   }
 }
+
+.small-navbar {
+  height: 80px;
+  .small-button {
+    height: 10px;
+  }
+}
