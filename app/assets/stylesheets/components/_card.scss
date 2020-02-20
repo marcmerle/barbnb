@@ -7,20 +7,19 @@
   box-shadow: 2px 2px 20px 7px $shadow12;
   overflow: hidden;
   background-color: white;
+  max-height: 340px;
 
   .card-photo {
     height: 175px;
     width: 100%;
     margin-bottom: 10px;
   }
-
-  .card-details {
-    padding: 10px;
-  }
 }
 
 .card-details {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 
   .card-details-item {
     display: flex;
@@ -42,6 +41,14 @@
       border: 2px solid $myBlack;
       border-radius: 4px;
       padding: 2px 10px;
+    }
+  }
+
+  .card-details-item.card-details-header {
+    min-height: 56px;
+    .bar-distance {
+      width: 80px;
+      text-align: right;
     }
   }
 
