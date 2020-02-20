@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
   def show
     authorize @booking
     @bar = @booking.bar
+    @review = Review.new
   end
 
   def edit

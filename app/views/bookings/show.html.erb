@@ -1,17 +1,28 @@
 <div class="booking-show">
-  <div class="container d-flex">
+  <div class="container d-flex justify-content-around">
     <div class="left-side">
+      <% if @booking.state == "Terminé" %>
+        <%= render "review_form" %>
+      <% end %>
     </div>
     <div class="bar-infos">
-      <div class="bar-photo" style="background-image: url(<%= cl_image_path @bar.photos.first.key %>); background-size: cover; background-position: center">
-      </div>
+      <%= link_to bar_path(@bar) do %>
+        <div class="bar-photo" style="background-image: url(<%= cl_image_path @bar.photos.first.key %>); background-size: cover; background-position: center">
+        </div>
+      <% end %>
       <div class="bar-text">
         <h2><%= @bar.name %></h2>
-        <h5><%= @bar.address %> <%= link_to "https://www.google.com/maps/dir//#{@bar.address.gsub(" ", "+")}", target: :_blank do %>
-          <i class="fas fa-directions"></i>
-        <% end %></h5>
-
-        <h6>Le <%= @booking.starts_at.to_date %></h6>
+        <div class="bar-address">
+          <h5><%= @bar.address %></h5>
+          <%= link_to "https://www.google.com/maps/dir//#{@bar.address.gsub(" ", "+")}", target: :_blank do %>
+            <i class="fas fa-directions"></i>
+          <% end %>
+        </div>
+        <br>
+        <h5>Le <%= l @booking.starts_at.to_time, format: :full %>, de <%= l @booking.starts_at, format: :hour %> à <%= l @booking.ends_at, format: :hour %>.</h5>
+        <h5><%= @booking.guest_number %> invités.</h5>
+        <br>
+        <h5>Prix total: <%= @booking.amount %>€</h5>
       </div>
     </div>
   </div>

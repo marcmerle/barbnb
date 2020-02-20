@@ -41,6 +41,7 @@ gem 'pundit'
 gem 'cloudinary', '~> 1.12.0'
 gem 'faker'
 gem 'geocoder'
+gem 'rails-i18n'
 
 
 group :development, :test do
