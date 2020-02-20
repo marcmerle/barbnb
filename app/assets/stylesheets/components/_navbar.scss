@@ -49,13 +49,15 @@ $navbarHeight: 65px;
         width: auto;
         height: 45px;
         padding: 0;
-        border: 1px solid $myWhite;
-        margin: 10px 5px;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 5px;
+        &.navbar-button {
+          border: 1px solid $myWhite;
+          margin: 10px 5px;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 5px;
+        }
 
         a {
           text-decoration: none;
@@ -102,7 +104,9 @@ $navbarHeight: 65px;
     .main_list {
       ul {
         li {
-          border: 1px solid $myBlack;
+          &.navbar-button {
+            border: 1px solid $myBlack;
+          }
           a {
             color: $myBlack;
             &:hover {
