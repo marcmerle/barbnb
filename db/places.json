@@ -330,37 +330,6 @@
   //   "visit_price": null
   // },
   // {
-  //   "display_address": "1 Rue de Rivoli, 75004 Paris, France",
-  //   "first_picture": [
-  //     {
-  //       "picture_file": {
-  //         "order": 1,
-  //         "url": "https://barnaby-development.s3.amazonaws.com/uploads/picture/picture_file/3658/app_AppIcon-1024.jpg"
-  //       }
-  //     }
-  //   ],
-  //   "geoloc_address": "1 Rue de Rivoli, 75004 Paris, France",
-  //   "has_offer": false,
-  //   "id": 507,
-  //   "latitude": 48.8555799,
-  //   "longitude": 2.35916369999995,
-  //   "name": "toto",
-  //   "nfc_tag": null,
-  //   "open": null,
-  //   "open?": null,
-  //   "payment_available": true,
-  //   "pictures": [
-  //     {
-  //       "picture_file": {
-  //         "order": 1,
-  //         "url": "https://barnaby-development.s3.amazonaws.com/uploads/picture/picture_file/3658/app_AppIcon-1024.jpg"
-  //       }
-  //     }
-  //   ],
-  //   "tracking": false,
-  //   "visit_price": null
-  // },
-  // {
   //   "display_address": "20 Rue Beautreillis, 75004 Paris",
   //   "first_picture": [
   //     {
