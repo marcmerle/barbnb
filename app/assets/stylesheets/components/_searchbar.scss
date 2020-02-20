@@ -1,12 +1,20 @@
+.search-form-control {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+  opacity: 0.8;
+  margin: 5px;
+  width: 77%;
+}
 
-  .search-form-control {
-    height: 4.0rem;
-    width: 40rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    border: 1px solid #E7E7E7;
-    opacity: 0.8;
-  }
-
-  textarea:focus, input:focus{
+textarea:focus, input:focus{
     outline: none;
+}
+
+.searchbar-home {
+  width: 60%;
+}
+
+.searchbar-nav {
+  width: 50%;
+  line-height: normal;
 }

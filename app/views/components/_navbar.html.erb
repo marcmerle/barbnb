@@ -17,11 +17,16 @@
 
 
 <nav class="custom-nav <%= color %> <%= "affix" unless home %>" data-controller="navbar" data-target="navbar.bar" <% if home %>data-action="scroll@window->navbar#createBar"<% end %>>
-  <div class="nav-container">
+  <div class="nav-container d-flex justify-content-between">
     <div class="logo">
       <% url = current_user ? bars_path : "/" %>
       <%= link_to(url) { image_tag("logo.png") } %>
     </div>
+    <% unless home %>
+      <div class="searchbar-nav">
+        <%= render 'components/searchbar'%>
+      </div>
+    <% end %>
     <div id="mainListDiv" class="main_list" data-target="navbar.menu">
       <ul class="navlinks">
         <% unless current_user %>
@@ -62,7 +67,7 @@
       <%#= render 'components/button_link', text: "Link button" %>
       <%#= render 'components/button', text: "Button button" %>
       <div class="searchbar-home">
-        <%= render 'components/searchbar' %>
+        <%= render 'components/searchbar', home: true %>
       </div>
     </div>
   </section>
