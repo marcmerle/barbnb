@@ -1,0 +1,31 @@
+.footer-container {
+  margin: 0px auto;
+  width: 900px;
+  padding: 30px;
+}
+
+footer {
+  background-color: black;
+}
+
+.footer-col-title {
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin: 0 0 30px;
+  font-size: 14px !important;
+  font-weight: 600;
+}
+
+.footer-container {
+  ul {
+    color: white;
+  }
+
+  .footer-col li {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    position: relative;
+  }
+}
