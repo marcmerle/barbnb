@@ -30,4 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  time:
+    formats:
+      full: "%A %d %B %Y"
+      hour: "%Hh"
   hello: "Hello world"
