@@ -39,7 +39,7 @@
         <% end %>
       <% end %>
       <% if @booking.state == "Annulé" %>
-        <h3 class="red">Votre réservation est annulée (<% if @booking.cancelled_by == current_user.id %><%= "par vous" %><% elsif @booking.user == current_user %><%= "par le propriétaire" %><% else %><%= "par le locataire" %><% end %>)</h3>
+        <h3 class="red">Cette réservation a été annulée <% if @booking.cancelled_by == current_user.id %><%= "par vous" %><% elsif @booking.user == current_user %><%= "par le propriétaire" %><% else %><%= "par le locataire" %><% end %>.</h3>
       <% end %>
     </div>
     <div class="bar-infos">
