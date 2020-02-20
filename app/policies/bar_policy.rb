@@ -5,6 +5,10 @@ class BarPolicy < ApplicationPolicy
     true
   end
 
+  def owner_index?
+    true
+  end
+
   def show?
     true
   end
