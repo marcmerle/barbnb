@@ -82,8 +82,10 @@ $navbarHeight: 65px;
     .main_list {
       ul {
         li {
-          a {
+          &.navbar-button {
+            a {
             color: $myWhite;
+            }
             &:hover {
               color: $myGreen;
             }
