@@ -1,2 +1,18 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<div class="booking-show">
+  <div class="container d-flex">
+    <div class="left-side">
+    </div>
+    <div class="bar-infos">
+      <div class="bar-photo" style="background-image: url(<%= cl_image_path @bar.photos.first.key %>); background-size: cover; background-position: center">
+      </div>
+      <div class="bar-text">
+        <h2><%= @bar.name %></h2>
+        <h5><%= @bar.address %> <%= link_to "https://www.google.com/maps/dir//#{@bar.address.gsub(" ", "+")}", target: :_blank do %>
+          <i class="fas fa-directions"></i>
+        <% end %></h5>
+
+        <h6>Le <%= @booking.starts_at.to_date %></h6>
+      </div>
+    </div>
+  </div>
+</div>
