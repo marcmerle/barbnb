@@ -2,6 +2,8 @@
 
 require 'open-uri'
 
+Geocoder.configure(timeout: 60)
+
 class String
   def green
     "\e[32m#{self}\e[0m"
