@@ -1,4 +1,4 @@
-<%= cl_image_path(bar.photos.first.key) %>
+<div class="img-map" style="background-image: url(<%= cl_image_path(bar.photos.sample.key) %>)"></div>
 <h2><%= bar.name %></h2>
-<p class=""><%= bar.address %></p>
+<p class="m-0 text-muted"><%= bar.address %></p>
 <%= render 'components/button_link', text: "Voir le bar", link: bar_path(bar) %>
