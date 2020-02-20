@@ -22,14 +22,15 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @bar = Bar.find(params[:bar_id])
     @booking.user = current_user
-    @booking.bar = params[:bar_id]
+    @booking.bar = @bar
+    @booking.amount = @bar.price * @booking.guest_number
+    @booking.state = "En cours"
     authorize @booking
-    if @booking.save
-      redirect_to booking_path(@booking)
-    else
-      render 'bars/show'
-    end
+
+    @booking.save
+    redirect_to booking_path(@booking)
   end
 
   def index
