@@ -76,8 +76,7 @@ User.all.sample(300).each do |user|
 
   state = ends_at < Time.now ? "Terminé" : states.sample
 
-
-  Booking.create!(
+  booking = Booking.new(
     bar: bar,
     user: user,
     guest_number: number,
@@ -86,6 +85,11 @@ User.all.sample(300).each do |user|
     ends_at: ends_at,
     state: state
   )
+  if state == "Annulé"
+    booking.cancelled_by = [booking.user.id, booking.bar.owner.id].sample
+  end
+
+  booking.save!
 end
 puts "15 bookings were created (#{Booking.where(state: "Annulé").count} annulés, #{Booking.where(state: "À venir").count} à venir, #{Booking.where(state: "Terminé").count} terminés)".green
 
@@ -98,7 +102,7 @@ comments = [
   { content: "C'était super pas bien !", rating: 1 },
   { content: "C'était super je crois !", rating: 5 },
   { content: "C'était super terrible !", rating: 4 },
-  { content: "C'était super pas terrible!", rating: 1 }
+  { content: "C'était super pas terrible!", rating: 1 },
   { content: "C'était top !", rating: 4 },
   { content: "C'était pas ouf, bières assez fades !", rating: 3 },
   { content: "C'était nul, on s'est fait insulter par le barman !", rating: 1 },
@@ -110,7 +114,6 @@ comments = [
 Booking.all.each do |booking|
   review = Review.new(comments.sample)
   review.booking = booking
-  review.cancelled_by = [booking.user.id, booking.bar.owner.id].sample
   review.save!
 end
 puts "Reviews added to booking".green
