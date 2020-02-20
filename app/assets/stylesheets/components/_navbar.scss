@@ -43,18 +43,25 @@ $navbarHeight: 65px;
       list-style: none;
       margin: 0;
       padding: 0;
+      margin-right: 20px;
 
       li {
         width: auto;
-        height: 65px;
+        height: 45px;
         padding: 0;
-        padding-right: 30px;
+        border: 1px solid $myWhite;
+        margin: 10px 5px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
 
         a {
           text-decoration: none;
           text-shadow: 1px 1px 3px $shadow20;
           line-height: 65px;
-          font-size: 24px;
+          font-size: 16px;
         }
       }
     }
@@ -95,6 +102,7 @@ $navbarHeight: 65px;
     .main_list {
       ul {
         li {
+          border: 1px solid $myBlack;
           a {
             color: $myBlack;
             &:hover {

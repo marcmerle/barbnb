@@ -30,9 +30,9 @@
     <div id="mainListDiv" class="main_list" data-target="navbar.menu">
       <ul class="navlinks">
         <% unless current_user %>
-          <li> <%= link_to "À Propos", "#" %> </li>
-          <li> <%= link_to "Inscription", new_user_registration_path %> </li>
-          <li> <%= link_to "Connexion", new_user_session_path %> </li>
+          <li class="navbar-button"> <%= link_to "À Propos", "#" %> </li>
+          <li class="navbar-button"> <%= link_to "Inscription", new_user_registration_path %> </li>
+          <li class="navbar-button"> <%= link_to "Connexion", new_user_session_path %> </li>
         <% end %>
         <% if current_user %>
           <li>
