@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.bar = params[:bar_id]
+    @booking.bar = Bar.find(params[:bar_id])
     authorize @booking
     if @booking.save
       redirect_to booking_path(@booking)

@@ -40,7 +40,6 @@
   #guest-count {
     display: flex;
     align-items: center;
-    // justify-content: center; Removed for presentation
 
     & > * {
       margin: 0 8px;
@@ -59,16 +58,27 @@
   }
 }
 
+.first-timer-child {
+  width: 29%;
+  margin-top: 2px;
+}
+
+.second-timer-child {
+  width: 29%;
+  margin-top: 2px;
+}
+
+#timers {
+  display: flex;
+  justify-content: space-evenly;
+  & > input {
+    position: absolute;
+  }
+}
+
 .bar-calendar {
   height: 224px;
   margin-bottom: 20px;
-}
-
-// For presentation
-#Remove-after-pres {
-  input {
-    opacity: 0;
-  }
 }
 
 .rating-stars {

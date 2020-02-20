@@ -34,7 +34,7 @@
         <div class="booking-form">
           <%= render "booking_form" %>
         </div>
-        <div class="btn btn-default waves-effect">Réserver</div>
+        <%= render "components/button", text: "Réserver", type: "submit", form: "new_booking" %>
       </div>
       <div class="bar-empty"></div>
     </div>
