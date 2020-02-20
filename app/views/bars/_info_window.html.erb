@@ -1,2 +1,4 @@
+<%= cl_image_path(bar.photos.first.key) %>
 <h2><%= bar.name %></h2>
-<p><%= bar.address %></p>
+<p class=""><%= bar.address %></p>
+<%= render 'components/button_link', text: "Voir le bar", link: bar_path(bar) %>
