@@ -25,8 +25,12 @@
 
     <div class="bar-booking-container">
       <div class="bar-booking">
-        <div class="bar-price" data-controller="total-price">
-          <h4>Total price: <strong><span data-target="total-price.amount"><%= @bar.price * 10 %></span>€</strong></h4>
+        <div class="bar-price"
+             data-controller="total-price"
+             data-action="guest_number_change@window->total-price#update"
+             data-total-price-bar-price = <%= @bar.price %>
+             >
+          <h4>Total price: <strong><span data-target="total-price.amount"><%= @bar.price * 2 %></span>€</strong></h4>
           <div class="bar-price-details">
             <p>Prix par participant : <span data-target="total-price.barPrice"><%= @bar.price %></span>€</p>
           </div>
