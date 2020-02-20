@@ -17,11 +17,16 @@
 
 
 <nav class="custom-nav <%= color %> <%= "affix" unless home %>" data-controller="navbar" data-target="navbar.bar" <% if home %>data-action="scroll@window->navbar#createBar"<% end %>>
-  <div class="nav-container">
+  <div class="nav-container d-flex justify-content-between">
     <div class="logo">
       <% url = current_user ? bars_path : "/" %>
       <%= link_to(url) { image_tag("logo.png") } %>
     </div>
+    <% unless home %>
+      <div class="searchbar-nav">
+        <%= render 'components/searchbar'%>
+      </div>
+    <% end %>
     <div id="mainListDiv" class="main_list" data-target="navbar.menu">
       <ul class="navlinks">
         <% unless current_user %>
@@ -33,10 +38,11 @@
           <li>
           <div class="dropdown">
             <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= render "components/avatar", name: current_user.email %>
+              <%= render "components/avatar", name: current_user.first_name %>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to 'Edit Profile', edit_user_registration_path, class: 'dropdown-item' %>
               <%= link_to 'Create a bar', new_bar_path, class: 'dropdown-item' %>
               <div class="dropdown-divider"></div>
               <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
@@ -62,7 +68,7 @@
       <%#= render 'components/button_link', text: "Link button" %>
       <%#= render 'components/button', text: "Button button" %>
       <div class="searchbar-home">
-        <%= render 'components/searchbar' %>
+        <%= render 'components/searchbar', home: true %>
       </div>
     </div>
   </section>

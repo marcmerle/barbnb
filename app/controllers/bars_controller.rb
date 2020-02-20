@@ -5,7 +5,12 @@ class BarsController < ApplicationController
   skip_before_action :authenticate_user!, only: %w[index show]
 
   def index
-    @bars = policy_scope(Bar)
+    @query = params[:query]
+    if params[:query].present?
+      @bars = policy_scope(Bar).bar_search(params[:query])
+    else
+      @bars = policy_scope(Bar)
+    end
     @markers = @bars.map do |bar|
       {
         lat: bar.latitude,
