@@ -30,16 +30,23 @@
 .bar-booking {
   border-radius: 8px;
   width: 100%;
-  margin-top: -75px;
-  padding: 20px 24px;
+  margin-top: -175px;
+  padding: 20px 24px 12px 24px;
   display: flex;
   flex-direction: column;
   background-color: $myWhite;
   box-shadow: 2px 2px 20px 7px $shadow12;
 
+  .booking-form {
+    margin-bottom: 8px;
+  }
+
   #guest-count {
     display: flex;
     align-items: center;
+
+    margin-bottom: 8px;
+    margin-top: -8px;
 
     & > * {
       margin: 0 8px;
@@ -58,21 +65,36 @@
   }
 }
 
-.first-timer-child {
-  width: 29%;
-  margin-top: 2px;
-}
+.time-date-pickers {
+  visibility: collapse;
 
-.second-timer-child {
-  width: 29%;
-  margin-top: 2px;
-}
-
-#timers {
-  display: flex;
-  justify-content: space-evenly;
   & > input {
     position: absolute;
+  }
+
+  .first-timer-child {
+    width: 29%;
+    margin-top: 2px;
+  }
+
+  .second-timer-child {
+    width: 29%;
+    margin-top: 2px;
+  }
+
+  #timers {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    & > input {
+      position: absolute;
+    }
+
+    .de-a {
+      visibility: visible;
+      padding-top: 5px;
+    }
   }
 }
 

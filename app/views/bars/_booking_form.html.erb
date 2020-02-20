@@ -3,17 +3,18 @@
       data-guest-count-max-guest="<%= @bar.capacity %>"
       >
       <%= simple_form_for [@bar, @booking] do |f| %>
-        <%= f.input :starts_at, as: :string,
+        <%= f.input :starts_at, as: :hidden,
                     readonly: true,
                     input_html: {
+                      value: Time.parse('20:00 +0100') + 1.day,
                       data: { target: "pick-date.startsAt" }
                     }
         %>
-        <%= f.input :ends_at, as: :string,
+        <%= f.input :ends_at, as: :hidden,
                     readonly: true,
                     input_html: {
-                      data: { target: "pick-date.endsAt" }
-                    }
+                      value: Time.parse('21:00 +0100') + 1.day,
+                      data: { target: "pick-date.endsAt" }                    }
         %>
         <%= f.input :guest_number, as: :hidden,
                     readonly: true,
@@ -25,7 +26,7 @@
       <% end %>
 
       <div id="guest-count">
-        <div>Nbre de participants :</div>
+        <div>Participants :</div>
         <div class="count-button"
               data-action="click->guest-count#remove"
               data-target="guest-count.minus"
@@ -46,33 +47,34 @@
       </div>
   </div>
 
-  <div style="visibility: collapse; position: relative;">
-  <input data-controller="flatpickr"
-          data-target="pick-date.date"
-          data-action="change->pick-date#setTimeRange"
-          data-flatpickr-min-date="<%= Time.zone.now %>"
-          data-flatpickr-max-date="<%= Time.zone.now + 30.days %>"
-          value="<%= Time.zone.now %>"
-          type="hidden"
-          >
-  <div id="timers">
-    <div>De</div>
+  <div class="time-date-pickers">
     <input data-controller="flatpickr"
-           data-target="pick-date.from"
-           data-action="change->pick-date#setTimeRange"
-           data-flatpickr-enable-time="true"
-           data-flatpickr-no-calendar="true"
-          value="20:00"
-          id="time-from"
-          >
-    <div>À</div>
-    <input data-controller="flatpickr"
-          data-target="pick-date.to"
-          data-action="change->pick-date#setTimeRange"
-          data-flatpickr-enable-time="true"
-          data-flatpickr-no-calendar="true"
-          value="21:00"
-          id="time-to"
-          >
+            data-target="pick-date.date"
+            data-action="change->pick-date#setTimeRange"
+            data-flatpickr-min-date="<%= Time.zone.now %>"
+            data-flatpickr-max-date="<%= Time.zone.now + 30.days %>"
+            value="<%= Time.zone.now + 1.days %>"
+            type="hidden"
+            >
+    <div id="timers">
+      <div class="de-a">De</div>
+      <input data-controller="flatpickr"
+            data-target="pick-date.from"
+            data-action="change->pick-date#setTimeRange"
+            data-flatpickr-enable-time="true"
+            data-flatpickr-no-calendar="true"
+            value="20:00"
+            id="time-from"
+            >
+      <div class="de-a">À</div>
+      <input data-controller="flatpickr"
+            data-target="pick-date.to"
+            data-action="change->pick-date#setTimeRange"
+            data-flatpickr-enable-time="true"
+            data-flatpickr-no-calendar="true"
+            value="21:00"
+            id="time-to"
+            >
+    </div>
   </div>
 </div>

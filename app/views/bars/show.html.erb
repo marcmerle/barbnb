@@ -11,6 +11,7 @@
         <h1><strong><%= @bar.name %></strong></h1>
         <h5><i class="fas fa-map-marker-alt"></i>&nbsp&nbsp<%= @bar.address %></h5>
         <h5><i class="fas fa-users"></i>&nbsp&nbspUp to <strong><%= @bar.capacity %></strong> guests</h5>
+        <p>Prix par participant : <span data-target="total-price.barPrice"><%= @bar.price %></span>€</p>
         <p><%= @bar.description %></p>
         <p><%= render "components/button_link", text: "back", link: bars_path %></p>
         <% if @bar.owner == current_user %>
@@ -19,7 +20,7 @@
       </div>
 
       <div class="container reviews-container">
-        <%= render "reviews" %>
+        <%# <%= render "reviews" %1> %>
       </div>
     </div>
 
@@ -27,9 +28,6 @@
       <div class="bar-booking">
         <div class="bar-price" data-controller="total-price">
           <h4>Total price: <strong><span data-target="total-price.amount"><%= @bar.price * 10 %></span>€</strong></h4>
-          <div class="bar-price-details">
-            <p>Prix par participant : <span data-target="total-price.barPrice"><%= @bar.price %></span>€</p>
-          </div>
         </div>
         <div class="booking-form">
           <%= render "booking_form" %>
