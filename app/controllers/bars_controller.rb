@@ -16,6 +16,14 @@ class BarsController < ApplicationController
     end
   end
 
+  def owner_index
+    @bars = current_user.bars.sort_by do |bar|
+      current_user.bookings.where(bar: bar).order(starts_at: :desc)
+    end
+
+    authorize(@bars)
+  end
+
   def show
     @booking = Booking.new
   end

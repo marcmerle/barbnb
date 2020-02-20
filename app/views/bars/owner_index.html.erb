@@ -1,0 +1,13 @@
+<h1>Mes bars</h1>
+
+<% @bars.each do |bar| %>
+  <h2><%= bar.name %></h2>
+  <% bar.bookings.order(starts_at: :desc).each do |booking| %>
+    <ul>
+      <li>Réservation pour : <%= booking.user.fullname %></li>
+      <% date = booking.starts_at %>
+      <li>Date: <%= date.strftime("%d/%m/%Y") %> à <%= date.strftime("%kh%M") %></li>
+      <li>Durée: <%= booking.ends_at - date %></li>
+    </ul>
+  <% end  %>
+<% end %>
