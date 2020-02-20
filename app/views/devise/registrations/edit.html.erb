@@ -32,12 +32,12 @@
 
                         required: true,
                         input_html: { autocomplete: "current-password" } %>
-            <div class="d-flex">
+            <div class="d-flex align-items-center">
               <%= f.label :photo, "Photo :", class:"pr-3" %>
               <%= f.input :photo, as: :file, class:"mt-2", label: false %>
             </div>
           </div>
-          <div class="form-actions">
+          <div class="form-actions ml-0">
             <%= f.button :submit, "Update" %>
             <div class="form-link d-flex justify-content-between">
               <p class="unhappy">Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
