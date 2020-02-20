@@ -1,0 +1,30 @@
+.rating-stars {
+  display: flex;
+  padding-left: 4px;
+
+  div {
+    padding-right: 4px;
+  }
+}
+
+.reviews {
+  ul {
+    list-style-type: none;
+  }
+}
+
+.review-form-header {
+  margin-bottom: 20px
+}
+
+.form-control.text.required {
+  border-radius: 8px;
+  outline-width: 0;
+}
+
+textarea:focus {
+  outline: none;
+  outline-width: 0;
+  box-shadow: none !important;
+  border: 1px solid #ced4da !important;
+}

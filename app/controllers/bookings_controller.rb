@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %w[show edit update]
+  before_action :set_booking, only: %w[show edit update cancel]
   after_action :verify_authorized, only: :index, unless: :skip_pundit?
   skip_after_action :verify_policy_scoped, only: :index
 
@@ -37,6 +37,14 @@ class BookingsController < ApplicationController
   def index
     @user_bookings = current_user.bookings.order(starts_at: :desc)
     authorize @user_bookings
+  end
+
+  def cancel
+    @booking.state = "Annulé"
+    @booking.cancelled_by = current_user.id
+    @booking.save
+    authorize @booking
+    redirect_to booking_path(@booking)
   end
 
   private
