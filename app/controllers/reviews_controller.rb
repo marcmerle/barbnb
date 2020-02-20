@@ -6,12 +6,15 @@
 # Show nested in Bar#show
 class ReviewsController < ApplicationController
   def create
-    @booking = Booking.find(params[:bar_id])
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
     @review.booking = @booking
-    return redirect_to(@booking) if @review.save
-
-    render "bookings/show"
+    authorize @review
+    if @review.save
+      redirect_to booking_path(@booking)
+    else
+      render "bookings/show"
+    end
   end
 
   private

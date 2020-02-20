@@ -1,5 +1,5 @@
 <div class="add-review" data-controller="star-rating">
-  <h3>Your review...</h3>
+  <h3 class="review-form-header">It's now time to add review...</h3>
   <div class="stars" data-action="mouseleave->star-rating#showRating">
 
 <%
@@ -16,9 +16,9 @@
     <% end %>
   </div>
 
-  <%= simple_form_for [@bar, @review] do |f| %>
+  <%= simple_form_for [@booking, @review] do |f| %>
     <%= f.input :content, label: false %>
     <%= f.input :rating, as: :hidden, input_html: { data: { target: "star-rating.form" } } %>
-    <%= f.submit "Add review" %>
+    <%= render "components/button", text: "Add a review", form: "new_review", type: "submit"%>
   <% end %>
 </div>

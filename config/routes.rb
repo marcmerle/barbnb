@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   resources :bars, except: :destroy do
     resources :bookings, only: %i[create]
+  end
+
+  resources :bookings, except: %i[index create] do
     resources :reviews, only: %i[create]
   end
-  resources :bookings, except: %i[index create]
+
+  post '/bookings/:id/cancellation', to: 'bookings#cancel', as: "booking_cancellation"
 end

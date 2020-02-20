@@ -1,17 +1,69 @@
 <div class="booking-show">
-  <div class="container d-flex">
+  <div class="container d-flex justify-content-around">
     <div class="left-side">
+      <% if @booking.state == "Terminé" && current_user == @booking.user %>
+        <% if @booking.review %>
+          <div class="your-review">
+            <h2>Votre évaluation</h2>
+            <br>
+            <% @booking.review.rating.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - @booking.review.rating).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+            <br>
+            <div class="your-review-content">
+              &nbsp&nbsp<i class="fas fa-quote-left"></i>&nbsp&nbsp&nbsp<em><%= @booking.review.content %></em>
+            </div>
+          </div>
+        <% else %>
+          <%= render "review_form" %>
+        <% end %>
+      <% end %>
+      <% if @booking.state == "À venir" %>
+        <form action="<%= booking_cancellation_path %>" method="post" id="cancellation_cta" onSubmit="return confirm('Êtes-vous sûr de vouloir annuler?');">
+          <%= render 'components/button', text: "Annuler la réservation", type: "submit", form: "cancellation_cta", class:"cancellation-button" %>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        </form>
+        <% if current_user == @booking.user %>
+          <form action="mailto:<%= @bar.owner.email %>" id="owner-mailer">
+            <%= render 'components/button', text: "Envoyer un email au propriétaire", type: "submit", form: "owner-mailer" %>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          </form>
+        <% else %>
+          <form action="mailto:<%= @booking.user %>" id="user-mailer">
+            <%= render 'components/button', text: "Envoyer un email au locataire", type: "submit", form: "user-mailer" %>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          </form>
+        <% end %>
+      <% end %>
+      <% if @booking.state == "Annulé" %>
+        <h3 class="red">Cette réservation a été annulée <% if @booking.cancelled_by == current_user.id %><%= "par vous" %><% elsif @booking.user == current_user %><%= "par le propriétaire" %><% else %><%= "par le locataire" %><% end %>.</h3>
+      <% end %>
     </div>
     <div class="bar-infos">
-      <div class="bar-photo" style="background-image: url(<%= cl_image_path @bar.photos.first.key %>); background-size: cover; background-position: center">
-      </div>
+      <div class="status-tag <% if @booking.state == "Annulé" %>
+          <%= "tag-red" %>
+        <% elsif @booking.state == "Terminé" %>
+          <%= "tag-blue" %>
+        <% end %>"><%= @booking.state %></div>
+      <%= link_to bar_path(@bar) do %>
+        <div class="bar-photo" style="background-image: url(<%= cl_image_path @bar.photos.first.key %>); background-size: cover; background-position: center"></div>
+      <% end %>
       <div class="bar-text">
         <h2><%= @bar.name %></h2>
-        <h5><%= @bar.address %> <%= link_to "https://www.google.com/maps/dir//#{@bar.address.gsub(" ", "+")}", target: :_blank do %>
-          <i class="fas fa-directions"></i>
-        <% end %></h5>
-
-        <h6>Le <%= @booking.starts_at.to_date %></h6>
+        <div class="bar-address">
+          <h5><%= @bar.address %></h5>
+          <%= link_to "https://www.google.com/maps/dir//#{@bar.address.gsub(" ", "+")}", target: :_blank do %>
+            <i class="fas fa-directions"></i>
+          <% end %>
+        </div>
+        <br>
+        <h5>Le <%= l @booking.starts_at.to_time, format: :full %>, de <%= l @booking.starts_at, format: :hour %> à <%= l @booking.ends_at, format: :hour %>.</h5>
+        <h5><%= @booking.guest_number %> invités.</h5>
+        <br>
+        <h5>Prix total: <%= @booking.amount %>€</h5>
       </div>
     </div>
   </div>
