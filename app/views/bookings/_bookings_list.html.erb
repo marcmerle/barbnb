@@ -1,6 +1,13 @@
 <% @bookings.each do |booking| %>
   <div class="dashboard-card">
-    <%= cl_image_tag booking.bar.photos.first.key, height: 120, width: 190, crop: :fill %>
+    <div class="dashboard-card-photo">
+      <div class="status-tag-card <% if booking.state == "Annulé" %>
+            <%= "tag-red" %>
+          <% elsif booking.state == "Terminé" %>
+            <%= "tag-blue" %>
+          <% end %>"><%= booking.state %></div>
+      <%= cl_image_tag booking.bar.photos.first.key, height: 120, width: 190, crop: :fill %>
+    </div>
     <div class="dashboard-card-details">
       <strong><div class="booking-dates">
           <div class="booking-day">Le <%= booking.starts_at.strftime("%d/%m/%Y") %></div>

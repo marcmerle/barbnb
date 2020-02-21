@@ -56,6 +56,29 @@
   color: red;
 }
 
+.status-tag-card {
+  background-color: #04e789;
+  border-radius: 4px;
+  width: 70px;
+  font-size: 12px;
+  padding: 2px;
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: 0.5px solid white;
+
+  &.tag-red {
+    background-color: #a10000;
+    color: white;
+  }
+
+  &.tag-blue {
+    background-color: #004fa1;
+    color: white;
+  }
+}
+
 .status-tag {
   background-color: #04e789;
   border-radius: 4px;
