@@ -1,14 +1,13 @@
 <% unless @bar.reviews.empty? %>
-  <h2>Reviews</h2>
   <div class="reviews">
     <ul>
       <% @bar.reviews.each do |review|%>
         <li>
-          <div class="rating-stars">
-            <% review.rating.times do %> 
+          <div class="rating-stars mt-2">
+            <% review.rating.times do %>
               <div><%= icon("fas", "star") %></div>
             <% end %>
-            <% (5 - review.rating).times do %> 
+            <% (5 - review.rating).times do %>
               <div><%= icon("far", "star") %></div>
             <% end %>
           </div>
