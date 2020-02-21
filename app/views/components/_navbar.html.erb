@@ -37,14 +37,12 @@
           <li>
           <div class="dropdown">
             <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= render "components/avatar", name: current_user.first_name %>
+              <%= render "components/avatar", name: current_user.first_name, name_class: "avatar-" + color %>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to 'Mes réservations', dashboard_bookings_path, class: 'dropdown-item' %>
-              <div class="dropdown-divider"></div>
               <%= link_to 'Ajouter mon bar', new_bar_path, class: 'dropdown-item' %>
-              <div class="dropdown-divider"></div>
               <%= link_to 'Editer mon profil', edit_user_registration_path, class: 'dropdown-item' %>
               <div class="dropdown-divider"></div>
               <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
