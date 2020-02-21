@@ -19,4 +19,8 @@ class Bar < ApplicationRecord
   validates :price, :description, :capacity, :opening_start, :opening_end, presence: true
 
   attr_accessor :distance
+
+  def average_rating
+    reviews.empty? ? nil : reviews.map(&:rating).sum.fdiv(reviews.size).round(2)
+  end
 end
