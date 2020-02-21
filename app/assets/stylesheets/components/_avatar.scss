@@ -2,19 +2,37 @@
   width: 40px;
   border-radius: 50%;
 }
+
 .avatar-large {
   width: 56px;
   border-radius: 50%;
 }
+
 .avatar-bordered {
   width: 40px;
   border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  box-shadow: 0 1px 2px $shadow20;
+
+  &.avatar-light {
+    border: $myPurple 1px solid;
+  }
+
+  &.avatar-dark {
+    border: $myWhite 1px solid;
+  }
 }
+
 .avatar-square {
   width: 40px;
   border-radius: 0px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  box-shadow: 0 1px 2px $shadow20;
+  border: $myWhite 1px solid;
+}
+
+.avatar-light {
+  color: $myPurple;
+}
+
+.avatar-dark {
+  color: $myWhite;
 }
