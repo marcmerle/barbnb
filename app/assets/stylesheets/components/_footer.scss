@@ -1,3 +1,7 @@
+.content-wrapper {
+  min-height: calc(100vh - #{$navbarHeight} - 343px);
+}
+
 .footer {
   margin-top: 40px;
   background-color: black;
