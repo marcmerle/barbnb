@@ -6,22 +6,9 @@ class BarsController < ApplicationController
 
   def index
     @query = params[:query]
-    if params[:query].present?
-      @bars = policy_scope(Bar.near(params[:query], 1))
-      @distance = @bars.map do |bar|
-        distance(bar)
-      end
-    else
-      @bars = policy_scope(Bar)
-    end
-    @markers = @bars.map do |bar|
-      {
-        lat: bar.latitude,
-        lng: bar.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { bar: bar }),
-        image_url: helpers.asset_url('barbie.png')
-      }
-    end
+    @bars = @query.present? ? policy_scope(Bar.near(@query, 1)) : @bars = policy_scope(Bar)
+    @distance = @bars.map { |bar| distance(bar) }
+    @markers = create_markers(@bars)
   end
 
   def show
@@ -53,6 +40,8 @@ class BarsController < ApplicationController
     redirect_to bar_path(@bar)
   end
 
+  private
+
   def distance(bar)
     if @query
       position = Geocoder.search(@query).first
@@ -60,10 +49,19 @@ class BarsController < ApplicationController
       position = Geocoder.search("16 villa Gaudelet").first
     end
     dist = Geocoder::Calculations.distance_between(position.coordinates, [bar.latitude, bar.longitude])
-    dist * 1_000
+    (dist * 1_000).round
   end
 
-  private
+  def create_markers(bars)
+    bars.map do |bar|
+      {
+        lat: bar.latitude,
+        lng: bar.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { bar: bar }),
+        image_url: helpers.asset_url('barbie.png')
+      }
+    end
+  end
 
   def set_bar
     @bar = Bar.find(params[:id])
