@@ -4,8 +4,10 @@
   <%= render 'components/button', text: "ButtonText", class: "Classes", form: "Form_id", type: "Type" % >
 %>
 
-<% text = local_assigns.fetch(:text, "Ok") %>
+<% text = yield.presence || local_assigns.fetch(:text, "Ok") %>
 <% classes = local_assigns.fetch(:class, "") %>
+<% action = local_assigns.fetch(:action, "") %>
+<% target = local_assigns.fetch(:target, "") %>
 <% form = local_assigns.fetch(:form, "") %>
 <% type = local_assigns.fetch(:type, "button") %>
 
@@ -13,8 +15,8 @@
 
 <button
   type="<%= type %>"
-  data-action=""
-  data-target=""
+  data-action="<%= action %>"
+  data-target="<%= target %>"
   form="<%= form %>"
   class="btn btn-default waves-effect waves-light <%= classes %>"
 >
