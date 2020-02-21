@@ -81,14 +81,23 @@ $navbarHeight: 65px;
     }
 
     .main_list {
+      .dropdown-menu {
+        background: $myBlack;
+      }
       ul {
         li {
           &.navbar-button {
-            a {
-              color: $myWhite;
-            }
-            &:hover {
+            border: 1px solid $myWhite;
+          }
+
+          a {
+            color: $myWhite;
+
+            &.dropdown-item:hover,
+            &.dropdown-item:active,
+            &.dropdown-item:focus {
               color: $myGreen;
+              background: $myBlack;
             }
           }
         }
@@ -105,6 +114,9 @@ $navbarHeight: 65px;
     }
 
     .main_list {
+      .dropdown-menu {
+        background: $myWhite;
+      }
       ul {
         li {
           &.navbar-button {
@@ -112,8 +124,11 @@ $navbarHeight: 65px;
           }
           a {
             color: $myBlack;
-            &:hover {
+            &.dropdown-item:hover,
+            &.dropdown-item:active,
+            &.dropdown-item:focus {
               color: $myRed;
+              background: $myWhite;
             }
           }
         }
@@ -392,4 +407,9 @@ a#navbarDropdown {
 
 .dropdown-toggle:after {
   content: none;
+}
+
+*:focus {
+  outline: 0;
+  outline: none;
 }
