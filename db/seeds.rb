@@ -65,7 +65,7 @@ end
 
 ##
 # Bookings DB Seed
-User.all.sample(300).each do |user|
+300.times do
   bar = Bar.all.sample
   number = rand(2..bar.capacity)
   amount = number * bar.price
@@ -82,7 +82,7 @@ User.all.sample(300).each do |user|
 
   booking = Booking.new(
     bar: bar,
-    user: user,
+    user: User.all.sample,
     guest_number: number,
     amount: amount,
     starts_at: starts_at,
@@ -93,28 +93,28 @@ User.all.sample(300).each do |user|
 
   booking.save!
 end
-puts "15 bookings were created (#{Booking.where(state: 'Annulé').count} annulés, #{Booking.where(state: 'À venir').count} à venir, #{Booking.where(state: 'Terminé').count} terminés)".green
+puts "#{Booking.count} bookings were created (#{Booking.where(state: 'Annulé').count} annulés, #{Booking.where(state: 'À venir').count} à venir, #{Booking.where(state: 'Terminé').count} terminés)".green
 
 Booking.first.user = User.first
 Booking.first.bar = Bar.first
 
-comments = [
-  { content: "C'était super !", rating: 4 },
-  { content: "C'était pas si super !", rating: 3 },
-  { content: "C'était super pas bien !", rating: 1 },
-  { content: "C'était super je crois !", rating: 5 },
-  { content: "C'était super terrible !", rating: 4 },
-  { content: "C'était bien mais je suis un hater !", rating: 2 },
-  { content: "C'était top !", rating: 4 },
-  { content: "C'était ouf, bières incroyables !", rating: 5 },
-  { content: "MEILLEURE SOIRÉE DE MA VIE", rating: 5 },
-  { content: "C'était trop bien, j'y retourne dès que possible !", rating: 5 },
-  { content: "C'était vraiment cool !", rating: 4 },
-  { content: "Cool, cool cool cool", rating: 4 }
-]
+  comments = [
+    { content: "C'était super !", rating: 4 },
+    { content: "C'était pas si super !", rating: 3 },
+    { content: "C'était super pas bien !", rating: 1 },
+    { content: "C'était super je crois !", rating: 5 },
+    { content: "C'était super terrible !", rating: 4 },
+    { content: "C'était bien mais je suis un hater !", rating: 2 },
+    { content: "C'était top !", rating: 4 },
+    { content: "C'était ouf, bières incroyables !", rating: 5 },
+    { content: "MEILLEURE SOIRÉE DE MA VIE", rating: 5 },
+    { content: "C'était trop bien, j'y retourne dès que possible !", rating: 5 },
+    { content: "C'était vraiment cool !", rating: 4 },
+    { content: "Cool, cool cool cool", rating: 4 }
+  ]
 
 Booking.all.each do |booking|
-  rand(5..10) do
+  rand(0..15).times do
     review = Review.new(comments.sample)
     review.booking = booking
     review.save!
