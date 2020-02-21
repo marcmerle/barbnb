@@ -29,7 +29,6 @@
     .booking-hours {
       margin-left: 20px;
     }
-
   }
 
   .booking-address {
@@ -65,4 +64,15 @@
   text-decoration: none;
   color: $myPurple;
   flex-shrink: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+
+  & > li {
+    padding: 0;
+    margin: 0;
+  }
 }

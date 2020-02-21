@@ -6,19 +6,8 @@ class BarsController < ApplicationController
 
   def index
     @query = params[:query]
-    if params[:query].present?
-      @bars = policy_scope(Bar).bar_search(params[:query])
-    else
-      @bars = policy_scope(Bar)
-    end
-    @markers = @bars.map do |bar|
-      {
-        lat: bar.latitude,
-        lng: bar.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { bar: bar }),
-        image_url: helpers.asset_url('barbie.png')
-      }
-    end
+    @bars = @query.present? ? policy_scope(Bar).bar_search(@query) : policy_scope(Bar)
+    @markers = create_markers(@bars)
   end
 
   def owner_index
@@ -59,6 +48,17 @@ class BarsController < ApplicationController
   end
 
   private
+
+  def create_markers(bars)
+    bars.map do |bar|
+      {
+        lat: bar.latitude,
+        lng: bar.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { bar: bar }),
+        image_url: helpers.asset_url('barbie.png')
+      }
+    end
+  end
 
   def set_bar
     @bar = Bar.find(params[:id])

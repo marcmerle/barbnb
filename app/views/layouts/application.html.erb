@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Barbnb</title>
+    <title>Barbie'n be</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -25,10 +25,12 @@
     <%= render "components/navbar", home: request.original_fullpath == "/" %>
     <div class="page-content">
         <%= yield %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
     </div>
-    <%= render "components/footer" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <footer>
+      <%= render "components/footer" %>
+      <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    </footer>
   </body>
 </html>
