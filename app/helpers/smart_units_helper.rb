@@ -2,6 +2,7 @@
 
 module SmartUnitsHelper
   def sensible_distance(meters)
+    return "" unless meters
     return "#{meters} m" if meters < 1_000
 
     "#{meters / 1_000} km"
