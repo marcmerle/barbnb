@@ -2,9 +2,9 @@
   <%= render "components/dashboard_menu" %>
   <div class="dashboard-content">
     <div class="bookings-content">
-      <h1>Mes réservations</h1>
-      <%= render "bookings_list", bookings: @bookings %> 
+      <h1><%= @bookings.first.bar.name %></h1>
+      <h2>Détail des réservations</h2>
+      <%= render "bookings_list", bookings: @bookings %>
     </div>
   </div>
 </div>
-

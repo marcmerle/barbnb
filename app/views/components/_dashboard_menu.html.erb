@@ -1,14 +1,20 @@
 <div class="dashboard-menu-container">
   <div class="dashboard-menu">
-    <%= link_to(dashboard_bookings_path) do%>
+    <%= link_to(dashboard_bookings_path) do %>
       <div class="dashboard-menu-item">
-        <p>My Bookings</p>
+        <p>Mes réservations</p>
       </div>
     <% end %>
-    <%= link_to("#") do%>
+    <%= link_to(dashboard_bars_path) do %>
       <div class="dashboard-menu-item">
-        <p>My Bars</p>
+        <p>Mes établissements</p>
       </div>
     <% end %>
+    <%= link_to(edit_user_registration_path) do %>
+      <div class="dashboard-menu-item">
+        <p>Mon profil</p>
+      </div>
+    <% end %>
+
   </div>
 </div>

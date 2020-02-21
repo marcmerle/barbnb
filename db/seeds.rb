@@ -2,7 +2,7 @@
 
 require 'open-uri'
 
-Geocoder.configure(timeout: 60)
+Geocoder.configure(timeout: 60, lookup: :ban_data_gouv_fr)
 
 class String
   def green
@@ -98,20 +98,20 @@ puts "#{Booking.count} bookings were created (#{Booking.where(state: 'Annulé').
 Booking.first.user = User.first
 Booking.first.bar = Bar.first
 
-  comments = [
-    { content: "C'était super !", rating: 4 },
-    { content: "C'était pas si super !", rating: 3 },
-    { content: "C'était super pas bien !", rating: 1 },
-    { content: "C'était super je crois !", rating: 5 },
-    { content: "C'était super terrible !", rating: 4 },
-    { content: "C'était bien mais je suis un hater !", rating: 2 },
-    { content: "C'était top !", rating: 4 },
-    { content: "C'était ouf, bières incroyables !", rating: 5 },
-    { content: "MEILLEURE SOIRÉE DE MA VIE", rating: 5 },
-    { content: "C'était trop bien, j'y retourne dès que possible !", rating: 5 },
-    { content: "C'était vraiment cool !", rating: 4 },
-    { content: "Cool, cool cool cool", rating: 4 }
-  ]
+comments = [
+  { content: "C'était super !", rating: 4 },
+  { content: "C'était pas si super !", rating: 3 },
+  { content: "C'était super pas bien !", rating: 1 },
+  { content: "C'était super je crois !", rating: 5 },
+  { content: "C'était super terrible !", rating: 4 },
+  { content: "C'était bien mais je suis un hater !", rating: 2 },
+  { content: "C'était top !", rating: 4 },
+  { content: "C'était ouf, bières incroyables !", rating: 5 },
+  { content: "MEILLEURE SOIRÉE DE MA VIE", rating: 5 },
+  { content: "C'était trop bien, j'y retourne dès que possible !", rating: 5 },
+  { content: "C'était vraiment cool !", rating: 4 },
+  { content: "Cool, cool cool cool", rating: 4 }
+]
 
 Booking.all.each do |booking|
   rand(0..15).times do

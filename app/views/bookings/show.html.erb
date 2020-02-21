@@ -49,19 +49,31 @@
         <% elsif @booking.state == "Terminé" %>
           <%= "tag-blue" %>
         <% end %>"><%= @booking.state %></div>
-      <%= link_to bar_path(@bar) do %>
-        <div class="bar-photo" style="background-image: url(<%= cl_image_path @bar.photos.first.key %>); background-size: cover; background-position: center"></div>
+      <% if @booking.user == current_user %>
+        <%= link_to bar_path(@bar) do %>
+          <div class="bar-photo" style="background: url(<%= cl_image_path @bar.photos.first.key %>); background-size: cover; background-position: center"></div>
+        <% end %>
+      <% elsif @booking.user.photo.attachment %>
+        <div class="bar-photo" style="background: url(<%= cl_image_path @booking.user.photo.key %>); background-size: cover; background-position: center"></div>
+      <% else %>
+        <div class="bar-photo" style="background: url(<%= cl_image_path gravatar_url(@booking.user) %>); background-size: cover; background-position: center"></div>
       <% end %>
       <div class="bar-text">
-        <h2><%= @bar.name %></h2>
-        <div class="bar-address">
-          <h5><%= @bar.address %></h5>
-          <%= link_to "https://www.google.com/maps/dir//#{@bar.address.gsub(" ", "+")}", target: :_blank do %>
-            <i class="fas fa-directions"></i>
-          <% end %>
-        </div>
+        <% if @booking.user == current_user %>
+          <h2><%= @bar.name %></h2>
+          <div class="bar-address">
+            <h5><%= @bar.address %></h5>
+            <%= link_to "https://www.google.com/maps/dir//#{@bar.address.gsub(" ", "+")}", target: :_blank do %>
+              <i class="fas fa-directions"></i>
+            <% end %>
+          </div>
+        <% else %>
+          <h2>Réservé par <%= @booking.user.fullname %></h2>
+        <% end %>
         <br>
-        <h5>Le <%= l @booking.starts_at.to_time, format: :full %>, de <%= l @booking.starts_at, format: :hour %> à <%= l @booking.ends_at, format: :hour %>.</h5>
+        <% en_day_name = @booking.starts_at.strftime("%A") %>
+        <% en_month_name = @booking.starts_at.strftime("%B") %>
+        <h5>Le <%= @booking.fr_day_name(en_day_name) %> <%= @booking.starts_at.strftime("%d") %> <%= @booking.fr_month_name(en_month_name) %> <%= @booking.starts_at.strftime("%Y") %>, de <%= l @booking.starts_at, format: :hour %> à <%= l @booking.ends_at, format: :hour %>.</h5>
         <h5><%= @booking.guest_number %> invités.</h5>
         <br>
         <h5>Prix total: <%= @booking.amount %>€</h5>

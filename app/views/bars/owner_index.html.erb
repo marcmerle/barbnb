@@ -1,13 +1,34 @@
-<h1>Mes bars</h1>
+<div class="dashboard">
+  <%= render "components/dashboard_menu" %>
+  <div class="dashboard-content">
+    <div class="bookings-content">
+      <h1>Mes établissements</h1>
 
-<% @bars.each do |bar| %>
-  <h2><%= bar.name %></h2>
-  <% bar.bookings.order(starts_at: :desc).each do |booking| %>
-    <ul>
-      <li>Réservation pour : <%= booking.user.fullname %></li>
-      <% date = booking.starts_at %>
-      <li>Date: <%= date.strftime("%d/%m/%Y") %> à <%= date.strftime("%kh%M") %></li>
-      <li>Durée: <%= booking.ends_at - date %></li>
-    </ul>
-  <% end  %>
-<% end %>
+      <% @bars.each do |bar| %>
+        <div class="dashboard-card">
+          <%= cl_image_tag bar.photos.first.key, height: 120, width: 190, crop: :fill %>
+          <div class="dashboard-card-details">
+            <h5><%= bar.name %></h5>
+            <div class="booking-address">
+              <%= bar.address %>
+            </div>
+            </diV>
+            <div class="dashboard-card-booking-guests">
+              <p><%= bar.capacity %></p>
+              <p>place<%= "s" if bar.capacity > 1 %></p>
+            </div>
+            <%= link_to dashboard_owner_bookings_path(bar) do %>
+            <div class="dashboard-card-booking-show">Détails</div>
+          <% end %>
+        </div>
+
+        <ul>
+          <% bar.bookings.order(starts_at: :asc).each do |booking| %>
+            <% next if ["Terminé", "Annulé"].include? booking.state %>
+            <li><%= render "components/dashboard_oneliner_cards", booking: booking %></li>
+          <% end  %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
