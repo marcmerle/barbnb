@@ -1,9 +1,8 @@
 <div class="bars-index">
   <div class="cards-bar row d-flex">
     <div class="col-7 d-flex justify-content-center flex-wrap">
-      <% @bars.each_with_index do |bar, index| %>
+      <% @bars.each do |bar| %>
         <div class="card-bar-info col-5 m-4">
-          <% bar.distance = @distance[index] %>
           <%= render "components/bar_card", bar: bar %>
         </div>
       <% end %>
