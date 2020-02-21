@@ -10,10 +10,19 @@
       <div class="card-details-item-left">
         <div class="bar-ratings">
           <% if bar.average_rating %>
-            <% bar.average_rating.times do %>
+            <% bar.average_rating.floor.times do %>
               <i class="fas fa-star"></i>
             <% end %>
-            <% (5 - bar.average_rating).times do %>
+            <% if bar.average_rating % 1 > 0 %>
+              <% if bar.average_rating % 1 < 0.25 %>
+                <i class="fas fa-star"></i>
+              <% elsif bar.average_rating % 1 > 0.75 %>
+                <i class="far fa-star"></i>
+              <% else %>
+                <i class="fas fa-star-half-alt"></i>
+              <% end %>
+            <% end %>
+            <% (5 - bar.average_rating.ceil).times do %>
               <i class="far fa-star"></i>
             <% end %>
           <% else %>
