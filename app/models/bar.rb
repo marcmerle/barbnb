@@ -16,7 +16,7 @@ class Bar < ApplicationRecord
 
   after_validation :geocode, if: :will_save_change_to_address?
   validates :name, :address, presence: true # , uniqueness: true
-  validates :price, :description, :capacity, :opening_start, :opening_end, presence: true
+  validates :price, :description, :capacity, :opening_start, :opening_end, :photos, presence: true
 
   attr_accessor :distance
 
