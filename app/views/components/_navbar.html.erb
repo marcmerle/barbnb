@@ -63,13 +63,11 @@
 <% if home %>
   <section class="home">
     <div class="container" id="home-container">
-      <h1>Bar'bie and be est la plateforme de réservation de bar qu'il faut pour vos soirées.</h1>
+      <h1>Bar'bie and be est la plateforme de réservation de bar qu'il vous faut pour vos soirées.</h1>
       <p>Connectez-vous et trouvez les lieux qui vous ressemblent.</p>
       <%#= render 'components/button_link', text: "Link button" %>
       <%#= render 'components/button', text: "Button button" %>
-      <div class="searchbar-home">
-        <%= render 'components/searchbar', home: true %>
-      </div>
+      <%= render 'components/searchbar', home: true %>
     </div>
   </section>
 <% end %>
