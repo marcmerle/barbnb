@@ -16,8 +16,8 @@ class BarsController < ApplicationController
     @bars = current_user.bars.sort_by do |bar|
       current_user.bookings.where(bar: bar).order(starts_at: :desc)
     end
-
-    authorize(@bars)
+    @bars = [NilObject.new] if @bars.empty?
+    authorize @bars
   end
 
   def show

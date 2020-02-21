@@ -1,34 +1,39 @@
 <div class="dashboard">
   <%= render "components/dashboard_menu" %>
-  <div class="dashboard-content">
-    <div class="bookings-content">
-      <h1>Mes établissements</h1>
+    <% if @bars.first.is_a? Bar %>
+      <div class="dashboard-content">
+        <div class="bookings-content">
+          <h1>Mes établissements</h1>
 
-      <% @bars.each do |bar| %>
-        <div class="dashboard-card">
-          <%= cl_image_tag bar.photos.first.key, height: 120, width: 190, crop: :fill %>
-          <div class="dashboard-card-details">
-            <h5><%= bar.name %></h5>
-            <div class="booking-address">
-              <%= bar.address %>
+          <% @bars.each do |bar| %>
+            <div class="dashboard-card">
+              <%= cl_image_tag bar.photos.first.key, height: 120, width: 190, crop: :fill %>
+              <div class="dashboard-card-details">
+                <h5><%= bar.name %></h5>
+                <div class="booking-address">
+                  <%= bar.address %>
+                </div>
+                </diV>
+                <div class="dashboard-card-booking-guests">
+                  <p><%= bar.capacity %></p>
+                  <p>place<%= "s" if bar.capacity > 1 %></p>
+                </div>
+                <%= link_to dashboard_owner_bookings_path(bar) do %>
+                <div class="dashboard-card-booking-show">Détails</div>
+              <% end %>
             </div>
-            </diV>
-            <div class="dashboard-card-booking-guests">
-              <p><%= bar.capacity %></p>
-              <p>place<%= "s" if bar.capacity > 1 %></p>
-            </div>
-            <%= link_to dashboard_owner_bookings_path(bar) do %>
-            <div class="dashboard-card-booking-show">Détails</div>
+            <ul>
+              <% bar.bookings.order(starts_at: :asc).each do |booking| %>
+                <% next if ["Terminé", "Annulé"].include? booking.state %>
+                <li><%= render "components/dashboard_oneliner_cards", booking: booking %></li>
+              <% end  %>
+            </ul>
           <% end %>
         </div>
-
-        <ul>
-          <% bar.bookings.order(starts_at: :asc).each do |booking| %>
-            <% next if ["Terminé", "Annulé"].include? booking.state %>
-            <li><%= render "components/dashboard_oneliner_cards", booking: booking %></li>
-          <% end  %>
-        </ul>
-      <% end %>
-    </div>
-  </div>
+      </div>
+    <% else %>
+      <div class="empty-container">
+        <h1>Vous n'avez pas encore de bar !</h1>
+      </div>
+    <% end %>
 </div>

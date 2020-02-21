@@ -1,10 +1,16 @@
 <div class="dashboard">
   <%= render "components/dashboard_menu" %>
-  <div class="dashboard-content">
-    <div class="bookings-content">
-      <h1><%= @bookings.first.bar.name %></h1>
-      <h2>Détail des réservations</h2>
-      <%= render "bookings_list", bookings: @bookings %>
+  <% if @bookings.first.is_a? Booking %>
+    <div class="dashboard-content">
+      <div class="bookings-content">
+        <h1><%= @bookings.first.bar.name %></h1>
+        <h2>Détail des réservations</h2>
+        <%= render "bookings_list", bookings: @bookings %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <div class="empty-container">
+      <h1>Vous n'avez pas encore de réservation pour ce bar !</h1>
+    </div>
+  <% end %>
 </div>
