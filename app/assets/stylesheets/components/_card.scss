@@ -46,8 +46,12 @@
 
   .card-details-item.card-details-header {
     min-height: 56px;
+
+    h4 {
+      width: 250px
+    }
+
     .bar-distance {
-      width: 80px;
       text-align: right;
     }
   }
