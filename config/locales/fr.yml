@@ -1,5 +1,4 @@
 fr:
   time:
     formats:
-      full: "%A %d %B %Y"
       hour: "%Hh"
