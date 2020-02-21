@@ -24,9 +24,11 @@
   <body>
     <%= render "components/navbar", home: request.original_fullpath == "/" %>
     <div class="page-content">
-      <%= yield %>
+      <div class="content-wrapper">
+        <%= yield %>
+      </div>
     </div>
-    <%= render "components/footer" %>
+      <%= render "components/footer" %>
     <p class="notice" style="position: absolute"><%= notice %></p>
     <p class="alert" style="position: absolute"><%= alert %></p>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
