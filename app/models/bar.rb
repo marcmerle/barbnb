@@ -9,12 +9,14 @@ class Bar < ApplicationRecord
   geocoded_by :address
 
   pg_search_scope :bar_search,
-    against: [:name, :address],
-    using: {
-      tsearch: { prefix: true }
-    }
+                  against: %i[name address],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
   after_validation :geocode, if: :will_save_change_to_address?
   validates :name, :address, presence: true # , uniqueness: true
   validates :price, :description, :capacity, :opening_start, :opening_end, presence: true
+
+  attr_accessor :distance
 end
