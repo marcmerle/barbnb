@@ -43,7 +43,7 @@
       <% end %>
     </div>
     <div class="bar-infos">
-      <div class="status-tag <% if @booking.state == "Annulé" %>
+      <div class="status-tag status-tag-right <% if @booking.state == "Annulé" %>
           <%= "tag-red" %>
         <% elsif @booking.state == "Terminé" %>
           <%= "tag-blue" %>

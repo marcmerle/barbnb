@@ -1,4 +1,14 @@
 <div class="dashboard-oneliner-card">
+  <div class="dashboard-oneliner-card-state">
+    <div class="booking-state">
+      <div class="status-tag" <% if booking.state == "Annulé" %>
+            <%= "tag-red" %>
+          <% elsif booking.state == "Terminé" %>
+            <%= "tag-blue" %>
+          <% end %>"><%= booking.state %>
+      </div>
+    </div>
+  </div>
   <div class="dashboard-oneliner-card-details">
     <div class="booking-dates">
       <div class="booking-day">

@@ -1,7 +1,7 @@
 <% @bookings.each do |booking| %>
   <div class="dashboard-card">
     <div class="dashboard-card-photo">
-      <div class="status-tag-card <% if booking.state == "Annulé" %>
+      <div class="status-tag status-tag-left <% if booking.state == "Annulé" %>
             <%= "tag-red" %>
           <% elsif booking.state == "Terminé" %>
             <%= "tag-blue" %>
