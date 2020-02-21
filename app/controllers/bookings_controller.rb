@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.bar = @bar
     @booking.amount = @bar.price * @booking.guest_number
-    @booking.state = "En cours"
+    @booking.state = "À venir"
     authorize @booking
 
     @booking.save

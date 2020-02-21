@@ -5,13 +5,18 @@
 
 <% home = local_assigns.fetch(:home, false) %>
 <% index_bar = request.original_fullpath.match(/\/bars(\?|$)/) %>
+<% button_class = home ? "" : "search-button" %>
 
 
-<%= simple_form_for :search, url: bars_path, method: :get do |f| %>
+<form action="<%= bars_path %>" id="search-form" method="get" accept-charset="utf-8">
   <div class="form-component-search <%= "small-navbar" unless home %>">
     <div class="search-form-control d-flex form-group bg-white">
-      <input class="search-input border-0 flex-grow-1 string required p-3" type="text" name="query" id="search_query" placeholder="Essayez Paris 10.."/>
-      <%= (render "components/button", text: "Search", type: "Submit", form: "search_query") unless index_bar %>
+      <input class="search-input border-0 flex-grow-1 string required p-3" type="text" name="query" id="search_query" placeholder="Entrez une adresse..."/>
+      <%= unless index_bar
+          render "components/button", type: "submit", form: "search-form", class: button_class do %>
+            <%= icon('fas', 'search') %> Search
+          <% end %>
+      <% end %>
     </div>
   </div>
-<% end %>
+</form>

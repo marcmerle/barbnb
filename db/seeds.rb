@@ -18,13 +18,18 @@ bars_file = File.read("db/places.json")
 bars_data = JSON.parse(bars_file)
 ##
 # User DB Seed
+
+password = "123456"
+
 20.times do
   User.create!(
-    email: Faker::Internet.email,
-    password: "coucou"
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.unique.email,
+    password: password
   )
 end
-puts "20 users have been seeded.".green
+puts "20 users have been seeded with password #{password}.".green
 
 ##
 # Bar DB Seed
@@ -52,11 +57,10 @@ bars_data.first(100).each_with_index do |bar_data, i|
 end
 puts "#{Bar.count} bars were created".green
 
-
 def random_date
-  two_weeks_ago = (Time.now - 15.days).to_f
-  two_weeks_from_now = (Time.now + 15.days).to_f
-  Time.at(((two_weeks_from_now - two_weeks_ago) * rand + two_weeks_ago)).to_datetime
+  two_weeks_ago = (Time.zone.now - 15.days).to_f
+  two_weeks_from_now = (Time.zone.now + 15.days).to_f
+  Time.zone.at(((two_weeks_from_now - two_weeks_ago) * rand + two_weeks_ago)).to_datetime
 end
 
 ##
@@ -74,7 +78,7 @@ User.all.sample(300).each do |user|
   states = ["Annulé"]
   states.fill("À venir", states.size, 4) # To simulate a 20% cancellation rate
 
-  state = ends_at < Time.now ? "Terminé" : states.sample
+  state = ends_at < Time.zone.now ? "Terminé" : states.sample
 
   booking = Booking.new(
     bar: bar,
@@ -85,13 +89,11 @@ User.all.sample(300).each do |user|
     ends_at: ends_at,
     state: state
   )
-  if state == "Annulé"
-    booking.cancelled_by = [booking.user.id, booking.bar.owner.id].sample
-  end
+  booking.cancelled_by = [booking.user.id, booking.bar.owner.id].sample if state == "Annulé"
 
   booking.save!
 end
-puts "15 bookings were created (#{Booking.where(state: "Annulé").count} annulés, #{Booking.where(state: "À venir").count} à venir, #{Booking.where(state: "Terminé").count} terminés)".green
+puts "15 bookings were created (#{Booking.where(state: 'Annulé').count} annulés, #{Booking.where(state: 'À venir').count} à venir, #{Booking.where(state: 'Terminé').count} terminés)".green
 
 Booking.first.user = User.first
 Booking.first.bar = Bar.first
