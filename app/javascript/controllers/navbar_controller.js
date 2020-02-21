@@ -13,7 +13,7 @@ export default class extends Controller {
   static targets = ["bar", "menu"];
 
   createBar() {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 300) {
       this.barTarget.classList.add("affix");
     } else {
       this.barTarget.classList.remove("affix");

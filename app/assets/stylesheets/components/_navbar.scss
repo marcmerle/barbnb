@@ -84,7 +84,7 @@ $navbarHeight: 65px;
         li {
           &.navbar-button {
             a {
-            color: $myWhite;
+              color: $myWhite;
             }
             &:hover {
               color: $myGreen;
@@ -386,5 +386,9 @@ $navbarHeight: 65px;
 }
 
 a#navbarDropdown {
-  color: white
+  color: white;
+}
+
+.dropdown-toggle:after {
+  content: none;
 }
