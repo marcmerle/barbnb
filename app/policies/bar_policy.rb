@@ -18,7 +18,7 @@ class BarPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.owner == user
   end
 
   class Scope < Scope
