@@ -95,7 +95,8 @@ class BarsController < ApplicationController
     if bar_distance.present?
       policy_scope(bar_distance)
     else
-      set_policy_scope(distance + 50)
+      new_dist = distance < 5 ? 1 : 100
+      set_policy_scope(distance + new_dist)
     end
   end
 end
