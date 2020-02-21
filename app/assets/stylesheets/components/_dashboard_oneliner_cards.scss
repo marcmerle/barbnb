@@ -3,7 +3,10 @@
   box-shadow: 2px 2px 20px 7px $shadow12;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
+
+
 
 .dashboard-oneliner-card-details {
   padding: 8px 0;
@@ -36,3 +39,7 @@
   color: $myPurple;
   flex-shrink: 0;
 }
+
+// .booking-state {
+//   position: relative;
+// }
