@@ -3,6 +3,7 @@ $navbarHeight: 65px;
 
 .page-content {
   padding-top: $navbarHeight;
+  min-height: calc(100vh - 85px - 365px);
 }
 
 .custom-nav {

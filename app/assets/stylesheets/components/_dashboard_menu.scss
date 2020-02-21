@@ -2,7 +2,6 @@ $dashboardMenuWidth: 300px;
 
 .dashboard {
   display: flex;
-  height: calc(100vh - #{$navbarHeight});
 }
 
 .dashboard-menu-container {
