@@ -1,6 +1,7 @@
-<div class="booking-show">
-  <div class="container d-flex justify-content-around">
-    <div class="left-side">
+<div class="dashboard">
+  <%= render "components/dashboard_menu" %>
+  <div class="dashboard-content d-flex justify-content-around w-100">
+    <div class="left-side mt-5">
       <% if @booking.state == "Terminé" && current_user == @booking.user %>
         <% if @booking.review %>
           <div class="your-review">
@@ -60,7 +61,7 @@
           <% end %>
         </div>
         <br>
-        <h5>Le <%= l @booking.starts_at.to_time, format: :full %>, de <%= l @booking.starts_at, format: :hour %> à <%= l @booking.ends_at, format: :hour %>.</h5>
+        <h5><%= @booking.date_in_french %></h5>
         <h5><%= @booking.guest_number %> invités.</h5>
         <br>
         <h5>Prix total: <%= @booking.amount %>€</h5>

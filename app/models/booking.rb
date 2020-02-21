@@ -43,4 +43,13 @@ class Booking < ApplicationRecord
   def fr_month_name(en_month_name)
     MONTH_NAME_TRANSLATIONS[en_month_name.to_sym]
   end
+
+  def date_in_french
+    string = starts_at.in_time_zone("CET").strftime("Le %A %d  %B, de %Hh%M à ") + ends_at.in_time_zone("CET").strftime("%Hh%M")
+
+    DAY_NAME_TRANSLATIONS.each { |en, fr| string.gsub!(Regexp.quote(en), fr) }
+    MONTH_NAME_TRANSLATIONS.each { |en, fr| string.gsub!(Regexp.quote(en), fr) }
+
+    return string
+  end
 end
