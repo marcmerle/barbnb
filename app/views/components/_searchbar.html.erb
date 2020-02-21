@@ -4,7 +4,7 @@
 %>
 
 <% home = local_assigns.fetch(:home, false) %>
-<% index_bar = request.original_fullpath.match(/\/bars(\?|$)/) %>
+<% index_bar = request.original_fullpath.match(/^\/bars(\?|$)/) %>
 <% button_class = home ? "" : "search-button" %>
 
 
