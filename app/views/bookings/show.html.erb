@@ -1,6 +1,7 @@
-<div class="booking-show">
-  <div class="container d-flex justify-content-around">
-    <div class="left-side">
+<div class="dashboard">
+  <%= render "components/dashboard_menu" %>
+  <div class="dashboard-content d-flex justify-content-around w-100">
+    <div class="left-side mt-5">
       <% if @booking.state == "Terminé" && current_user == @booking.user %>
         <% if @booking.review %>
           <div class="your-review">
