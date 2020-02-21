@@ -9,7 +9,7 @@
 
 
 <form action="<%= bars_path %>" id="search-form" method="get" accept-charset="utf-8">
-  <div class="form-component-search <%= "small-navbar" unless home %>">
+  <div class="form-component-search small-navbar <%= "small-bar" if home  %>">
     <div class="search-form-control d-flex form-group bg-white">
       <input class="search-input border-0 flex-grow-1 string required p-3" type="text" name="query" id="search_query" placeholder="Entrez une adresse..."/>
       <%= unless index_bar
