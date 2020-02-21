@@ -13,8 +13,10 @@ class BarsController < ApplicationController
   end
 
   def owner_index
-    @bars = current_user.bars.sort_by do |bar|
-      current_user.bookings.where(bar: bar).order(starts_at: :desc).limit(1).first.starts_at.to_i
+    unless @bars.empty?
+      @bars = current_user.bars.sort_by do |bar|
+        current_user.bookings.where(bar: bar).order(starts_at: :desc).limit(1).first.starts_at.to_i
+      end
     end
     @bars = [NilObject.new] if @bars.empty?
     authorize @bars
