@@ -9,11 +9,11 @@
     <div class="card-details-item">
       <div class="card-details-item-left">
         <div class="bar-ratings">
-          <% if bar.average_review %>
-            <% bar.average_review.times do %>
+          <% if bar.average_rating %>
+            <% bar.average_rating.times do %>
               <i class="fas fa-star"></i>
             <% end %>
-            <% (5 - bar.average_review).times do %>
+            <% (5 - bar.average_rating).times do %>
               <i class="far fa-star"></i>
             <% end %>
           <% else %>

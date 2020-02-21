@@ -20,7 +20,7 @@ class Bar < ApplicationRecord
 
   attr_accessor :distance
 
-  def average_review
+  def average_rating
     reviews.empty? ? nil : (reviews.map(&:rating).sum / reviews.size).round
   end
 end
