@@ -17,6 +17,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def owner_index?
+    record.first.bar.owner == user
+  end
+
   def cancel?
     record.user == user
   end

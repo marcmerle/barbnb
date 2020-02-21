@@ -2,6 +2,7 @@
 
 class BookingsController < ApplicationController
   before_action :set_booking, only: %w[show edit update cancel]
+  before_action :set_bar, only: %w[create owner_index]
   after_action :verify_authorized, only: :index, unless: :skip_pundit?
   skip_after_action :verify_policy_scoped, only: :index
 
@@ -23,7 +24,6 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @bar = Bar.find(params[:bar_id])
     @booking.user = current_user
     @booking.bar = @bar
     @booking.amount = @bar.price * @booking.guest_number
@@ -35,8 +35,15 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @user_bookings = current_user.bookings.order(starts_at: :desc)
-    authorize @user_bookings
+    @bookings = current_user.bookings.order(starts_at: :desc)
+    update_booking_state
+    authorize @bookings
+  end
+
+  def owner_index
+    @bookings = @bar.bookings.order(starts_at: :desc)
+    update_booking_state
+    authorize @bookings
   end
 
   def cancel
@@ -53,6 +60,10 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def set_bar
+    @bar = Bar.find(params[:bar_id])
+  end
+
   def booking_params
     params.require(:booking).permit(
       :amount,
@@ -61,5 +72,16 @@ class BookingsController < ApplicationController
       :guest_number,
       :state
     )
+  end
+
+  def update_booking_state
+    @bookings.each do |booking|
+      next unless booking.state == "À venir"
+
+      if Time.zone.now > booking.ends_at
+        booking.state = "Terminé"
+        booking.save
+      end
+    end
   end
 end

@@ -1,0 +1,38 @@
+.dashboard-oneliner-card {
+  margin: 8px 140px;
+  box-shadow: 2px 2px 20px 7px $shadow12;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dashboard-oneliner-card-details {
+  padding: 8px 0;
+  width: calc(100% - 190px - 260px);
+
+  .booking-dates {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+.dashboard-oneliner-card-booking-guests {
+  display: flex;
+  align-items: center;
+  width: 130px;
+  flex-shrink: 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+.dashboard-oneliner-card > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  text-decoration: none;
+  color: $myPurple;
+  flex-shrink: 0;
+}

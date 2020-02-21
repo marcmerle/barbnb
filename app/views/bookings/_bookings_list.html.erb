@@ -1,0 +1,24 @@
+<% @bookings.each do |booking| %>
+  <div class="dashboard-card">
+    <%= cl_image_tag booking.bar.photos.first.key, height: 120, width: 190, crop: :fill %>
+    <div class="dashboard-card-details">
+      <strong><div class="booking-dates">
+          <div class="booking-day">Le <%= booking.starts_at.strftime("%d/%m/%Y") %></div>
+          <p>-</p>
+          <div class="booking-hours"><%= booking.starts_at.hour %>h&nbsp&nbsp<i class="fas fa-arrow-right"></i>&nbsp&nbsp<%= booking.ends_at.hour %>h</div>
+        </div></strong>
+        <div class="blank-div"></div>
+        <h5><%= booking.bar.name %></h5>
+        <div class="booking-address">
+          <%= booking.bar.address %>
+        </div>
+    </div>
+    <div class="dashboard-card-booking-guests">
+      <p><%= booking.guest_number %></p>
+      <p>invité<%= "s" if booking.guest_number > 1 %></p>
+    </div>
+    <%= link_to booking_path(booking) do %>
+      <div class="dashboard-card-booking-show">Détails</div>
+    <% end %>
+  </div>
+<% end %>
