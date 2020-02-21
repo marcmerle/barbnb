@@ -8,7 +8,7 @@
 
 <% name = local_assigns.fetch(:name).presence %>
 <% name_class = local_assigns.fetch(:name_class, "") %>
-<% url = current_user.photo.attachment ? cl_image_path(current_user.photo.key) : gravatar_url(current_user) %>
+<% url = current_user.photo.attachment ? cl_image_path(current_user.photo.key, width: 400, height: 400, crop: "fill", gravity: "face") : gravatar_url(current_user) %>
 
 <img class="avatar avatar-bordered <%= name_class %>" src="<%= url %>">
 <span class="<%= name_class %>"><%= name %></span>
