@@ -52,18 +52,7 @@
                <%= render "reviews" %>
             </div>
           </div>
-        <h5><i class="fas fa-map-marker-alt"></i>&nbsp&nbsp<%= @bar.address %></h5>
-        <h5><i class="fas fa-users"></i>&nbsp&nbspUp to <strong><%= @bar.capacity %></strong> guests</h5>
-
-
-        <p><%= @bar.description %></p>
-        <div class="d-flex">
-          <p><%= render "components/button_link", text: "back", link: @bars_path %></p>
-          <% if @bar.owner == current_user %>
-            <p><%= render "components/button_link", text: "Edit", link: edit_bar_path(@bar) %></p>
-          <% end %>
         </div>
-
       </div>
     </div>
 
