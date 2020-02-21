@@ -91,7 +91,7 @@ class BarsController < ApplicationController
   end
 
   def set_policy_scope(distance = 1)
-    bar_distance = Bar.near(@query, @distance)
+    bar_distance = Bar.near(@query, distance)
     if bar_distance.present?
       policy_scope(bar_distance)
     else
