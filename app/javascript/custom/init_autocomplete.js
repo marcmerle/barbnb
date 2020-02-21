@@ -7,4 +7,12 @@ const initAutocomplete = () => {
   }
 };
 
+const initAutocompleteSearch = () => {
+  const addressInput = document.getElementById('search_query');
+  if (addressInput) {
+    places({ container: addressInput });
+  }
+};
+
 export { initAutocomplete };
+export { initAutocompleteSearch };
