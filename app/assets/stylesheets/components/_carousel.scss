@@ -14,3 +14,7 @@
 .slick-prev::before {
   color: white !important;
 }
+
+.slick-slide {
+  border-right: 8px solid $myWhite;
+}
