@@ -1,0 +1,23 @@
+<div class="dashboard-oneliner-card">
+  <div class="dashboard-oneliner-card-details">
+    <div class="booking-dates">
+      <div class="booking-day">
+        <strong><%= booking.starts_at.strftime("%d/%m/%Y") %></strong>
+      </div>
+      <div class="booking-hours">
+        <strong>
+          <%= booking.starts_at.hour %>h
+          &nbsp&nbsp<i class="fas fa-arrow-right"></i>&nbsp&nbsp
+          <%= booking.ends_at.hour %>h
+        </strong>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-oneliner-card-booking-guests">
+    <p><%= booking.guest_number %> invité<%= "s" if booking.guest_number > 1 %></p>
+  </div>
+  <%= link_to booking_path(booking) do %>
+    <div class="dashboard-oneliner-card-booking-show">Détails</div>
+  <% end %>
+</div>
+

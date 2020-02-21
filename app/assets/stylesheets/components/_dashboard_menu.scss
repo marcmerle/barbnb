@@ -1,4 +1,5 @@
-$dashboardMenuWidth: 20%;
+$dashboardMenuWidth: 300px;
+
 .dashboard {
   display: flex;
 }
@@ -37,6 +38,6 @@ $dashboardMenuWidth: 20%;
   }
 
   p {
-    margin: 0
+    margin: 0;
   }
 }
