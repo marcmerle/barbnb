@@ -85,3 +85,4 @@ class BookingsController < ApplicationController
     end
   end
 end
+
