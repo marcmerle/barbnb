@@ -19,12 +19,14 @@ bars_data = JSON.parse(bars_file)
 ##
 # User DB Seed
 
+password = "123456"
+
 20.times do
   User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.unique.email,
-    password: "123456"
+    password: password
   )
 end
 puts "20 users have been seeded with password #{password}.".green
