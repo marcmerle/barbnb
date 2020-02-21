@@ -2,7 +2,6 @@
   <div class="cards-bar row d-flex">
     <div class="col-7 d-flex justify-content-center flex-wrap">
       <% @bars.each do |bar| %>
-      <% bar.average_rating %>
         <div class="card-bar-info col-5 m-4">
           <%= render "components/bar_card", bar: bar %>
         </div>
