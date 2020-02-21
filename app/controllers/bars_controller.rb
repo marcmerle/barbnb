@@ -6,7 +6,7 @@ class BarsController < ApplicationController
 
   def index
     @query = params[:query]
-    @bars = @query.present? ? policy_scope(Bar.near(@query, 1)) : @bars = policy_scope(Bar)
+    @bars = @query.present? ? set_policy_scope : policy_scope(Bar)
     compute_distance
 
     @markers = create_markers(@bars)
@@ -52,8 +52,7 @@ class BarsController < ApplicationController
   private
 
   def compute_distance
-    position = @query ? Geocoder.search(@query).first : Geocoder.search("16 villa Gaudelet").first
-
+    position = @query.present? ? Geocoder.search(@query).first : Geocoder.search("16 villa Gaudelet").first
     @bars.each do |bar|
       bar.distance = (1_000 * Geocoder::Calculations.distance_between(
         position.coordinates,
@@ -89,5 +88,14 @@ class BarsController < ApplicationController
       :price,
       photos: []
     )
+  end
+
+  def set_policy_scope(distance = 1)
+    bar_distance = Bar.near(@query, @distance)
+    if bar_distance.present?
+      policy_scope(bar_distance)
+    else
+      set_policy_scope(distance + 50)
+    end
   end
 end
