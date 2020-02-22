@@ -16,11 +16,6 @@
     align-items: center;
     display: flex;
 
-    h1 {
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
     .average-rating {
       color: $myPurple;
       margin-bottom: 17px;
@@ -28,8 +23,18 @@
     }
   }
 
-  h5 {
+  h1 {
+    font-weight: bold;
     margin-bottom: 20px;
+  }
+
+  h5 {
+    display: flex;
+    margin-bottom: 20px;
+
+    div {
+      margin-right: 16px;
+    }
   }
 
   p {

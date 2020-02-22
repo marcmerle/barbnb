@@ -12,9 +12,18 @@
           <h1><%= @bar.name %></h1>
           <%= render "average_rating", bar: @bar %>
         </div>
-            <h5><i class="fas fa-map-marker-alt"></i>&nbsp&nbsp<%= @bar.address %></h5>
-            <h5><i class="fas fa-users"></i>&nbsp&nbspUp to <strong><%= @bar.capacity %></strong> guests</h5>
-            <h5><i class="fas fa-tags"></i></i>&nbsp&nbsp<strong><%= @bar.price %></strong>€ par participant</h5>
+        <h5><%= icon("fas", "map-marker-alt") + nbspace + nbspace + @bar.address %></h5>
+        <h5>
+          <div>
+            <%= icon("fas", "users") + nbspace %>
+            <strong><%= @bar.capacity %></strong> participants maximum
+          </div>
+          <div>
+            <%= icon("fas", "tags") + nbspace %>
+            <strong><%= @bar.price.to_s + nbspace %></strong>€ par participant
+          </div>
+        </h5>
+
                     <nav>
           <div class="nav nav-tabs mt-4" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-description-tab" data-toggle="tab" href="#nav-description" role="tab" aria-controls="nav-description" aria-selected="true">Description</a>
