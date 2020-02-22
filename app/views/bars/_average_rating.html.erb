@@ -1,20 +1,20 @@
-<% raise %>
+<%
+    if bar.average_rating
+      average_stars = (bar.average_rating * 2).round / 2.0
+      number_full_stars = average_stars.floor
+      half_star = average_stars % 1 == 0 ? 0 : 1
+      number_empty_stars = 5 - (number_full_stars + half_star)
+    end
+%>
+
 <% if bar.average_rating %>
-  <% bar.average_rating.floor.times do %>
-    <i class="fas fa-star" style="font-size: 24px;"></i>
+  <% number_full_stars.times do %>
+    <%= icon("fas", "star") %>
   <% end %>
-  <% if bar.average_rating % 1 > 0 %>
-    <% if bar.average_rating % 1 < 0.25 %>
-      <i class="fas fa-star" style="font-size: 24px;"></i>
-    <% elsif bar.average_rating % 1 > 0.75 %>
-      <i class="far fa-star" style="font-size: 24px;"></i>
-    <% else %>
-      <i class="fas fa-star- half-alt" style="font-size: 24px;"></i>
-    <% end %>
+
+  <%= icon("fas", "star-half-alt") if half_star == 1 %>
+
+  <% number_empty_stars.times do %>
+    <%= icon("far", "star") %>  
   <% end %>
-  <% (5 - bar.average_rating.ceil).times do %>
-    <i class="far fa-star" style="font-size: 24px;"></i>
-  <% end %>
-<% else %>
-  <p>Pas encore d'évaluation</p>
 <% end %>
