@@ -2,7 +2,7 @@
   <%= render "components/dashboard_menu" %>
     <% if @bars.first.is_a? Bar %>
       <div class="dashboard-content">
-        <div class="bookings-content">
+        <div class="bookings-content bars">
           <h1>Mes établissements</h1>
 
           <% @bars.each do |bar| %>
@@ -19,8 +19,11 @@
                   <p>place<%= "s" if bar.capacity > 1 %></p>
                 </div>
                 <%= link_to dashboard_owner_bookings_path(bar) do %>
-                <div class="dashboard-card-booking-show">Détails</div>
-              <% end %>
+                  <div class="dashboard-card-booking-show">Toutes les réservations</div>
+                <% end %>
+                <%= link_to bar_path(bar) do %>
+                  <div class="dashboard-card-booking-show">Détails du bar</div>
+                <% end %>
             </div>
             <ul>
               <% bar.bookings.order(starts_at: :asc).each do |booking| %>

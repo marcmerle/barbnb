@@ -1,33 +1,34 @@
-<div class="dashboard-oneliner-card">
-  <div class="dashboard-oneliner-card-state">
-    <div class="booking-state">
-      <div class="status-tag" <% if booking.state == "Annulé" %>
-            <%= "tag-red" %>
-          <% elsif booking.state == "Terminé" %>
-            <%= "tag-blue" %>
-          <% end %>"><%= booking.state %>
+<%= link_to booking_path(booking), class: "dashbord-onliner-link" do %>
+  <div class="dashboard-oneliner-card">
+    <div class="dashboard-oneliner-card-state">
+      <div class="booking-state">
+        <%
+        status_tag = ""
+        status_tag = "tag-red" if booking.state == "Annulé"
+        status_tag = "tag-blue" if booking.state == "Terminé"
+        %>
+        <div class="status-tag <%= status_tag %>">
+          <%= booking.state %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="dashboard-oneliner-card-details">
-    <div class="booking-dates">
-      <div class="booking-day">
-        <strong><%= booking.starts_at.strftime("%d/%m/%Y") %></strong>
-      </div>
-      <div class="booking-hours">
-        <strong>
-          <%= booking.starts_at.hour %>h
-          &nbsp&nbsp<i class="fas fa-arrow-right"></i>&nbsp&nbsp
-          <%= booking.ends_at.hour %>h
-        </strong>
+    <div class="dashboard-oneliner-card-details">
+      <div class="booking-dates">
+        <div class="booking-day">
+          <strong><%= booking.starts_at.strftime("%d/%m/%Y") %></strong>
+        </div>
+        <div class="booking-hours">
+          <strong>
+            <%= booking.starts_at.in_time_zone("CET").strftime("%Hh%M") %>
+            &nbsp&nbsp<i class="fas fa-arrow-right"></i>&nbsp&nbsp
+            <%= booking.ends_at.in_time_zone("CET").strftime("%Hh%M") %>
+          </strong>
+        </div>
       </div>
     </div>
+    <div class="dashboard-oneliner-card-booking-guests">
+      <p><%= pluralize(booking.guest_number, "invité") %></p>
+    </div>
   </div>
-  <div class="dashboard-oneliner-card-booking-guests">
-    <p><%= booking.guest_number %> invité<%= "s" if booking.guest_number > 1 %></p>
-  </div>
-  <%= link_to booking_path(booking) do %>
-    <div class="dashboard-oneliner-card-booking-show">Détails</div>
-  <% end %>
-</div>
+<% end %>
 

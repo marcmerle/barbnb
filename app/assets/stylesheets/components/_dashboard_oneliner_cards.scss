@@ -1,12 +1,32 @@
+.dashbord-onliner-link {
+  &,
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited {
+    color: $myBlack;
+    text-decoration: none;
+  }
+}
+
 .dashboard-oneliner-card {
-  margin: 8px 140px;
+  align-items: center;
   box-shadow: 2px 2px 20px 7px $shadow12;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  margin: 8px 140px;
+
+  > a {
+    align-items: center;
+    color: $myPurple;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: center;
+    text-decoration: none;
+    width: 130px;
+  }
 }
-
-
 
 .dashboard-oneliner-card-details {
   padding: 8px 0;
@@ -19,27 +39,12 @@
 }
 
 .dashboard-oneliner-card-booking-guests {
-  display: flex;
   align-items: center;
-  width: 130px;
+  display: flex;
   flex-shrink: 0;
+  width: 130px;
 
   p {
     margin: 0;
   }
 }
-
-.dashboard-oneliner-card > a {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 130px;
-  text-decoration: none;
-  color: $myPurple;
-  flex-shrink: 0;
-}
-
-// .booking-state {
-//   position: relative;
-// }
