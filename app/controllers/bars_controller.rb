@@ -15,7 +15,7 @@ class BarsController < ApplicationController
   def owner_index
     owner_bookings = current_user.bars.map { |bar| bar.bookings.count }.min
     if current_user.bars.empty?
-      @bars = [NilObject.new]
+      @bars = []
     elsif owner_bookings.zero?
       @bars = current_user.bars
     else
