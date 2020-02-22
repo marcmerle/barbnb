@@ -1,20 +1,22 @@
-<%
-    if bar.average_rating
-      average_stars = (bar.average_rating * 2).round / 2.0
-      number_full_stars = average_stars.floor
-      half_star = average_stars % 1 == 0 ? 0 : 1
-      number_empty_stars = 5 - (number_full_stars + half_star)
-    end
-%>
+<div class="average-rating">
+  <%
+      if bar.average_rating
+        average_stars = (bar.average_rating * 2).round / 2.0
+        number_full_stars = average_stars.floor
+        half_star = average_stars % 1 == 0 ? 0 : 1
+        number_empty_stars = 5 - (number_full_stars + half_star)
+      end
+  %>
 
-<% if bar.average_rating %>
-  <% number_full_stars.times do %>
-    <%= icon("fas", "star") %>
+  <% if bar.average_rating %>
+    <% number_full_stars.times do %>
+      <%= icon("fas", "star") %>
+    <% end %>
+
+    <%= icon("fas", "star-half-alt") if half_star == 1 %>
+
+    <% number_empty_stars.times do %>
+      <%= icon("far", "star") %>  
+    <% end %>
   <% end %>
-
-  <%= icon("fas", "star-half-alt") if half_star == 1 %>
-
-  <% number_empty_stars.times do %>
-    <%= icon("far", "star") %>  
-  <% end %>
-<% end %>
+</div>
