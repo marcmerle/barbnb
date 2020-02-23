@@ -82,6 +82,8 @@ $navbarHeight: 65px;
 
     .main_list {
       .dropdown-menu {
+        top: 16px !important;
+        left: 4px !important;
         background: $myBlack;
       }
       ul {
@@ -115,6 +117,8 @@ $navbarHeight: 65px;
 
     .main_list {
       .dropdown-menu {
+        top: 16px !important;
+        left: 4px !important;
         background: $myWhite;
       }
       ul {
