@@ -5,7 +5,7 @@
     <% end %>
   </div>
 
-  <div class="container d-flex bar-container">
+  <div class="container bar-container">
     <div class="left-side d-flex flex-column">
       <div class="bar-details">
         <div class="bar-name">
@@ -31,6 +31,14 @@
           <input id="tab-1" name="tabs-two" type="radio" checked="checked">
           <div>
             <p><%= @bar.description %></p>
+            <div class="d-flex">
+              <%= render "components/button_link", text: "back", link: bars_path %>
+              <%=
+                  if  @bar.owner == current_user
+                    render "components/button_link", text: "Edit", link: edit_bar_path(@bar)
+                  end
+              %>
+            </div>
           </div>
         </div>
         <div class="tabs">

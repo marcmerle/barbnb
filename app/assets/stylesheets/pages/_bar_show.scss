@@ -1,4 +1,6 @@
 .bar-container {
+  display: flex;
+  justify-content: space-evenly;
   position: relative;
 }
 
@@ -10,7 +12,6 @@
   margin-right: 80px;
   margin-top: 10px;
   padding: 10px;
-  width: 654px;
 
   .bar-name {
     align-items: center;
@@ -116,7 +117,7 @@
 .bar-booking-container {
   display: flex;
   flex-direction: column;
-  width: auto;
+  padding: 0 24px;
 }
 
 .bar-booking {
