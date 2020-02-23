@@ -24,49 +24,45 @@
           </div>
         </h5>
 
-                    <nav>
-          <div class="nav nav-tabs mt-4" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-description-tab" data-toggle="tab" href="#nav-description" role="tab" aria-controls="nav-description" aria-selected="true">Description</a>
-            <a class="nav-item nav-link" id="nav-review-tab" data-toggle="tab" href="#nav-review" role="tab" aria-controls="nav-review" aria-selected="false">Évaluations</a>
-          </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
-            <p><%= @bar.description %></p>
-            <div class="d-flex">
-              <p><%= render "components/button_link", text: "back", link: bars_path %></p>
-              <% if @bar.owner == current_user %>
-                <p><%= render "components/button_link", text: "Edit", link: edit_bar_path(@bar) %></p>
-              <% end %>
+        <div class="bar-description">
+          <div class="tabs">
+            <label for="tab-1">Description</label>
+            <input id="tab-1" name="tabs-two" type="radio" checked="checked">
+            <div>
+              <p><%= @bar.description %></p>
             </div>
           </div>
-          <div class="tab-pane fade" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab">
-            <div class="container reviews-container">
-               <%= render "reviews" %>
+          <div class="tabs">
+            <label for="tab-2">Évaluations</label>
+            <input id="tab-2" name="tabs-two" type="radio">
+            <div>
+              <div class="container reviews-container">
+              <p><%= render "reviews" %></p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="bar-booking-container">
-      <div class="bar-booking">
-        <div class="bar-price"
-             data-controller="total-price"
-             data-action="guest_number_change@window->total-price#update"
-             data-total-price-bar-price = <%= @bar.price %>
-             >
-          <h4>Total price: <strong><span data-target="total-price.amount"><%= @bar.price * 2 %></span>€</strong></h4>
-          <div class="bar-price-details">
-            <p>Prix par participant : <span data-target="total-price.barPrice"><%= @bar.price %></span>€</p>
-          </div>
         </div>
-        <div class="booking-form">
-          <%= render "booking_form" %>
-        </div>
-        <%= render "components/button", text: "Réserver", type: "submit", form: "new_booking" %>
       </div>
-      <div class="bar-empty"></div>
+      </div>
+        <div class="bar-booking-container">
+          <div class="bar-booking">
+            <div class="bar-price"
+                 data-controller="total-price"
+                 data-action="guest_number_change@window->total-price#update"
+                 data-total-price-bar-price = <%= @bar.price %>
+               >
+               <h4>Total price: <strong><span data-target="total-price.amount"><%= @bar.price * 2 %></span>€</strong></h4>
+               <div class="bar-price-details">
+                 <p>Prix par participant : <span data-target="total-price.barPrice"><%= @bar.price %></span>€</p>
+               </div>
+            </div>
+            <div class="booking-form">
+              <%= render "booking_form" %>
+            </div>
+            <%= render "components/button", text: "Réserver", type: "submit", form: "new_booking" %>
+          </div>
+          <div class="bar-empty"></div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
