@@ -1,3 +1,14 @@
+<%
+    stimulus_data = ""
+    if @bar.owner == current_user
+      stimulus_data = <<-HTML
+        data-controller="inline-edit"
+        data-target="inline-edit.div"
+        data-action="click->inline-edit#toggle click@window->inline-edit#close"
+      HTML
+      stimulus_data = stimulus_data.html_safe
+    end
+%>
 <div class="bar-show">
   <div class="variable-width">
     <% @bar.photos.each do |photo| %>
@@ -8,29 +19,29 @@
   <div class="container d-flex bar-container">
     <div class="left-side d-flex flex-column">
       <div class="bar-details">
-        <h1><strong><%= @bar.name %></strong></h1>
-            <h5><i class="fas fa-map-marker-alt"></i>&nbsp&nbsp<%= @bar.address %></h5>
-            <h5><i class="fas fa-users"></i>&nbsp&nbspUp to <strong><%= @bar.capacity %></strong> guests</h5>
-            <h5><i class="fas fa-tags"></i></i>&nbsp&nbsp<strong><%= @bar.price %></strong>€ par participant</h5>
-            <% if @bar.average_rating %>
-              <% @bar.average_rating.floor.times do %>
-                <i class="fas fa-star" style="font-size: 24px;"></i>
-              <% end %>
-              <% if @bar.average_rating % 1 > 0 %>
-                <% if @bar.average_rating % 1 < 0.25 %>
-                  <i class="fas fa-star" style="font-size: 24px;"></i>
-                <% elsif @bar.average_rating % 1 > 0.75 %>
-                  <i class="far fa-star" style="font-size: 24px;"></i>
-                <% else %>
-                  <i class="fas fa-star- half-alt" style="font-size: 24px;"></i>
-                <% end %>
-              <% end %>
-              <% (5 - @bar.average_rating.ceil).times do %>
-                <i class="far fa-star" style="font-size: 24px;"></i>
-              <% end %>
+        <h1><strong data-inline-edit-variable="name" <%= stimulus_data %>><%= @bar.name %></strong></h1>
+        <h5><i class="fas fa-map-marker-alt"></i>&nbsp&nbsp<%= @bar.address %></h5>
+        <h5><i class="fas fa-users"></i>&nbsp&nbspUp to <strong data-inline-edit-variable="capacity" data-inline-edit-datatype="number" <%= stimulus_data %>><%= @bar.capacity %></strong> guests</h5>
+        <h5><i class="fas fa-tags"></i></i>&nbsp&nbsp<strong data-inline-edit-variable="price" data-inline-edit-datatype="number" <%= stimulus_data %>><%= @bar.price %></strong>€ par participant</h5>
+        <% if @bar.average_rating %>
+          <% @bar.average_rating.floor.times do %>
+            <i class="fas fa-star" style="font-size: 24px;"></i>
+          <% end %>
+          <% if @bar.average_rating % 1 > 0 %>
+            <% if @bar.average_rating % 1 < 0.25 %>
+              <i class="fas fa-star" style="font-size: 24px;"></i>
+            <% elsif @bar.average_rating % 1 > 0.75 %>
+              <i class="far fa-star" style="font-size: 24px;"></i>
             <% else %>
-              <p>Pas encore d'évaluation</p>
+              <i class="fas fa-star- half-alt" style="font-size: 24px;"></i>
             <% end %>
+          <% end %>
+          <% (5 - @bar.average_rating.ceil).times do %>
+            <i class="far fa-star" style="font-size: 24px;"></i>
+          <% end %>
+        <% else %>
+          <p>Pas encore d'évaluation</p>
+        <% end %>
         <nav>
           <div class="nav nav-tabs mt-4" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-description-tab" data-toggle="tab" href="#nav-description" role="tab" aria-controls="nav-description" aria-selected="true">Description</a>
@@ -39,7 +50,8 @@
         </nav>
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
-            <p><%= @bar.description %></p>
+            <p data-inline-edit-variable="description" data-inline-edit-datatype="textarea" <%= stimulus_data %>  
+            ><%= @bar.description %></p>
             <div class="d-flex">
               <p><%= render "components/button_link", text: "back", link: bars_path %></p>
               <% if @bar.owner == current_user %>
