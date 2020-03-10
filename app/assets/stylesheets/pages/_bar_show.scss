@@ -1,4 +1,6 @@
 .bar-container {
+  display: flex;
+  justify-content: space-evenly;
   position: relative;
 }
 
@@ -7,17 +9,33 @@
 }
 
 .bar-details {
-  width: 654px;
+  margin-right: 80px;
   margin-top: 10px;
   padding: 10px;
-  margin-right: 80px;
+
+  .bar-name {
+    align-items: center;
+    display: flex;
+
+    .average-rating {
+      color: $myPurple;
+      margin-bottom: 17px;
+      margin-left: 8px;
+    }
+  }
 
   h1 {
+    font-weight: bold;
     margin-bottom: 20px;
   }
 
   h5 {
+    display: flex;
     margin-bottom: 20px;
+
+    div {
+      margin-right: 16px;
+    }
   }
 
   p {
@@ -25,34 +43,104 @@
   }
 }
 
+.bar-description {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  overflow: hidden;
+
+  label {
+    color: #myPurple;
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 0.75em;
+    padding: 0.5rem 0;
+    text-align: center;
+  }
+
+  input {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-bottom: 1px solid $myPurple;
+    cursor: pointer;
+    display: block;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+
+    &:hover,
+    &:focus {
+      border-bottom: 1px solid $myPurple;
+    }
+
+    &:checked {
+      border-bottom: 2px solid $myPurple;
+
+      + div {
+        opacity: 1;
+      }
+    }
+
+    + div {
+      display: block;
+      opacity: 0;
+      padding: 0.5rem 0;
+      transition: all 0.3s ease-in-out;
+      width: 90%;
+    }
+  }
+
+  .tabs {
+    width: 50%;
+
+    input + div {
+      margin-left: 200%;
+      width: 200%;
+    }
+
+    input:checked + div {
+      margin-left: 0;
+    }
+
+    &:last-child input + div {
+      margin-left: 100%;
+    }
+
+    &:last-child input:checked + div {
+      margin-left: -100%;
+    }
+  }
+}
+
 .bar-booking-container {
   display: flex;
   flex-direction: column;
-  width: auto;
+  padding: 0 24px;
 }
 
 .bar-booking {
+  background-color: $myWhite;
   border-radius: 8px;
-  width: 100%;
-  margin-top: -175px;
-  padding: 20px 24px 12px 24px;
+  box-shadow: 2px 2px 20px 7px $shadow12;
   display: flex;
   flex-direction: column;
-  background-color: $myWhite;
-  box-shadow: 2px 2px 20px 7px $shadow12;
+  margin-top: -175px;
+  padding: 20px 24px 12px;
+  width: 100%;
 
   .booking-form {
     margin-bottom: 8px;
   }
 
   #guest-count {
-    display: flex;
     align-items: center;
-
+    display: flex;
     margin-bottom: 8px;
     margin-top: -8px;
 
-    & > * {
+    > * {
       margin: 0 8px;
     }
 
@@ -62,9 +150,9 @@
       }
     }
 
-    & > input {
-      width: 50px;
+    > input {
       text-align: center;
+      width: 50px;
     }
   }
 }
@@ -72,32 +160,32 @@
 .time-date-pickers {
   visibility: collapse;
 
-  & > input {
+  > input {
     position: absolute;
   }
 
   .first-timer-child {
-    width: 29%;
     margin-top: 2px;
+    width: 29%;
   }
 
   .second-timer-child {
-    width: 29%;
     margin-top: 2px;
+    width: 29%;
   }
 
   #timers {
+    align-items: center;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
 
-    & > input {
+    > input {
       position: absolute;
     }
 
     .de-a {
-      visibility: visible;
       padding-top: 5px;
+      visibility: visible;
     }
   }
 }

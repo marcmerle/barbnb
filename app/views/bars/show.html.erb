@@ -5,56 +5,53 @@
     <% end %>
   </div>
 
-  <div class="container d-flex bar-container">
+  <div class="container bar-container">
     <div class="left-side d-flex flex-column">
       <div class="bar-details">
-        <h1><strong><%= @bar.name %></strong></h1>
-            <h5><i class="fas fa-map-marker-alt"></i>&nbsp&nbsp<%= @bar.address %></h5>
-            <h5><i class="fas fa-users"></i>&nbsp&nbspUp to <strong><%= @bar.capacity %></strong> guests</h5>
-            <h5><i class="fas fa-tags"></i></i>&nbsp&nbsp<strong><%= @bar.price %></strong>€ par participant</h5>
-            <% if @bar.average_rating %>
-              <% @bar.average_rating.floor.times do %>
-                <i class="fas fa-star" style="font-size: 24px;"></i>
-              <% end %>
-              <% if @bar.average_rating % 1 > 0 %>
-                <% if @bar.average_rating % 1 < 0.25 %>
-                  <i class="fas fa-star" style="font-size: 24px;"></i>
-                <% elsif @bar.average_rating % 1 > 0.75 %>
-                  <i class="far fa-star" style="font-size: 24px;"></i>
-                <% else %>
-                  <i class="fas fa-star- half-alt" style="font-size: 24px;"></i>
-                <% end %>
-              <% end %>
-              <% (5 - @bar.average_rating.ceil).times do %>
-                <i class="far fa-star" style="font-size: 24px;"></i>
-              <% end %>
-            <% else %>
-              <p>Pas encore d'évaluation</p>
-            <% end %>
-        <nav>
-          <div class="nav nav-tabs mt-4" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-description-tab" data-toggle="tab" href="#nav-description" role="tab" aria-controls="nav-description" aria-selected="true">Description</a>
-            <a class="nav-item nav-link" id="nav-review-tab" data-toggle="tab" href="#nav-review" role="tab" aria-controls="nav-review" aria-selected="false">Évaluations</a>
+        <div class="bar-name">
+          <h1><%= @bar.name %></h1>
+          <%= render "average_rating", bar: @bar %>
+        </div> <!-- End bar-name -->
+        <h5><%= icon("fas", "map-marker-alt") + nbspace + nbspace + @bar.address %></h5>
+        <h5>
+          <div>
+            <%= icon("fas", "users") + nbspace %>
+            <strong><%= @bar.capacity %></strong> participants maximum
           </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
+          <div>
+            <%= icon("fas", "tags") + nbspace %>
+            <strong><%= @bar.price.to_s + nbspace %></strong>€ par participant
+          </div>
+        </h5>
+      </div> <!-- End bar-details -->
+
+      <div class="bar-description">
+        <div class="tabs">
+          <label for="tab-1">Description</label>
+          <input id="tab-1" name="tabs-two" type="radio" checked="checked">
+          <div>
             <p><%= @bar.description %></p>
             <div class="d-flex">
-              <p><%= render "components/button_link", text: "back", link: bars_path %></p>
-              <% if @bar.owner == current_user %>
-                <p><%= render "components/button_link", text: "Edit", link: edit_bar_path(@bar) %></p>
-              <% end %>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab">
-            <div class="container reviews-container">
-               <%= render "reviews" %>
+              <%= render "components/button_link", text: "back", link: bars_path %>
+              <%=
+                  if  @bar.owner == current_user
+                    render "components/button_link", text: "Edit", link: edit_bar_path(@bar)
+                  end
+              %>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+        <div class="tabs">
+          <label for="tab-2">Évaluations</label>
+          <input id="tab-2" name="tabs-two" type="radio">
+          <div>
+            <div class="container reviews-container">
+              <p><%= render "reviews" %></p>
+            </div>
+          </div>
+        </div>
+      </div> <!-- End bar-description -->
+    </div> <!-- End left-side -->
 
     <div class="bar-booking-container">
       <div class="bar-booking">
@@ -62,18 +59,20 @@
              data-controller="total-price"
              data-action="guest_number_change@window->total-price#update"
              data-total-price-bar-price = <%= @bar.price %>
-             >
-          <h4>Total price: <strong><span data-target="total-price.amount"><%= @bar.price * 2 %></span>€</strong></h4>
-          <div class="bar-price-details">
-            <p>Prix par participant : <span data-target="total-price.barPrice"><%= @bar.price %></span>€</p>
-          </div>
-        </div>
+           >
+           <h4>Total price: <strong><span data-target="total-price.amount"><%= @bar.price * 2 %></span>€</strong></h4>
+           <div class="bar-price-details">
+             <p>Prix par participant : <span data-target="total-price.barPrice"><%= @bar.price %></span>€</p>
+           </div> <!-- End bar-price-details -->
+        </div> <!-- End bar-price -->
+
         <div class="booking-form">
           <%= render "booking_form" %>
-        </div>
+        </div> <!-- End booking-form -->
         <%= render "components/button", text: "Réserver", type: "submit", form: "new_booking" %>
-      </div>
+      </div> <!-- End bar-booking -->
+
       <div class="bar-empty"></div>
-    </div>
-  </div>
-</div>
+    </div> <!-- End bar-booking-container -->
+  </div> <!-- End container -->
+</div> <!-- End bar-show -->
