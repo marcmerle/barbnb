@@ -8,6 +8,14 @@ $dashboardMenuWidth: 300px;
   width: $dashboardMenuWidth;
   height: 100%;
   position: fixed;
+
+  .active {
+    border-bottom: solid $myPurple 1px;
+    border-top: solid $myPurple 1px;
+    color: $myPurple;
+    margin: 10px 16px;
+    padding: 2px 4px;
+  }
 }
 
 .dashboard-content {
@@ -34,7 +42,13 @@ $dashboardMenuWidth: 300px;
   color: $myBlack;
 
   &:hover {
-    background-color: $light-gray;
+    color: $myWhite;
+    background: $myPurple;
+  }
+
+  &.active:hover {
+    color: $myPurple;
+    background: $myWhite;
   }
 
   p {
