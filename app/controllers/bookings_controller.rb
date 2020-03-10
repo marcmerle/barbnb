@@ -37,14 +37,12 @@ class BookingsController < ApplicationController
   def index
     @bookings = current_user.bookings.order(starts_at: :desc)
     update_booking_state
-    @bookings = [NilObject.new] if @bookings.empty?
     authorize @bookings
   end
 
   def owner_index
     @bookings = @bar.bookings.order(starts_at: :desc)
     update_booking_state
-    @bookings = [NilObject.new] if @bookings.empty?
     authorize @bookings
   end
 
@@ -87,4 +85,3 @@ class BookingsController < ApplicationController
     end
   end
 end
-

@@ -11,17 +11,14 @@ class Booking < ApplicationRecord
 
   validates :amount, :starts_at, :ends_at, :state, :guest_number, presence: true
 
-  DAY_NAME_TRANSLATIONS = {
+  DATE_TRANSLATIONS = {
     'Monday': 'Lundi',
     'Tuesday': 'Mardi',
     'Wednesday': 'Mercredi',
     'Thursday': 'Jeudi',
     'Friday': 'Vendredi',
     'Saturday': 'Samedi',
-    'Sunday': 'Dimanche'
-  }
-
-  MONTH_NAME_TRANSLATIONS = {
+    'Sunday': 'Dimanche',
     'January': 'Janvier',
     'February': 'Février',
     'March': 'Mars',
@@ -36,19 +33,10 @@ class Booking < ApplicationRecord
     'December': 'Décembre'
   }
 
-  def fr_day_name(en_day_name)
-    DAY_NAME_TRANSLATIONS[en_day_name.to_sym]
-  end
-
-  def fr_month_name(en_month_name)
-    MONTH_NAME_TRANSLATIONS[en_month_name.to_sym]
-  end
-
   def date_in_french
-    string = starts_at.in_time_zone("CET").strftime("Le %A %d  %B, de %Hh%M à ") + ends_at.in_time_zone("CET").strftime("%Hh%M")
-
-    DAY_NAME_TRANSLATIONS.each { |en, fr| string.gsub!(Regexp.quote(en), fr) }
-    MONTH_NAME_TRANSLATIONS.each { |en, fr| string.gsub!(Regexp.quote(en), fr) }
+    string = starts_at.in_time_zone("CET").strftime("Le %A %d  %B, de %Hh%M à ")
+    string += ends_at.in_time_zone("CET").strftime("%Hh%M")
+    DATE_TRANSLATIONS.each { |en, fr| string.gsub!(Regexp.quote(en), fr) }
 
     return string
   end

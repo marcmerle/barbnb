@@ -1,4 +1,6 @@
-class NilObjectPolicy < ApplicationPolicy
+# frozen_string_literal: true
+
+class NilClassPolicy < ApplicationPolicy
   def owner_index?
     true
   end

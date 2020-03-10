@@ -13,17 +13,10 @@ class BarsController < ApplicationController
   end
 
   def owner_index
-    owner_bookings = current_user.bars.map { |bar| bar.bookings.count }.min
-    if current_user.bars.empty?
-      @bars = [NilObject.new]
-    elsif owner_bookings.zero?
-      @bars = current_user.bars
-    else
-      @bars = current_user.bars.sort_by do |bar|
-        bar.bookings.order(starts_at: :desc).limit(1).first.starts_at.to_i
-      end
-    end
-    authorize @bars
+    @bars = Bar.sort_by_bookings(current_user.bars)
+
+    @bars.each { |bar| authorize bar }
+    authorize @bars if @bars.empty?
   end
 
   def show

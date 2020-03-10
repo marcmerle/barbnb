@@ -1,17 +1,17 @@
 <div class="dashboard-menu-container">
   <div class="dashboard-menu">
     <%= link_to(dashboard_bookings_path) do %>
-      <div class="dashboard-menu-item">
+      <div class="dashboard-menu-item <%= class_if_path("active", "^/(dashboard/)?bookings") %>">
         <p>Mes réservations</p>
       </div>
     <% end %>
     <%= link_to(dashboard_bars_path) do %>
-      <div class="dashboard-menu-item">
+      <div class="dashboard-menu-item <%= class_if_path("active", "bars") %>">
         <p>Mes établissements</p>
       </div>
     <% end %>
     <%= link_to(edit_user_registration_path) do %>
-      <div class="dashboard-menu-item">
+      <div class="dashboard-menu-item <%= class_unless_path("active", "(bookings|bars)") %>">
         <p>Mon profil</p>
       </div>
     <% end %>
