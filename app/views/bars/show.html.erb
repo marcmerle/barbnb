@@ -1,3 +1,14 @@
+<%
+    stimulus_data = ""
+    if @bar.owner == current_user
+      stimulus_data = <<-HTML
+        data-controller="inline-edit"
+        data-target="inline-edit.div"
+        data-action="click->inline-edit#toggle click@window->inline-edit#close"
+      HTML
+      stimulus_data = stimulus_data.html_safe
+    end
+%>
 <div class="bar-show">
   <div class="variable-width">
     <% @bar.photos.each do |photo| %>
@@ -9,7 +20,7 @@
     <div class="left-side d-flex flex-column">
       <div class="bar-details">
         <div class="bar-name">
-          <h1><%= @bar.name %></h1>
+          <h1 data-inline-edit-variable="name" <%= stimulus_data %>><%= @bar.name %></h1>
           <%= render "average_rating", bar: @bar %>
         </div> <!-- End bar-name -->
         <h5><%= icon("fas", "map-marker-alt") + nbspace + nbspace + @bar.address %></h5>
@@ -17,7 +28,7 @@
           <div>
             <%= icon("fas", "users") + nbspace %>
             <strong><%= @bar.capacity %></strong> participants maximum
-          </div>
+
           <div>
             <%= icon("fas", "tags") + nbspace %>
             <strong><%= @bar.price.to_s + nbspace %></strong>€ par participant
