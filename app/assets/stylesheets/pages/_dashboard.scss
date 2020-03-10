@@ -1,0 +1,20 @@
+.bookings-content {
+  overflow: hidden;
+  padding: 30px;
+
+  > .dashboard-card {
+    margin: 30px 140px 30px 0;
+  }
+
+  &.bars > .dashboard-card {
+    margin: 30px 140px 4px 0;
+  }
+}
+
+.your-review {
+  width: 450px;
+}
+
+.bar-infos {
+  max-height: 550px;
+}

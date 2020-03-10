@@ -1,9 +1,8 @@
 .dashboard-card {
-  margin: 30px 140px 30px 0;
   box-shadow: 2px 2px 20px 7px $shadow12;
   display: flex;
 
-  & > img {
+  > img {
     flex-shrink: 0;
   }
 }
@@ -12,11 +11,15 @@
   position: relative;
 }
 
+.dashboard-card-booking-show {
+  text-align: center;
+}
+
 .dashboard-card-details {
-  padding: 10px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  padding: 10px 20px;
   width: calc(100% - 190px - 260px);
 
   .blank-div {
@@ -36,23 +39,23 @@
   }
 
   .booking-address {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    max-height: 1.5em;
-    line-height: 1.5em;
-    min-width: 0;
     color: #616161;
+    line-height: 1.5em;
+    max-height: 1.5em;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
 .dashboard-card-booking-guests {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 130px;
   flex-shrink: 0;
+  justify-content: center;
+  width: 130px;
 
   p {
     margin: 0;
