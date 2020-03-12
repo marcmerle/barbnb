@@ -18,7 +18,8 @@
   overflow: hidden;
 
   .top-bars-header-img {
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1438557068880-c5f474830377?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2853&q=80");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url("https://images.unsplash.com/photo-1438557068880-c5f474830377?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2853&q=80");
     background-position: center;
     background-size: cover;
     height: 400px;
@@ -41,41 +42,6 @@
 .top-bars-cards {
   margin-top: -80px;
   width: 100%;
-}
-
-.home-card {
-  .icon {
-    width: 100px;
-    height: 100px;
-  }
-
-  * {
-    margin: 10px 0px;
-  }
-
-  .home-card-text {
-    height: 70%;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-
-    .home-card-title {
-      height: 30%;
-    }
-
-    .home-card-desc {
-      height: 70%;
-    }
-  }
-
-  height: 375px;
-  padding: 30px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .empty-div {

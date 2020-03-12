@@ -1,0 +1,46 @@
+.home-card {
+  .icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  * {
+    margin: 10px 0px;
+  }
+
+  .home-card-text {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .home-card-title {
+      height: 30%;
+    }
+
+    .home-card-desc {
+      height: 70%;
+    }
+  }
+
+  height: 375px;
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &.purple {
+    border: 2px solid #800080;
+  }
+
+  &.yellow {
+    border: 2px solid #a6a907;
+  }
+
+  &.green {
+    border: 2px solid #019c46;
+  }
+}

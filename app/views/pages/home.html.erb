@@ -3,39 +3,27 @@
   <br>
   <div class="row">
     <div class="home-cards d-flex">
-      <div class="col home-card bg-light shadow m-3 text-center" style="border: 2px solid purple">
-        <%= image_tag "cocktail.png", alt: "cocktail", class:'icon cocktail-img' %>
-        <div class="home-card-text">
-          <div class="home-card-title">
-            <h4>Une offre exhaustive</h4>
-          </div>
-          <div class="home-card-desc">
-            <p>Dénichez le bar idéal pour votre événement parmi nos 778 bars partenaires</p>
-          </div>
-        </div>
-      </div>
-      <div class="col home-card bg-light shadow m-3 text-center" style="border: 2px solid #a6a907">
-        <%= image_tag "hourglass.png", alt: "cocktail", class:'icon hourglass-img' %>
-        <div class="home-card-text">
-          <div class="home-card-title">
-            <h4>Une réservation simple et rapide</h4>
-          </div>
-          <div class="home-card-desc">
-            <p>Réservez en quelques clics le bar de vos rêves pour votre évènement</p>
-          </div>
-        </div>
-      </div>
-      <div class="col home-card bg-light shadow m-3 text-center" style="border: 2px solid #019c46">
-        <%= image_tag "money.png", alt: "cocktail", class:'icon money-img' %>
-        <div class="home-card-text">
-          <div class="home-card-title">
-            <h4>Un service entièrement gratuit</h4>
-          </div>
-          <div class="home-card-desc">
-            <p>Bénéficiez des meilleurs tarifs, sans coût supplémentaire !</p>
-          </div>
-        </div>
-      </div>
+      <%= render("components/home/home_card",
+                 image: "cocktail.png",
+                 title: "Une offre exhaustive",
+                 description: "Dénichez le bar idéal pour votre événement parmi nos 778 bars partenaires",
+                 color: "purple"
+                )
+      %>
+      <%= render("components/home/home_card",
+                 image: "hourglass.png",
+                 title: "Une réservation simple et rapide",
+                 description: "Réservez en quelques clics le bar de vos rêves pour votre événement",
+                 color: "yellow"
+                )
+      %>
+      <%= render("components/home/home_card",
+                 image: "money.png",
+                 title: "Un service entièrement gratuit",
+                 description: "Résezvez votre bar pour le coût de votre première consommation et bénéficiez des meilleurs tarifs, sans coût supplémentaire !",
+                 color: "green"
+                )
+      %>
     </div>
   </div>
   <br>
