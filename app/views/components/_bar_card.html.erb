@@ -1,40 +1,46 @@
-<%= link_to bar_path(bar), class:"text-dark text-decoration-none" do %>
-  <div class="card-photo" style="background-image: url(<%= cl_image_path bar.photos.first.key %>); background-size: cover; background-position: center;">
-  </div>
-  <div class="card-details">
-    <div class="card-details-item card-details-header">
-      <h4><%= bar.name %></h4>
-      <div class="bar-distance"><i class="fas fa-map-marker-alt"></i> <%= sensible_distance(bar.distance) %></div>
+<div class="bar-card">
+  <%= link_to bar_path(bar), class:"text-dark text-decoration-none" do %>
+    <div class="card-photo" style="background-image: url(<%= cl_image_path bar.photos.first.key %>);">
     </div>
-    <div class="card-details-item">
-      <div class="card-details-item-left">
-        <div class="bar-ratings">
-          <% if bar.average_rating %>
-            <% bar.average_rating.floor.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-            <% if bar.average_rating % 1 > 0 %>
-              <% if bar.average_rating % 1 < 0.25 %>
-                <i class="fas fa-star"></i>
-              <% elsif bar.average_rating % 1 > 0.75 %>
-                <i class="far fa-star"></i>
-              <% else %>
-                <i class="fas fa-star-half-alt"></i>
-              <% end %>
-            <% end %>
-            <% (5 - bar.average_rating.ceil).times do %>
-              <i class="far fa-star"></i>
-            <% end %>
-          <% else %>
-            <p>Pas encore d'évaluation</p>
-          <% end %>
+    <div class="bar-card-details">
+      <div class="bar-card-details-item header">
+        <div class="bar-name">
+          <h4><%= bar.name %></h4>
         </div>
-        <p><i class="fas fa-user-friends"></i>&nbsp&nbsp<%= bar.capacity %> max</p>
+        <div class="bar-distance">
+          <%= icon("fas", "map-marker-alt") + nbspace + sensible_distance(bar.distance) if bar.distance %>
+        </div>
       </div>
-      <div class="bar-price d-flex align-baseline">
-        <p><%= bar.price %>€</p>
-        &nbsp<p class="small">/ invité</p>
+      <div class="bar-card-details-item">
+        <div class="card-details-item-left">
+          <div class="bar-ratings">
+            <% if bar.average_rating %>
+              <% bar.average_rating.floor.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% if bar.average_rating % 1 > 0 %>
+                <% if bar.average_rating % 1 < 0.25 %>
+                  <i class="fas fa-star"></i>
+                <% elsif bar.average_rating % 1 > 0.75 %>
+                  <i class="far fa-star"></i>
+                <% else %>
+                  <i class="fas fa-star-half-alt"></i>
+                <% end %>
+              <% end %>
+              <% (5 - bar.average_rating.ceil).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+            <% else %>
+              <p>Pas encore d'évaluation</p>
+            <% end %>
+          </div>
+          <p><%= icon("fas", "user-friends") + nbspace + nbspace + bar.capacity.to_s + nbspace %>max</p>
+        </div>
+        <div class="bar-price">
+          <p><%= bar.price.to_s + nbspace + "€" + nbspace %></p>
+          <small>/ invité</small>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

@@ -1,72 +1,76 @@
+.bar-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 2px 2px 20px 7px $shadow12;
+  height: 340px;
+  overflow: hidden;
+  width: 310px;
+
+  .card-photo {
+    background-position: center;
+    background-size: cover;
+    height: 175px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+
 .cards-bar {
   padding: 0;
 }
 
-.card-bar-info {
-  border-radius: 8px;
-  box-shadow: 2px 2px 20px 7px $shadow12;
-  overflow: hidden;
-  background-color: white;
-  max-height: 340px;
-
-  .card-photo {
-    height: 175px;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-}
-
-.card-details {
+.bar-card-details {
   padding: 10px;
   display: flex;
   flex-direction: column;
+}
 
-  .card-details-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    align-items: center;
+.bar-card-details-item {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  &.header {
+    align-items: baseline;
+    height: 56px;
 
     h4 {
-      margin: 0
-    }
-
-    p {
-      margin: 0
-    }
-
-    .bar-price {
-      text-align: center;
-      margin-right: 10px;
-      border: 2px solid $myBlack;
-      border-radius: 4px;
-      padding: 2px 10px;
-      align-items: baseline;
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
-  .card-details-item.card-details-header {
-    min-height: 56px;
+  p,
+  h4 {
+    margin: 0;
+  }
 
-    h4 {
-      width: 250px
-    }
+  .bar-name {
+    width: 250px;
+  }
 
-    .bar-distance {
-      text-align: right;
-    }
+  .bar-distance {
+    align-items: center;
+    display: flex;
+    margin-left: 4px;
+  }
+
+  .bar-price {
+    align-items: center;
+    border: 2px solid $myBlack;
+    border-radius: 4px;
+    display: flex;
+    margin-right: 10px;
+    padding: 2px 10px;
+    text-align: center;
   }
 
   .bar-ratings {
     margin-bottom: 10px;
-  }
-}
-
-.card-details-head {
-  .bar-distance {
-    color: #959595;
-    width: 25%;
-    text-align: right;
   }
 }
 
