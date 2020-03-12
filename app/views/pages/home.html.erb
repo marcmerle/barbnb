@@ -1,6 +1,5 @@
-<div class="home-container">
-  <h2 class="text-center">Organiser une soirée entre amis n’a jamais été aussi simple</h2>
-  <br>
+<div class="home-description">
+  <h2>Organiser une soirée entre amis n’a jamais été aussi simple</h2>
   <div class="home-cards">
     <%= render("components/home/home_card",
                 image: "cocktail.png",
@@ -23,19 +22,17 @@
                 color: "green"
               )
     %>
-  </div>
-  <br>
-  <br>
-  <br>
-</div>
-<div class="top-bars-header">
-  <div class="top-bars-header-img"></div>
-  <h2 class="text-center">Notre top 3 des bars sur Paris</h2>
-</div>
-<div class="row top-bars-cards justify-content-center">
-  <% @top_bars.each do |bar| %>
-    <div class="card-bar-info col-3 m-4">
+  </div> <!-- End home-cards -->
+</div> <!-- End home-description -->
+
+<div class="home-top-bars">
+  <div class="top-bars-header">
+    <h2>Notre top 3 des bars sur Paris</h2>
+  </div> <!-- End top-bars-header -->
+
+  <div class="top-bars-cards">
+    <% @top_bars.each do |bar| %>
       <%= render "components/bar_card", bar: bar %>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div> <!-- End top-bars-cards -->
+</div> <!-- End home-top-bars -->
