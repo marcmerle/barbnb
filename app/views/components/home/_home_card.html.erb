@@ -16,14 +16,12 @@ description = local_assigns[:description]
 color = local_assigns[:color]
 %>
 
-<div class="col home-card bg-light shadow m-3 text-center <%= color %>">
-  <%= image_tag image, alt: "logo", class:'icon cocktail-img' %>
-  <div class="home-card-text">
-    <div class="home-card-title">
-      <h4><%= title %></h4>
-    </div>
-    <div class="home-card-desc">
-      <p><%= description %></p>
-    </div>
+<div class="home-card <%= color %>">
+  <%= image_tag image, alt: "logo", class: "icon" %>
+  <div class="home-card-title">
+    <h4><%= title %></h4>
+  </div>
+  <div class="home-card-desc">
+    <p><%= description %></p>
   </div>
 </div>

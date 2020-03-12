@@ -1,30 +1,28 @@
 <div class="home-container">
   <h2 class="text-center">Organiser une soirée entre amis n’a jamais été aussi simple</h2>
   <br>
-  <div class="row">
-    <div class="home-cards d-flex">
-      <%= render("components/home/home_card",
-                 image: "cocktail.png",
-                 title: "Une offre exhaustive",
-                 description: "Dénichez le bar idéal pour votre événement parmi nos 778 bars partenaires",
-                 color: "purple"
-                )
-      %>
-      <%= render("components/home/home_card",
-                 image: "hourglass.png",
-                 title: "Une réservation simple et rapide",
-                 description: "Réservez en quelques clics le bar de vos rêves pour votre événement",
-                 color: "yellow"
-                )
-      %>
-      <%= render("components/home/home_card",
-                 image: "money.png",
-                 title: "Un service entièrement gratuit",
-                 description: "Résezvez votre bar pour le coût de votre première consommation et bénéficiez des meilleurs tarifs, sans coût supplémentaire !",
-                 color: "green"
-                )
-      %>
-    </div>
+  <div class="home-cards">
+    <%= render("components/home/home_card",
+                image: "cocktail.png",
+                title: "Une offre exhaustive",
+                description: "Dénichez le bar idéal pour votre événement parmi nos 778 bars partenaires",
+                color: "purple"
+              )
+    %>
+    <%= render("components/home/home_card",
+                image: "hourglass.png",
+                title: "Une réservation simple et rapide",
+                description: "Réservez en quelques clics le bar de vos rêves pour votre événement",
+                color: "yellow"
+              )
+    %>
+    <%= render("components/home/home_card",
+                image: "money.png",
+                title: "Un service entièrement gratuit",
+                description: "Réservez votre bar pour le prix de votre première consommation et bénéficiez des meilleurs tarifs, sans coût supplémentaire !",
+                color: "green"
+              )
+    %>
   </div>
   <br>
   <br>
